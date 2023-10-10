@@ -43,7 +43,7 @@ public class FreeBoardList extends HttpServlet {
 			FreeBoardService freeboardService = new FreeBoardServiceImpl();
 			Map<String, Object> res = freeboardService.freeBoardListByPage(curpage);
 			request.setAttribute("res", res);
-			request.getRequestDispatcher("boardlist.jsp").forward(request, response);
+			request.getRequestDispatcher("freeboard.jsp").forward(request, response);
 		} catch(Exception e) {
 			e.printStackTrace();
 			request.setAttribute("err", e.getMessage());
