@@ -23,7 +23,7 @@
 			<transactionManager type="JDBC"/>
     	    <dataSource type="POOLED">
         	<property name="driver" value="org.mariadb.jdbc.Driver"/>
-	        <property name="url" value="jdbc:mariadb://localhost:3306/testdb"/>
+	        <property name="url" value="jdbc:mariadb://localhost:3306/qtalk"/>
 	        <property name="username" value="root"/>
 	        <property name="password" value="1234"/>
       		</dataSource>		

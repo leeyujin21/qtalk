@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +38,7 @@ hr {
 	width: 60%;
 	margin: 0 auto;
 	height: 100%;
+	overflow: auto;
 }
 
 .testboard_title {
@@ -49,9 +51,13 @@ hr {
 .div {
 	display: flex;
 }
+.testboard_subject {
+	font-weight: bold;
+	width : 200px;
+}
 
 .testboard_writer {
-	font-weight: bold;
+	font-weight: bold;	
 }
 
 .testview_cnt {
@@ -115,8 +121,8 @@ textarea {
 
 .com_write {
 	margin-left: 10px;
-	width: 70%;
 	outline: none;
+	width : 728px;
 }
 
 .com_submit {
@@ -130,66 +136,109 @@ textarea {
 	border-radius: 10px;
 	width: 50px;
 	cursor: pointer;
+	text-align: center;
+	line-height: normal;
 }
+
 </style>
+<!-- 
+<script>
+function writeCmt()
+{
+    var form = document.getElementById("writeCommentForm");
+    
+    var board = form.comment_board.value
+    var id = form.comment_id.value
+    var content = form.comment_content.value;
+    
+    if(!content)
+    {
+        alert("내용을 입력하세요.");
+        return false;
+    }
+    else
+    {    
+        var param="comment_board="+board+"&comment_id="+id+"&comment_content="+content;
+            
+       //제이쿼리로 어케저케 보냄 
+    }
+}
+</script>
+ -->
+
 </head>
 <body>
 	<%@ include file="header.jsp"%>
 	<div class="back" name="submitButton" style="cursor: pointer;">
+		
 		<img src="https://cdn-icons-png.flaticon.com/128/8371/8371124.png"
 			alt="돌아가기" style="width: 20px; margin-bottom: -5px;"
 			name="submitButton"> 돌아가기
 	</div>
-	<div class="testboard_title">제목제목제목제목</div>
+	
+	<div class="testboard_title"name="title">${testboard.subject}</div>
+	
 	<div class="container">
 		<div class="div">
-			<div class="testboard_writer">&nbsp;&nbsp;작성자:&nbsp; nickname</div>
-			<div class="testview_cnt">&nbsp;&nbsp;조회수:&nbsp; 245</div>
+			<div class="testboard_subject" name="writer">&nbsp;#${testboard.subject}${testboard.round}회</div>  
+			<div class="testboard_writer" name="writer">&nbsp;&nbsp;작성자:&nbsp; ${testboard.writer}</div>  
+			<div class="testview_cnt" name="viewcount">&nbsp;&nbsp;조회수:&nbsp; ${testboard.viewcount}</div>
 		</div>
 		<hr>
 		<div class="textarea">
 			<div>
-				<textarea name="textarea" id="textarea" cols="30" rows="10" disabled>{testboard_content}</textarea>
+				<textarea name="textarea" id="textarea" cols="30" rows="10" disabled>${testboard.content}</textarea>
 				<!-- 첨부된 이미지는 어떻게 하죠..? -->
 			</div>
 		</div>
+		
+	<%-- 	
 		<div class="comment_cnt">
 			<div>
-				댓글 <a style="color: rgb(213, 223, 250); font-weight: bold;">{comment_count}</a>개
+				댓글 <a style="color: rgb(213, 223, 250); font-weight: bold;">${testboard.commentcount}</a>개
+			</div> 
+		</div>
+		<!--댓글개수 보여주기  -->
+		
+		<c:if test="${requestScope.testboarCommentList != null}">
+			<c:forEach var="comment" items="${requestScope.testboardCommentList}">
+				<div class="comment">
+					<div class="com_id">${comment.id}</div>
+					<div class="com_content">${comment.content}</div>
+					
+					<c:if test="${comment.id==uesr.id}">
+						<div class="com_mod"><a href="#">수정</a></div>
+						&nbsp;
+						<div class="com_del">><a href="#">삭제</a></div>
+					</c:if>
+				</div>	
+			</c:forEach>
+		</c:if>
+		<!--1. 달린 댓글 있을때만 보여줌 
+			2. 댓글 작성자와 세션아이디가 같을때만 수정 삭제 보여줌
+		-->
+
+		
+	
+	 	<c:if test="${user.id !=null}"> 
+		
+			<div class="comment_write">
+			<form id="writeCommentForm" >
+				<input type="hidden" name="comment_board" value="${testboard.num}">
+				<input type="hidden" name="comment_id" value="${user.id}">
+				<input type="text"  name="comment_content" class="com_write" style="border-style: none;" /> 
+				<a href="#" onclick="writeCmt()" class="com_submit" style="border-style: none;" >
+				등록
+				</a>
+			</form>	
 			</div>
-		</div>
-		<div class="comment">
-			<div class="com_id">{id}</div>
-			<div class="com_content">{content}</div>
-			<div class="com_mod">수정</div>
-			&nbsp;
-			<div class="com_del">삭제</div>
-		</div>
-		<div class="comment">
-			<div class="com_id">{id}</div>
-			<div class="com_content">{content}</div>
-			<div class="com_mod">수정</div>
-			&nbsp;
-			<div class="com_del">삭제</div>
-		</div>
-		<div class="comment">
-			<div class="com_id">{id}</div>
-			<div class="com_content">{content}</div>
-			<div class="com_mod">수정</div>
-			&nbsp;
-			<div class="com_del">삭제</div>
-		</div>
-		<div class="comment">
-			<div class="com_id">{id}</div>
-			<div>{content}</div>
-			<div class="com_mod">수정</div>
-			&nbsp;
-			<div class="com_del">삭제</div>
-		</div>
-		<div class="comment_write">
-			<input type="text" class="com_write" style="border-style: none;" /> <input
-				type="submit" class="com_submit" style="border-style: none;" />
-		</div>
-	</div>
+		</c:if> 
+		
+		<!-- 1.로그인 했을떄만 글작성 보여줌  
+			 2.댓글다는 글의 고유번호 및 댓글 작성자의 아이디는 히든으로 저장
+			 3. 서브밋 버튼을 a태그로 변경 onclick시 writeCmt js 실행
+		-->
+		--%>
+	</div> 
 </body>
 </html>
