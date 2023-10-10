@@ -21,7 +21,7 @@ public class TestBoardServiceImpl implements TestBoardService {
 	public Map<String, Object> boardListByPage(Integer page) throws Exception {
 		PageInfo pageInfo = new PageInfo();
 		int testBoardCount = testBoardDao.selectBoardCount();
-		int maxPage = (int)Math.ceil((double)testBoardCount/10); //ceil은 올림
+		int maxPage = (int)Math.ceil((double)testBoardCount/10);
 		int startPage = (page-1)/10*10+1;
 		int endPage = startPage+10-1;
 		if(endPage>maxPage) endPage=maxPage;

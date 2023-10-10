@@ -32,7 +32,6 @@ public class FreeBoardList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		request.setCharacterEncoding("utf-8");
 		String page = request.getParameter("page");
 		int curpage = 1;
 		if(page!=null) {
@@ -40,8 +39,8 @@ public class FreeBoardList extends HttpServlet {
 		}
 
 		try {
-			FreeBoardService freeboardService = new FreeBoardServiceImpl();
-			Map<String, Object> res = freeboardService.freeBoardListByPage(curpage);
+			FreeBoardService freeBoardService = new FreeBoardServiceImpl();
+			Map<String, Object> res = freeBoardService.freeBoardListByPage(curpage);
 			request.setAttribute("res", res);
 			request.getRequestDispatcher("freeboard.jsp").forward(request, response);
 		} catch(Exception e) {
