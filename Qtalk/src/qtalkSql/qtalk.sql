@@ -5,7 +5,7 @@ CREATE DATABASE qtalk;
 CREATE TABLE examinfo (
 	qualgbcd  VARCHAR(1) , -- 자격구분 ,T:기술자격, S:전문자격
 	qualgbnm VARCHAR(50) , -- 자격구분명 국가기술자격
-	seriescd VARCHAR(2), -- 계열코드 01
+	seriescd VARCHAR(30), -- 계열코드 01
 	seriesnm VARCHAR(30), -- 계열명 기술사
 	jmcd VARCHAR(4), -- 종목코드
 	jmfldnm VARCHAR(200) NOT NULL, -- 종목명
@@ -18,7 +18,7 @@ CREATE TABLE examinfo (
 -- 시험날짜 table (정부  API)
 
 CREATE TABLE examschedule(
-	jmfldnm VARCHAR(100) UNIQUE, -- 종목명
+	jmfldnm VARCHAR(100) NOT NULL UNIQUE, -- 종목명
 	implplannm VARCHAR(200) UNIQUE, -- 회차
 	docregstartdt DATE, -- 필기원서접수시작일자
 	docregenddt DATE, -- 필기원서접수종료일자
@@ -37,7 +37,7 @@ CREATE TABLE examschedule(
 	obligfldnm VARCHAR(200), -- 대직무분야명
 	mdobligfldcd VARCHAR(3), -- 중직무분야코드
 	mdobligfldnm VARCHAR(200) -- 중직무분야명
-)
+);
 
 -- SELECT * FROM examinfo ei JOIN examschedule es USING(jmfldnm);
 
@@ -54,49 +54,49 @@ CREATE TABLE MEMBER(
 -- 자유게시판 table
 
 CREATE TABLE freeboard(
-num INT AUTO_INCREMENT PRIMARY KEY,
-title VARCHAR(200),
-content VARCHAR(3000),
-writedate DATE, -- jsp 에는 없는 데 필요한거같아서 넣었어요
-commcount INT DEFAULT 0, -- 댓글수
-fileurl VARCHAR(255),
-writer VARCHAR(100) REFERENCES member(id),
-viewcount INT DEFAULT 0
+	num INT AUTO_INCREMENT PRIMARY KEY,
+	title VARCHAR(200),
+	content VARCHAR(3000),
+	writedate DATE, -- jsp 에는 없는 데 필요한거같아서 넣었어요
+	commcount INT DEFAULT 0, -- 댓글수
+	fileurl VARCHAR(255),
+	writer VARCHAR(100) REFERENCES member(id),
+	viewcount INT DEFAULT 0
 );
 
 -- 자유게시판 댓글
 
 CREATE TABLE IF NOT EXISTS freeboard_comment (
-  comment_num INT AUTO_INCREMENT PRIMARY KEY, -- 댓글 번호?
-  post_num INT REFERENCES freeboard(num),
-  writer VARCHAR(100) REFERENCES member(id),
-  content VARCHAR(3000),
-  comment_date DATE
- );
+	comment_num INT AUTO_INCREMENT PRIMARY KEY, -- 댓글 번호?
+	post_num INT REFERENCES freeboard(num),
+	writer VARCHAR(100) REFERENCES member(id),
+	content VARCHAR(3000),
+	comment_date DATE
+);
 
 -- 시험게시판 table
 
 CREATE TABLE testboard (
-  num INT AUTO_INCREMENT PRIMARY KEY,
-  subject VARCHAR(200) REFERENCES examschedule(jmfldnm), -- 종목명
-  round VARCHAR(200) REFERENCES examschedule(implplannm), -- 회차
-  title VARCHAR(200),
-  content VARCHAR(3000),
-  writedate DATE,
-  fileurl VARCHAR(255),
-  writer VARCHAR(50) REFERENCES member(id),
-  viewcount INT DEFAULT 0
+	num INT AUTO_INCREMENT PRIMARY KEY,
+	subject VARCHAR(200) REFERENCES examschedule(jmfldnm), -- 종목명
+	round VARCHAR(200) REFERENCES examschedule(implplannm), -- 회차
+	title VARCHAR(200),
+	content VARCHAR(3000),
+	writedate DATE,
+	fileurl VARCHAR(255),
+	writer VARCHAR(50) REFERENCES member(id),
+	viewcount INT DEFAULT 0
 );
 
 -- 시험 문제 공유 게시판 덧글
 
 CREATE TABLE IF NOT EXISTS testboard_comment (
-  comment_num INT  AUTO_INCREMENT PRIMARY KEY, -- 댓글 번호?
-  post_num INT REFERENCES testboard(num),
-  writer VARCHAR(100) REFERENCES member(id),
-  content VARCHAR(3000),
-  comment_date DATE
- );
+	comment_num INT  AUTO_INCREMENT PRIMARY KEY, -- 댓글 번호?
+	post_num INT REFERENCES testboard(num),
+	writer VARCHAR(100) REFERENCES member(id),
+	content VARCHAR(3000),
+	comment_date DATE
+);
 
 -- 한줄게시판 table
 
