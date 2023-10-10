@@ -15,7 +15,7 @@ import service.FreeBoardServiceImpl;
 /**
  * Servlet implementation class FreeBoardList
  */
-@WebServlet("/FreeBoardList")
+@WebServlet("/freeboard")
 public class FreeBoardList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
