@@ -12,35 +12,35 @@ public class TestBoardDaoImpl implements TestBoardDao {
 	SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();
 	@Override
 	public void insertTestBoard(TestBoard testboard) throws Exception {
-		sqlSession.insert("mapper.testboard.insertBoard", testboard);
+		sqlSession.insert("mapper.testboard.insertTestBoard", testboard);
 		sqlSession.commit();
 	}
 
 	@Override
 	public List<TestBoard> selectTestBoardList(Integer row) throws Exception {
-		return sqlSession.selectList("mapper.testboard.selectBoardList",row);
+		return sqlSession.selectList("mapper.testboard.selectTestBoardList",row);
 	}
 
 	@Override
 	public Integer selectTestBoardCount() throws Exception {
-		return sqlSession.selectOne("mapper.testboard.selectBoardCount");
+		return sqlSession.selectOne("mapper.testboard.selectTestBoardCount");
 	}
 
 	@Override
 	public TestBoard selectTestBoard(Integer num) throws Exception {
-		return sqlSession.selectOne("mapper.testboard.selectBoard", num);
+		return sqlSession.selectOne("mapper.testboard.selectTestBoard", num);
 	}
 
 	@Override
 	public void updateTestBoard(TestBoard testBoard) throws Exception {
-		sqlSession.update("mapper.testboard.updateBoard",testBoard);
+		sqlSession.update("mapper.testboard.updateTestBoard",testBoard);
 		sqlSession.commit();
 		
 	}
 
 	@Override
 	public void deleteTestBoard(Integer num) throws Exception {
-		sqlSession.delete("mapper.testboard.deleteBoard",num);
+		sqlSession.delete("mapper.testboard.deleteTestBoard",num);
 		sqlSession.commit();
 	}
 
