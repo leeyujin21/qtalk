@@ -48,17 +48,17 @@
 		where num=#{num}
 	</update>
 	
-	<update id="updateBoardViewCount" parameterType="Integer">
+	<update id="updateFreeBoardViewCount" parameterType="Integer">
 		<![CDATA[
 				update freeboard set viewcount=viewcount+1 where num=#{num}
 		]]>
 	</update>
-	<update id="updateBoardCommentCountUp" parameterType="Integer">
+	<update id="updateFreeBoardCommentCountUp" parameterType="Integer">
 		<![CDATA[
 				update freeboard set commentcount=commentcount+1 where num=#{num}
 		]]>
 	</update>
-	<update id="updateBoardCommentCountDown" parameterType="Integer">
+	<update id="updateFreeBoardCommentCountDown" parameterType="Integer">
 		<![CDATA[
 				update freeboard set commentcount=commentcount-1 where num=#{num}
 		]]>
