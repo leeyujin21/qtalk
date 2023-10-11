@@ -7,38 +7,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.MemberService;
-import service.MemberServiceImpl;
-
 /**
- * Servlet implementation class NicknameCheck
+ * Servlet implementation class TestSchedule
  */
-@WebServlet("/nicknamecheck")
-public class NicknameCheck extends HttpServlet {
+@WebServlet("/testschedule")
+public class TestSchedule extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NicknameCheck() {
+    public TestSchedule() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("testschedule.jsp").forward(request, response);
+	}
+
+	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		String nickname = request.getParameter("nickname");
-		try {
-			MemberService memberService = new MemberServiceImpl();
-			Boolean res = memberService.nicknameCheck(nickname);
-			response.getWriter().print(res);
-		} catch(Exception e) {
-			e.printStackTrace();
-			response.getWriter().print("error!");
-		}
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -36,12 +37,12 @@ public class FreeBoardWrite extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		HttpSession session = request.getSession();
-//		if(session.getAttribute("user")==null) {
-//			request.getRequestDispatcher("login.jsp").forward(request, response);
-//		} else {
-//			request.getRequestDispatcher("freeboardwrite.jsp").forward(request, response);
-//		}
+		HttpSession session = request.getSession();
+		if(session.getAttribute("member")==null) {
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("freeboardwrite.jsp").forward(request, response);
+		}
 	}
 
 	/**
@@ -68,7 +69,7 @@ public class FreeBoardWrite extends HttpServlet {
 
 		try {
 			FreeBoardService freeboardService = new FreeBoardServiceImpl();
-			freeboardService.freeboardWrite(freeboard);
+			freeboardService.FreeBoardWrite(freeboard);
 			response.sendRedirect("freeboard.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();

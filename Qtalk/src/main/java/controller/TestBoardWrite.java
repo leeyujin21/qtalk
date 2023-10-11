@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -39,12 +40,12 @@ public class TestBoardWrite extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		HttpSession session = request.getSession();
-//		if(session.getAttribute("user")==null) {
-//			request.getRequestDispatcher("login.jsp").forward(request, response);
-//		} else {
-//			request.getRequestDispatcher("freeboardwrite.jsp").forward(request, response);
-//		}
+		HttpSession session = request.getSession();
+		if(session.getAttribute("member")==null) {
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("freeboardwrite.jsp").forward(request, response);
+		}
 		// 서블릿에서 examinfo 데이터를 가져오는 코드 (예시)
 		List<ExamInfo> examInfoList = null;
 		try {
@@ -86,7 +87,7 @@ public class TestBoardWrite extends HttpServlet {
 		
 		try {
 			TestBoardService testboardService = new TestBoardServiceImpl();
-			testboardService.testboardWrite(testboard);
+			testboardService.TestBoardWrite(testboard);
 			response.sendRedirect("testboard.jsp");
 		} catch(Exception e) {
 			e.printStackTrace();

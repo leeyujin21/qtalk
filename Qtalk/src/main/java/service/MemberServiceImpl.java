@@ -55,6 +55,7 @@ public class MemberServiceImpl implements MemberService {
 		return false;
 	}
 
+	// 회원가입 닉네임 중복확인
 	@Override
 	public Boolean nicknameCheck(String nickname) throws Exception {
 		Member member = memberDao.selectMemberWhereNickname(nickname);

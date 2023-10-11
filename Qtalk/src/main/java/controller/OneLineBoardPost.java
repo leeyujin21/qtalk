@@ -49,7 +49,7 @@ public class OneLineBoardPost extends HttpServlet {
 		} catch(Exception e) {
 			e.printStackTrace();
 			request.setAttribute("err", e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.getRequestDispatcher("onelineboard.jsp").forward(request, response);
 		}
 	}
 

@@ -41,7 +41,7 @@ public class TestBoardModify extends HttpServlet {
 
 		try {
 			TestBoardService testboardService = new TestBoardServiceImpl();
-			TestBoard testboard = testboardService.testboardDetail(num);
+			TestBoard testboard = testboardService.TestBoardDetail(num);
 			request.setAttribute("testboard", testboard);
 			request.getRequestDispatcher("testboardmodify.jsp").forward(request, response);
 		} catch (Exception e) {
@@ -81,7 +81,7 @@ public class TestBoardModify extends HttpServlet {
 
 		try {
 			TestBoardService testboardService = new TestBoardServiceImpl();
-			testboardService.testboardModify(testboard);
+			testboardService.TestBoardModify(testboard);
 			response.sendRedirect("testboard.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();

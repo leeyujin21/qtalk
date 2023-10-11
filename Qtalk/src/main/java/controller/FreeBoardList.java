@@ -40,13 +40,13 @@ public class FreeBoardList extends HttpServlet {
 
 		try {
 			FreeBoardService freeBoardService = new FreeBoardServiceImpl();
-			Map<String, Object> res = freeBoardService.freeBoardListByPage(curpage);
+			Map<String, Object> res = freeBoardService.FreeBoardListByPage(curpage);
 			request.setAttribute("res", res);
 			request.getRequestDispatcher("freeboard.jsp").forward(request, response);
 		} catch(Exception e) {
 			e.printStackTrace();
 			request.setAttribute("err", e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.getRequestDispatcher("freeboard.jsp").forward(request, response);
 		}
 	}
 
