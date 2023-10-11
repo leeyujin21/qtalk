@@ -18,7 +18,8 @@ public class TestBoardCommentServiceImpl implements TestBoardCommentService {
 	@Override
 	public void boardCommentWrite(TestBoardComment testBoardComment) throws Exception {
 		TestBoardDao testBoardDao = new TestBoardDaoImpl();
-		testBoardDao.updateBoardCommentCountUp(testBoardComment.getPost_num());
+		Integer num=testBoardComment.getPost_num();
+		testBoardDao.updateTestBoardCommentCountUp(num);
 		testBoardCommentDao.insertBoardComment(testBoardComment);
 
 	}
@@ -34,8 +35,8 @@ public class TestBoardCommentServiceImpl implements TestBoardCommentService {
 	@Override
 	public void boardDelete(Integer comment_num) throws Exception {
 		TestBoardDao testBoardDao = new TestBoardDaoImpl();
-		Integer num  = testBoardCommentDao.selectBoardComment(comment_num).getPost_num();
-		testBoardDao.updateBoardCommentCountDown(num);
+		Integer num  = (testBoardCommentDao.selectBoardComment(comment_num)).getPost_num();
+		testBoardDao.updateTestBoardCommentCountDown(num);
 		testBoardCommentDao.deleteBoardComment(comment_num);
 	}
 

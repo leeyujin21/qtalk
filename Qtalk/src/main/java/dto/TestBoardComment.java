@@ -8,6 +8,7 @@ public class TestBoardComment {
 	private String writer;
 	private String content;
 	private Date comment_date;
+	
 	public Integer getComment_num() {
 		return comment_num;
 	}

@@ -11,41 +11,41 @@ import util.MybatisSqlSessionFactory;
 public class TestBoardDaoImpl implements TestBoardDao {
 	SqlSession sqlSession = MybatisSqlSessionFactory.getSqlSessionFactory().openSession();
 	@Override
-	public void insertBoard(TestBoard testboard) throws Exception {
+	public void insertTestBoard(TestBoard testboard) throws Exception {
 		sqlSession.insert("mapper.testboard.insertBoard", testboard);
 		sqlSession.commit();
 	}
 
 	@Override
-	public List<TestBoard> selectBoardList(Integer row) throws Exception {
+	public List<TestBoard> selectTestBoardList(Integer row) throws Exception {
 		return sqlSession.selectList("mapper.testboard.selectBoardList",row);
 	}
 
 	@Override
-	public Integer selectBoardCount() throws Exception {
+	public Integer selectTestBoardCount() throws Exception {
 		return sqlSession.selectOne("mapper.testboard.selectBoardCount");
 	}
 
 	@Override
-	public TestBoard selectBoard(Integer num) throws Exception {
+	public TestBoard selectTestBoard(Integer num) throws Exception {
 		return sqlSession.selectOne("mapper.testboard.selectBoard", num);
 	}
 
 	@Override
-	public void updateBoard(TestBoard testBoard) throws Exception {
+	public void updateTestBoard(TestBoard testBoard) throws Exception {
 		sqlSession.update("mapper.testboard.updateBoard",testBoard);
 		sqlSession.commit();
 		
 	}
 
 	@Override
-	public void deleteBoard(Integer num) throws Exception {
+	public void deleteTestBoard(Integer num) throws Exception {
 		sqlSession.delete("mapper.testboard.deleteBoard",num);
 		sqlSession.commit();
 	}
 
 	@Override
-	public Integer searchBoardCount(Map<String, Object> param) throws Exception {
+	public Integer searchTestBoardCount(Map<String, Object> param) throws Exception {
 		return sqlSession.selectOne("mapper.testboard.searchBoardCount",param);
 	}
 
@@ -56,26 +56,26 @@ public class TestBoardDaoImpl implements TestBoardDao {
 	 */
 
 	@Override
-	public void updateBoardViewCount(Integer viewcount) throws Exception {
+	public void updateTestBoardViewCount(Integer viewcount) throws Exception {
 		sqlSession.update("mapper.testboard.updateBoardViewCount",viewcount);
 		sqlSession.commit();
 		
 	}
 	@Override
-	public void updateBoardCommentCountUp(Integer num) throws Exception {
+	public void updateTestBoardCommentCountUp(Integer num) throws Exception {
 		sqlSession.update("mapper.testboard.updateBoardCommentCountUp",num);
 		sqlSession.commit();
 		
 	}
 	@Override
-	public void updateBoardCommentCountDown(Integer num) throws Exception {
+	public void updateTestBoardCommentCountDown(Integer num) throws Exception {
 		sqlSession.update("mapper.testboard.updateBoardCommentCountDown",num);
 		sqlSession.commit();
 		
 	}
 
 	@Override
-	public List<TestBoard> searchBoardList(Map<String, Object> param) throws Exception {
+	public List<TestBoard> searchTestBoardList(Map<String, Object> param) throws Exception {
 		return sqlSession.selectList("mapper.testboard.searchBoardList",param);
 	}
 

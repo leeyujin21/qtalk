@@ -40,7 +40,7 @@ public class TestBoardList extends HttpServlet {
 		}
 		try {
 			TestBoardService testBoardService = new TestBoardServiceImpl();
-			Map<String, Object> res = testBoardService.boardListByPage(curpage);
+			Map<String, Object> res = testBoardService.TestBoardListByPage(curpage);
 			request.setAttribute("res", res);
 			request.getRequestDispatcher("testboard.jsp").forward(request, response);
 		} catch (Exception e) {

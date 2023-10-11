@@ -39,7 +39,7 @@ public class TestBoardDetail extends HttpServlet {
 		postnum =Integer.parseInt(request.getParameter("num"));
 		try {
 			TestBoardService testBoardService = new TestBoardServiceImpl();
-			TestBoard testboard = testBoardService.boardDetail(postnum);
+			TestBoard testboard = testBoardService.TestBoardDetail(postnum);
 			TestBoardCommentService testBoardCommentService = new TestBoardCommentServiceImpl();
 			List<TestBoardComment> testBoardCommentList = testBoardCommentService.boardCommentSelect(postnum);
 			
