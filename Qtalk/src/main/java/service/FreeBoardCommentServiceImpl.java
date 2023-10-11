@@ -18,7 +18,7 @@ public class FreeBoardCommentServiceImpl implements FreeBoardCommentService {
 	@Override
 	public void boardCommentWrite(FreeBoardComment freeBoardComment) throws Exception {
 		FreeBoardDao freeBoardDao = new FreeBoardDaoImpl();
-		freeBoardDao.updateBoardCommentCountUp(freeBoardComment.getPost_num());
+		freeBoardDao.updateFreeBoardCommentCountUp(freeBoardComment.getPost_num());
 		freeBoardCommentDao.insertBoardComment(freeBoardComment);
 
 	}
@@ -35,7 +35,7 @@ public class FreeBoardCommentServiceImpl implements FreeBoardCommentService {
 	public void boardDelete(Integer comment_num) throws Exception {
 		FreeBoardDao freeBoardDao = new FreeBoardDaoImpl();
 		Integer num  = freeBoardCommentDao.selectBoardComment(comment_num).getPost_num();
-		freeBoardDao.updateBoardCommentCountDown(num);
+		freeBoardDao.updateFreeBoardCommentCountDown(num);
 		freeBoardCommentDao.deleteBoardComment(comment_num);
 	}
 

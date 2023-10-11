@@ -37,7 +37,7 @@ public class FreeBoardDetail extends HttpServlet {
 		postnum =Integer.parseInt(request.getParameter("num"));
 		try {
 			FreeBoardService freeBoardService = new FreeBoardServiceImpl();
-			FreeBoard freeBoard = freeBoardService.freeboardDetail(postnum);
+			FreeBoard freeBoard = freeBoardService.FreeBoardDetail(postnum);
 			FreeBoardCommentService freeBoardCommentService = new FreeBoardCommentServiceImpl();
 			List<FreeBoardComment> freeBoardCommentList = freeBoardCommentService.boardCommentSelect(postnum);
 			
