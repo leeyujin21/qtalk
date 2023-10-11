@@ -1,5 +1,4 @@
-/mapper/
-/dto/
 /dao/
-/controller/
+/db/
+/mapper/
 /service/
