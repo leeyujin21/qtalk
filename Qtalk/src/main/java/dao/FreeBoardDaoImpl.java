@@ -15,11 +15,11 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 		sqlSession.commit();
 	}
 	@Override
-	public FreeBoard selectfreeBoard(Integer num) throws Exception {
+	public FreeBoard selectFreeBoard(Integer num) throws Exception {
 		return sqlSession.selectOne("mapper.freeboard.selectFreeBoard", num);
 	}
 	@Override
-	public void updatefreeBoard(FreeBoard freeboard) throws Exception {
+	public void updateFreeBoard(FreeBoard freeboard) throws Exception {
 		sqlSession.update("mapper.freeboard.updateFreeBoard", freeboard);
 		sqlSession.commit();
 	}
@@ -36,20 +36,20 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 	
 	
 	@Override
-	public void updateBoardViewCount(Integer viewcount) throws Exception {
+	public void updateFreeBoardViewCount(Integer viewcount) throws Exception {
 		sqlSession.update("mapper.freeboard.updateBoardViewCount",viewcount);
 		sqlSession.commit();
 		
 	}
 
 	@Override
-	public void updateBoardCommentCountUp(Integer num) throws Exception {
+	public void updateFreeBoardCommentCountUp(Integer num) throws Exception {
 		sqlSession.update("mapper.freeboard.updateBoardCommentCountUp",num);
 		sqlSession.commit();
 		
 	}
 	@Override
-	public void updateBoardCommentCountDown(Integer num) throws Exception {
+	public void updateFreeBoardCommentCountDown(Integer num) throws Exception {
 		sqlSession.update("mapper.freeboard.updateBoardCommentCountDown",num);
 		sqlSession.commit();
 		

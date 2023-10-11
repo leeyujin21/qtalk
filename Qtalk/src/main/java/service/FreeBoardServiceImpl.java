@@ -17,22 +17,22 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 	}
 
 	@Override
-	public void freeboardWrite(FreeBoard freeBoard) throws Exception {
+	public void FreeBoardWrite(FreeBoard freeBoard) throws Exception {
 		freeboardDao.insertFreeBoard(freeBoard);
 	}
 
 	@Override
-	public FreeBoard freeboardDetail(Integer num) throws Exception {
-		return freeboardDao.selectfreeBoard(num);
+	public FreeBoard FreeBoardDetail(Integer num) throws Exception {
+		return freeboardDao.selectFreeBoard(num);
 	}
 
 	@Override
-	public void freeboardModify(FreeBoard freeboard) throws Exception {
-		freeboardDao.updatefreeBoard(freeboard);
+	public void FreeBoardModify(FreeBoard freeboard) throws Exception {
+		freeboardDao.updateFreeBoard(freeboard);
 	}
 
 	@Override
-	public Map<String, Object> freeBoardListByPage(Integer page) throws Exception {
+	public Map<String, Object> FreeBoardListByPage(Integer page) throws Exception {
 		PageInfo pageInfo = new PageInfo();
 		int boardCount = freeboardDao.selectFreeBoardCount();
 		int maxPage = (int)Math.ceil((double)boardCount/10);
