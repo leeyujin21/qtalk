@@ -31,6 +31,27 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 	
 	@Override
 	public Integer selectFreeBoardCount() throws Exception {
-		return sqlSession.selectOne("mapper.board.selectFreeBoardCount");
+		return sqlSession.selectOne("mapper.freeboard.selectFreeBoardCount");
+	}
+	
+	
+	@Override
+	public void updateBoardViewCount(Integer viewcount) throws Exception {
+		sqlSession.update("mapper.freeboard.updateBoardViewCount",viewcount);
+		sqlSession.commit();
+		
+	}
+
+	@Override
+	public void updateBoardCommentCountUp(Integer num) throws Exception {
+		sqlSession.update("mapper.freeboard.updateBoardCommentCountUp",num);
+		sqlSession.commit();
+		
+	}
+	@Override
+	public void updateBoardCommentCountDown(Integer num) throws Exception {
+		sqlSession.update("mapper.freeboard.updateBoardCommentCountDown",num);
+		sqlSession.commit();
+		
 	}
 }

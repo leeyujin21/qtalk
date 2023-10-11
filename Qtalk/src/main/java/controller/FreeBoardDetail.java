@@ -8,27 +8,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import dto.Member;
-import dto.TestBoard;
-import dto.TestBoardComment;
-import service.TestBoardCommentService;
-import service.TestBoardCommentServiceImpl;
-import service.TestBoardService;
-import service.TestBoardServiceImpl;
+import dto.FreeBoard;
+import dto.FreeBoardComment;
+import service.FreeBoardCommentService;
+import service.FreeBoardCommentServiceImpl;
+import service.FreeBoardService;
+import service.FreeBoardServiceImpl;
 
 /**
  * Servlet implementation class BoardDetail
  */
-@WebServlet("/testboarddetail")
-public class TestBoardDetail extends HttpServlet {
+@WebServlet("/freeboarddetail")
+public class FreeBoardDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TestBoardDetail() {
+    public FreeBoardDetail() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,18 +36,18 @@ public class TestBoardDetail extends HttpServlet {
 		Integer postnum ;
 		postnum =Integer.parseInt(request.getParameter("num"));
 		try {
-			TestBoardService testBoardService = new TestBoardServiceImpl();
-			TestBoard testboard = testBoardService.boardDetail(postnum);
-			TestBoardCommentService testBoardCommentService = new TestBoardCommentServiceImpl();
-			List<TestBoardComment> testBoardCommentList = testBoardCommentService.boardCommentSelect(postnum);
+			FreeBoardService freeBoardService = new FreeBoardServiceImpl();
+			FreeBoard freeBoard = freeBoardService.freeboardDetail(postnum);
+			FreeBoardCommentService freeBoardCommentService = new FreeBoardCommentServiceImpl();
+			List<FreeBoardComment> freeBoardCommentList = freeBoardCommentService.boardCommentSelect(postnum);
 			
-			request.setAttribute("testboard",testboard);
-			request.setAttribute("testboardCommentList",testBoardCommentList);
+			request.setAttribute("freeboard",freeBoard);
+			request.setAttribute("freeboardCommentList",freeBoardCommentList);
 			
 //			HttpSession session = request.getSession();
 //			Member member = (Member)session.getAttribute("user");
 			
-			request.getRequestDispatcher("testboardpost.jsp").forward(request, response);
+			request.getRequestDispatcher("freeboardpost.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.getRequestDispatcher("error.jsp").forward(request, response);
@@ -64,15 +62,15 @@ public class TestBoardDetail extends HttpServlet {
 //				request.getParameter("comment_id");
 		String content= request.getParameter("comment_content");
 		
-		TestBoardComment testBoardComment = new TestBoardComment();
-		testBoardComment.setPost_num(postnum);
-		testBoardComment.setWriter(writer);
-		testBoardComment.setContent(content);
+		FreeBoardComment freeBoardComment = new FreeBoardComment();
+		freeBoardComment.setPost_num(postnum);
+		freeBoardComment.setWriter(writer);
+		freeBoardComment.setContent(content);
 		
 		try {
-			TestBoardCommentService testBoardCommentService = new TestBoardCommentServiceImpl();
-			testBoardCommentService.boardCommentWrite(testBoardComment);
-			response.sendRedirect("testboarddetail?num="+testBoardComment.getPost_num());
+			FreeBoardCommentService freeBoardCommentService = new FreeBoardCommentServiceImpl();
+			freeBoardCommentService.boardCommentWrite(freeBoardComment);
+			response.sendRedirect("freeboarddetail?num="+freeBoardComment.getPost_num());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

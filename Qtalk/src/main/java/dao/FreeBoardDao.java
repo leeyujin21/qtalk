@@ -11,5 +11,8 @@ public interface FreeBoardDao {
 	
 	List <FreeBoard> selectFreeBoardList (Integer row) throws Exception;
 	Integer selectFreeBoardCount() throws Exception;
+	void updateBoardViewCount(Integer viewcount)throws Exception;
+	void updateBoardCommentCountUp(Integer num)throws Exception;
+	void updateBoardCommentCountDown(Integer num)throws Exception;
 }
 
