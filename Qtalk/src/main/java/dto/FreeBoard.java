@@ -7,10 +7,10 @@ public class FreeBoard {
 	private String title;
 	private String content;
 	private Date writedate;
-	private Integer commcount;
 	private String fileurl;
 	private String writer;
 	private Integer viewcount;
+	private Integer commentcount;
 	
 	public Integer getNum() {
 		return num;
@@ -36,11 +36,12 @@ public class FreeBoard {
 	public void setWritedate(Date writedate) {
 		this.writedate = writedate;
 	}
-	public Integer getCommcount() {
-		return commcount;
+	
+	public Integer getCommentcount() {
+		return commentcount;
 	}
-	public void setCommcount(Integer commcount) {
-		this.commcount = commcount;
+	public void setCommentcount(Integer commentcount) {
+		this.commentcount = commentcount;
 	}
 	public String getFileurl() {
 		return fileurl;

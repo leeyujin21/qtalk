@@ -61,7 +61,8 @@ CREATE TABLE freeboard(
 	commcount INT DEFAULT 0, -- 댓글수
 	fileurl VARCHAR(255),
 	writer VARCHAR(100) REFERENCES member(id),
-	viewcount INT DEFAULT 0
+	viewcount INT DEFAULT 0,
+	commentcount INT  DEFAULT 0
 );
 
 -- 자유게시판 댓글
@@ -85,7 +86,8 @@ CREATE TABLE testboard (
 	writedate DATE,
 	fileurl VARCHAR(255),
 	writer VARCHAR(50) REFERENCES member(id),
-	viewcount INT DEFAULT 0
+	viewcount INT DEFAULT 0,
+	commentcount INT  DEFAULT 0
 );
 
 -- 시험 문제 공유 게시판 덧글
