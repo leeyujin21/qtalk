@@ -67,5 +67,15 @@
 				update testboard set viewcount=viewcount+1 where num=#{num}
 		]]>
 	</update>
+		<update id="updateBoardCommentCountUp" parameterType="Integer">
+		<![CDATA[
+				update testboard set commentcount=commentcount+1 where num=#{num}
+		]]>
+	</update>
+	<update id="updateBoardCommentCountDown" parameterType="Integer">
+		<![CDATA[
+				update testboard set commentcount=commentcount-1 where num=#{num}
+		]]>
+	</update>
 
 </mapper>

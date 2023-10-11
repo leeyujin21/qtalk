@@ -16,6 +16,7 @@ public interface TestBoardDao {
 	Integer searchBoardCount(Map<String,Object> param) throws Exception;
 	List<TestBoard> searchBoardList(Map<String,Object> param)throws Exception;
 	void updateBoardViewCount(Integer viewcount)throws Exception;
-	
+	void updateBoardCommentCountUp(Integer num)throws Exception;
+	void updateBoardCommentCountDown(Integer num)throws Exception;
 
 }
