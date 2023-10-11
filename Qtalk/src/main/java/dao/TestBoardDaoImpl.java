@@ -14,7 +14,6 @@ public class TestBoardDaoImpl implements TestBoardDao {
 	public void insertBoard(TestBoard testboard) throws Exception {
 		sqlSession.insert("mapper.testboard.insertBoard", testboard);
 		sqlSession.commit();
-
 	}
 
 	@Override
@@ -50,16 +49,34 @@ public class TestBoardDaoImpl implements TestBoardDao {
 		return sqlSession.selectOne("mapper.testboard.searchBoardCount",param);
 	}
 
-	@Override
-	public List<TestBoard> searchBoardList(Map<String, Object> param) throws Exception {
-		return sqlSession.selectList("mapper.testboard.searchBoardList",param);
-	}
+	/*
+	 * @Override public List<TestBoard> searchBoardList(Map<String, Object> param)
+	 * throws Exception { return
+	 * sqlSession.selectList("mapper.testboard.searchBoardList",param); }
+	 */
 
 	@Override
 	public void updateBoardViewCount(Integer viewcount) throws Exception {
 		sqlSession.update("mapper.testboard.updateBoardViewCount",viewcount);
 		sqlSession.commit();
 		
+	}
+	@Override
+	public void updateBoardCommentCountUp(Integer num) throws Exception {
+		sqlSession.update("mapper.testboard.updateBoardCommentCountUp",num);
+		sqlSession.commit();
+		
+	}
+	@Override
+	public void updateBoardCommentCountDown(Integer num) throws Exception {
+		sqlSession.update("mapper.testboard.updateBoardCommentCountDown",num);
+		sqlSession.commit();
+		
+	}
+
+	@Override
+	public List<TestBoard> searchBoardList(Map<String, Object> param) throws Exception {
+		return sqlSession.selectList("mapper.testboard.searchBoardList",param);
 	}
 
 

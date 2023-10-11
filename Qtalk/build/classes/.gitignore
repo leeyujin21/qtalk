@@ -1,5 +1,8 @@
-/mapper/
-/dto/
-/dao/
 /controller/
+/dao/
+/dto/
+/mapper/
+/resource/
 /service/
+/util/
+/xmltodb/

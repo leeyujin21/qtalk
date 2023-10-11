@@ -12,6 +12,14 @@ public class TestBoard {
 	private String fileurl;
 	private String writer;
 	private Integer viewcount;
+	private Integer commentcount;
+	
+	public Integer getCommentcount() {
+		return commentcount;
+	}
+	public void setCommentcount(Integer commentcount) {
+		this.commentcount = commentcount;
+	}
 	public Integer getNum() {
 		return num;
 	}

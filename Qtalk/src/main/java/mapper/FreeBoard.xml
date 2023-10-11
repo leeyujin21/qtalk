@@ -5,7 +5,6 @@
 
 <mapper namespace="mapper.freeboard">
 
-
 	<insert keyProperty="num" useGeneratedKeys="true"
 		parameterType="FreeBoard" id="insertFreeBoard">
 
@@ -19,19 +18,14 @@
 		SELECT * FROM freeboard ORDER BY num DESC LIMIT #{row},10
 		]]>
 	</select>
+	
 	<select id="selectFreeBoardCount" resultType="Integer">
 		<![CDATA[
 		SELECT COUNT(*) FROM freeboard
 		]]>
 	</select>
 
-	<select parameterType="Integer" id="selectFreeBoard" resultType="FreeBoard">
-
-	<![CDATA[
-			SELECT * FROM freeboard WHERE num=#{num}
-		]]>
-	</select>
-
+	
 	<select id="selectFreeBoard" parameterType="Integer" resultType="FreeBoard">
 		<![CDATA[
 		SELECT * FROM freeboard WHERE num=#{num}
@@ -52,6 +46,22 @@
 
 		</trim>
 		where num=#{num}
+	</update>
+	
+	<update id="updateBoardViewCount" parameterType="Integer">
+		<![CDATA[
+				update freeboard set viewcount=viewcount+1 where num=#{num}
+		]]>
+	</update>
+	<update id="updateBoardCommentCountUp" parameterType="Integer">
+		<![CDATA[
+				update freeboard set commentcount=commentcount+1 where num=#{num}
+		]]>
+	</update>
+	<update id="updateBoardCommentCountDown" parameterType="Integer">
+		<![CDATA[
+				update freeboard set commentcount=commentcount-1 where num=#{num}
+		]]>
 	</update>
 
 </mapper>
