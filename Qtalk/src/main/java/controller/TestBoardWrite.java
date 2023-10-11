@@ -41,19 +41,18 @@ public class TestBoardWrite extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if(session.getAttribute("member")==null) {
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		} else {
-			request.getRequestDispatcher("freeboardwrite.jsp").forward(request, response);
-		}
+		
 		// 서블릿에서 examinfo 데이터를 가져오는 코드 (예시)
 		List<ExamInfo> examInfoList = null;
 		try {
 			ExamInfoService examinfoservice = new ExamInfoServiceImpl();
 			examInfoList = examinfoservice.getExamInfoNames();
 			request.setAttribute("examInfoList", examInfoList); // JSP 페이지로 데이터 전달
-			RequestDispatcher dispatcher = request.getRequestDispatcher("testboardwrite.jsp");
-			dispatcher.forward(request, response);
+			if(session.getAttribute("member")==null) {
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("testboardwrite.jsp").forward(request, response);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} // examInfoDao는 examinfo 테이블과 상호작용하는 DAO 객체
