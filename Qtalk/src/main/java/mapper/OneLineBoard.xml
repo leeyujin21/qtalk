@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD COnfig 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="mapper.onelineboard">
+	<insert id="insertOneLineBoard" parameterType="OneLineBoard" useGeneratedKeys="true" keyProperty="num">
+		<![CDATA[
+			insert into onelineboard (subject,content,level,writedate,writer) values (#{subject},#{content},#{level},curdate(),#{writer})
+		]]>
+	</insert>
+	
+	<select id="selectOneLineBoardList" parameterType="Integer" resultType="OneLineBoard">
+		<![CDATA[
+			select * from onelineboard order by num desc limit #{row},10
+		]]>
+	</select>
+	
+	<select id="selectOneLineBoardCount" resultType="Integer">
+		<![CDATA[
+			select count(*) from onelineboard
+		]]>
+	</select>
+	
+	<select id="searchOneLineBoardList" parameterType="hashmap" resultType="OneLineBoard">
+		select * from onelineboard
+		where subject='${type}' and content like '%${keyword}%' order by 1 desc
+		limit #{row}, 10
+	</select>
+	
+	<select id="searchOneLineBoardCount" parameterType="hashmap" resultType="Integer">
+		select count(*) from onelineboard 
+		where subject='${type}' and content like '%${keyword}%'
+	</select>
+</mapper>

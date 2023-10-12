@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.testboardcomment">
+
+	<insert id="insertTestBoardComment" parameterType="TestBoardComment"
+		useGeneratedKeys="true" keyProperty="comment_num">
+		<![CDATA[
+			insert into testboard_comment (post_num,writer,content,comment_date) values(#{post_num},#{writer}, #{content}, curdate())
+		]]>
+	</insert>
+
+	<select id="selectTestBoardComment" parameterType="Integer"
+		resultType="TestBoardComment">
+		<![CDATA[
+			select * from testboard_comment where comment_num=#{num}
+		]]>
+	</select>
+	
+	<select id="selectTestBoardCommentList" parameterType="Integer"
+		resultType="TestBoardComment">
+		<![CDATA[
+			select * from testboard_comment where post_num=#{postnum}
+		]]>
+	</select>
+
+	<update id="updateTestBoardComment" parameterType="Integer">
+		update testboard_comment
+		<trim prefix="set" suffixOverrides=",">
+			<if test="content != null">content=#{content},</if>
+		</trim>
+		where writer=#{writer}
+	</update>
+
+	<delete id="deleteTestBoardComment" parameterType="Integer">
+	<![CDATA[
+			delete from testboard_comment where comment_num = #{comment_num}
+		]]>
+	</delete>
+	
+	
+	
+
+</mapper>

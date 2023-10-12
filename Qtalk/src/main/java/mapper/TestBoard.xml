@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.testboard">
+
+	<insert id="insertTestBoard" parameterType="TestBoard"
+		useGeneratedKeys="true" keyProperty="num">
+		<![CDATA[
+			insert into testboard (subject,round,title,content,writedate,fileurl, writer) values(#{subject},#{round},#{title}, #{content},curdate(),#{fileurl}, #{writer})
+		]]>
+	</insert>
+
+	<select id="selectTestBoardList" parameterType="Integer"
+		resultType="TestBoard">
+		<![CDATA[
+			select * from testboard order by num desc
+			limit #{row},10
+		]]>
+	</select>
+
+	<select id="selectTestBoardCount" resultType="Integer">
+		<![CDATA[
+			select count(num) from testboard
+		]]>
+	</select>
+
+	<select id="selectTestBoard" parameterType="Integer"
+		resultType="TestBoard">
+		<![CDATA[
+			select * from testboard where num=#{num}
+		]]>
+	</select>
+
+	<update id="updateTestBoard" parameterType="TestBoard">
+		update testboard 
+		<trim prefix="set" suffixOverrides=",">
+			<if test="subject != null">subject=#{subject},</if>
+			<if test="round != null">round=#{round},</if>
+			<if test="title != null">title=#{title},</if>
+			<if test="content != null">content=#{content},</if>
+			<if test="fileurl != null">fileurl=#{fileurl},</if>
+		</trim>
+		where num=#{num}
+	</update>
+ 
+	<delete id="deleteTestBoard" parameterType="Integer">
+	<![CDATA[
+			delete from testboard where num=#{num}
+		]]>
+	</delete>
+	
+	<!-- 
+	<select id="searchBoardList" parameterType="hashmap"   resultType="TestBoard" >
+		select * from testboard
+		where ${type} like '%${keyword}%'  order by num desc 
+		limit #{row},10 
+	</select>
+	
+	<select id="searchBoardCount" resultType="Integer">
+			select count (*) from testboard
+			where ${type} like '%${keyword}%'
+	</select> -->
+	
+	<update id="updateTestBoardViewCount" parameterType="Integer">
+		<![CDATA[
+				update testboard set viewcount=viewcount+1 where num=#{num}
+		]]>
+	</update>
+		<update id="updateTestBoardCommentCountUp" parameterType="Integer">
+		<![CDATA[
+				update testboard set commentcount=commentcount+1 where num=#{num}
+		]]>
+	</update>
+	<update id="updateTestBoardCommentCountDown" parameterType="Integer">
+		<![CDATA[
+				update testboard set commentcount=commentcount-1 where num=#{num}
+		]]>
+	</update>
+
+</mapper>
