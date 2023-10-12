@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="div">
 			<div class="select">
-				&nbsp;&nbsp;회차&nbsp;&nbsp;
+				&nbsp;&nbsp;회차&nbsp;&nbsp;  
 				<select id="round" name="round">
 					<option value="">회차를 선택하세요</option>
 				    <c:forEach items="${examScheduleList}" var="examSchedule">
