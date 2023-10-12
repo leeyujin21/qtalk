@@ -15,7 +15,7 @@
 		name="testboardwrite">
 	<div class="board_header">
 		<div class="board_title">시험문제 공유 게시글 작성하기</div>
-		<div class="writer" id="writer">${user.id }</div>
+		<div class="writer" id="writer">${member.id }</div>
 	</div>
 	<hr>
 	<div class="container">
