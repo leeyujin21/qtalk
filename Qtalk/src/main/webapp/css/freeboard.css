@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+* {
+	font-family: 'Pretendard-Regular';
+}
+
+.header {
+	height: 100px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.board-title {
+	font-weight: bold;
+	text-align: center;
+	font-family: 'Pretendard-Regular';
+	padding: 10px;
+	width: 60%;
+	margin: 10px auto;
+	margin-bottom: 30px;
+}
+
+.search {
+	height: 30px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px;
+	border-radius: 10px;
+	background-color: #D6E6FF;
+	padding: 10px;
+	color: rgb(116, 111, 111);
+	font-family: 'Pretendard-Regular';
+}
+
+#search {
+	width: 95%;
+	min-width: 60%;
+	margin: 0px;
+	border: 1px;
+	border-radius: 10px;
+	padding: 10px;
+	color: rgb(116, 111, 111);
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.container {
+	padding: 10px;
+	margin: 20px;
+	border: 1px solid;
+	border-color: #e4e4e4;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.write {
+	padding: 10px;
+	padding-right: 20px;
+	text-align: right;
+	border-bottom: 3px solid rgb(213, 223, 250);
+	color: rgb(179, 177, 177);
+	font-weight: bold;
+}
+
+.post {
+	overflow-anchor: auto;
+	margin: 13px;
+	padding: 30px;
+	border: 1px;
+	display: flex;
+	border-bottom: 1px solid lightgray;
+}
+
+.subject {
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 15%;
+	color: #3B5998;
+	font-weight: bold;
+	overflow: hidden;
+}
+
+.title {
+	max-width: 60%;
+	color: rgb(116, 111, 111);
+}
+
+.commentcnt {
+	margin-left: 10px;
+	font-weight: bold;
+	overflow: hidden;
+}
+
+.viewcnt {
+	position: absolute;
+	right: 23%;
+	font-weight: bold;
+	float: right;
+	overflow: hidden;
+}
+
+#emptyArea {
+	margin: auto;
+	width: 800px;
+	text-align: center;
+}
+
+#emptyArea a {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	text-decoration: none;
+}
+
+#emptyArea .btn {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: lightgray;
+}
+
+#emptyArea .select {
+	background: lightblue;
+}

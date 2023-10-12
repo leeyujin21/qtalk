@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.freeboardcomment">
+
+	<insert id="insertFreeBoardComment" parameterType="FreeBoardComment"
+		useGeneratedKeys="true" keyProperty="comment_num">
+		<![CDATA[
+			insert into freeboard_comment (post_num,writer, content, comment_date) values(#{post_num},#{writer}, #{content}, curdate())
+		]]>
+	</insert>
+
+	<select id="selectFreeBoardComment" parameterType="Integer"
+		resultType="FreeBoardComment">
+		<![CDATA[
+			select * from freeboard_comment where comment_num=#{num}
+		]]>
+	</select>
+	
+	<select id="selectFreeBoardCommentList" parameterType="Integer"
+		resultType="FreeBoardComment">
+		<![CDATA[
+			select * from freeboard_comment where post_num=#{postnum}
+		]]>
+	</select>
+
+	<update id="updateFreeBoardComment" parameterType="Integer">
+		update freeboard_comment
+		<trim prefix="set" suffixOverrides=",">
+			<if test="content != null">content=#{content},</if>
+		</trim>
+		where writer=#{writer}
+	</update>
+
+	<delete id="deleteFreeBoardComment" parameterType="Integer">
+	<![CDATA[
+			delete from freeboard_comment where comment_num = #{comment_num}
+		]]>
+	</delete>
+	
+	
+	
+
+</mapper>

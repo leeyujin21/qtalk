@@ -1,0 +1,91 @@
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+* {
+	font-family: 'Pretendard-Regular';
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.header {
+	height: 100px;
+}
+
+.jh-container {
+	margin: 0 auto;
+}
+
+#goback {
+	margin-left: 27%;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+#idshowspace {
+	width: 60%;
+	margin: 0 auto 0 auto;
+	background-color: #FDFDFD;
+}
+
+#idshowspace>p {
+	height: 50px;
+	margin: 0 auto 14.5px auto;
+	padding-top: 31px;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#idtext {
+	width: 50%;
+	height: 60px;
+	margin: 0 auto 60px auto;
+	border: 1px solid gainsboro;
+	display: flex;
+	align-items: center;
+}
+
+.textlabel {
+	color: #000;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: center;
+	line-height: normal;
+	padding-right: 21px;
+	padding-left: 10px;
+}
+
+.textinput {
+	width: 95%;
+	height: 90%;
+	border: none;
+	background: transparent;
+	outline: none;
+	font-size: 20px;
+}
+
+.gotologin {
+	text-align: center;
+}
+
+#gotologin {
+	border-radius: 10px;
+	background: #3B5998;
+	color: #FFF;
+	border: none;
+	width: 200px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 1.2em;
+	cursor: pointer;
+}
