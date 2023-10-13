@@ -38,9 +38,22 @@
 	<!--게시글 작성 폼 시작-->
 	<form action="testboardwrite" method="post" enctype="multipart/form-data"
 		name="testboardwrite">
-		<div class="board_header">
-			<div class="board_title">시험문제 공유 게시글 작성하기</div>
-			<div class="writer" id="writer">${user.id }</div>
+<div class="board_header">
+		<div class="board_title">시험문제 공유 게시글 작성하기</div>
+		<div class="writer" id="writer">${member.id }</div>
+	</div>
+	<hr>
+	<div class="container">
+		<div class="div">
+			<div class="select">
+				&nbsp;&nbsp;회차&nbsp;&nbsp;
+				<select id="round" name="round">
+					<option value="">회차를 선택하세요</option>
+				    <c:forEach items="${examScheduleList}" var="examSchedule">
+				        <option value="${examSchedule.implplannm}">${examSchedule.implplannm}</option>
+				    </c:forEach>
+				</select>
+
 		</div>
 		<hr>
 		<div class="container">
