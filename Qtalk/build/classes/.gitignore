@@ -2,7 +2,7 @@
 /dao/
 /db/
 /dto/
-/mapper/
-/resource/
 /service/
 /util/
+/mapper/
+/resource/
