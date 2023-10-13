@@ -47,10 +47,14 @@ public class TestBoardWrite extends HttpServlet {
 		
 		// 서블릿에서 examinfo 데이터를 가져오는 코드 (예시)
 		List<ExamInfo> examInfoList = null;
+		List<ExamSchedule> examScheduleList = null;
 		try {
 			ExamInfoService examinfoservice = new ExamInfoServiceImpl();
 			examInfoList = examinfoservice.getExamInfoNames();
+			ExamScheduleService examscheduleservice = new ExamScheduleServiceImpl();
+			examScheduleList = examscheduleservice.getExamScheduleRounds();
 			request.setAttribute("examInfoList", examInfoList); // JSP 페이지로 데이터 전달
+			request.setAttribute("examScheduleList", examScheduleList);
 			if(session.getAttribute("member")==null) {
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			} else {
@@ -60,20 +64,6 @@ public class TestBoardWrite extends HttpServlet {
 			e.printStackTrace();
 		} // examInfoDao는 examinfo 테이블과 상호작용하는 DAO 객체
 		
-		// 서블릿에서 examschedule 데이터를 가져오는 코드 (예시)
-		List<ExamSchedule> examScheduleList = null;
-		try {
-			ExamScheduleService examscheduleservice = new ExamScheduleServiceImpl();
-			examScheduleList = examscheduleservice.getExamScheduleRounds();
-			request.setAttribute("examScheduleList", examScheduleList);
-			if(session.getAttribute("member")==null) {
-				request.getRequestDispatcher("login.jsp").forward(request, response);
-			} else {
-				request.getRequestDispatcher("testboardwrite.jsp").forward(request, response);
-			}
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
 
 
 	}

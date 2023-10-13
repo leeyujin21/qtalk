@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+
 import dao.ExamScheduleDao;
 import dao.ExamScheduleDaoImpl;
 import dto.ExamSchedule;
@@ -16,6 +17,11 @@ public class ExamScheduleServiceImpl implements ExamScheduleService {
 	@Override
 	public List<ExamSchedule> getExamScheduleRounds() throws Exception {
 		return examscheduleDao.getExamScheduleRounds();
+	}
+
+	@Override
+	public List<Object> selectRoundList(String subject) throws Exception {
+		return examscheduleDao.selectedSubjectRound(subject);
 	}
 
 }
