@@ -31,6 +31,10 @@ a {
 	cursor: pointer;
 }
 
+#goback > a {
+	font-family: 'Pretendard-Regular';
+}
+
 #joinspace {
 	width: 60%;
 	margin: 0 auto 0 auto;
@@ -44,6 +48,7 @@ a {
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
+	font-family: 'Pretendard-Regular';
 }
 
 #idtext, #passwordtext, #nicknametext {
@@ -53,6 +58,13 @@ a {
 	border: 1px solid gainsboro;
 	display: flex;
 	align-items: center;
+}
+
+#idtext > label,
+#passwordtext > label,
+#nicknametext > label,
+#emailtext > label {
+	font-family: 'Pretendard-Regular';
 }
 
 #emailtext {

@@ -36,6 +36,7 @@ hr {
 	margin-bottom: 20px;
 	font-weight: bold;
 	margin-left: 20%;
+	font-family: 'Pretendard-Regular';
 }
 .writer{
 	position: absolute;
@@ -71,6 +72,7 @@ select {
 .select {
 	padding: 9px 0 9px 0;
 	height: 27px;
+	font-family: 'Pretendard-Regular';
 }
 
 .upload-name {

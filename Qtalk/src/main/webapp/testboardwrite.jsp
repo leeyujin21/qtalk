@@ -87,7 +87,7 @@
 			<div class="button">
 				<input class="btn1" type="submit" value="등록" />&nbsp;&nbsp; <input
 					class="btn2" type="button" value="취소"
-					onclick="location.href='testboard.jsp'" />
+					onclick="location.href='testboard'" />
 			</div>
 		</div>	
 	</form>

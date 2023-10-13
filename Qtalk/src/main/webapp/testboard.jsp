@@ -22,13 +22,13 @@
         <div class="write"><a href="testboardwrite">글쓰기</a></div>
         <c:forEach items="${res.testBoardList}" var="testboard">
         <div class="post">
-            <div class="subject">
+            <div class="subject" style="font-family: 'Pretendard-Regular';">
                 ${testboard.subject }
             </div>
-            <div class="title"><a href="testboarddetail?num=${testboard.num }">${testboard.title }</a>
+            <div class="title" ><a href="testboarddetail?num=${testboard.num }">${testboard.title }</a>
             </div>
-            <div class="commentcnt">${testboard.commentcount }</div>
-            <div class="viewcnt">조회수 &#40; ${testboard.viewcount } &#41; </div>
+            <div class="commentcnt">댓글 &#40; ${testboard.commentcount } &#41; </div>
+            <div class="viewcnt">${testboard.viewcount }</div>
         </div> 
         </c:forEach> 
         
@@ -48,10 +48,10 @@
          end="${res.pageInfo.endPage}" var="i">
          <c:choose>
             <c:when test="${res.pageInfo.curPage==i}">
-               <a href="boardlist?page=${i}" class="select" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+               <a href="testboard?page=${i}" style="font-family: 'Pretendard-Regular';" class="select" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
             </c:when>
             <c:otherwise>
-               <a href="boardlist?page=${i}" class="btn" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+               <a href="testboard?page=${i}" style="font-family: 'Pretendard-Regular';" class="btn" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
             </c:otherwise>
          </c:choose>
       </c:forEach>

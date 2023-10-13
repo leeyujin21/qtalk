@@ -7,9 +7,10 @@
 </head>
 
 <body>
+	<%@ include file="header.jsp"%>
 	<main class="test-schedule-main">
 	
-	<%@ include file="header.jsp"%>
+
 	
 		<section class="category-search-section">
 			<!-- 카테고리 -->
