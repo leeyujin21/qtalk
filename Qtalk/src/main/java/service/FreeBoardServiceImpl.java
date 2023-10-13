@@ -55,5 +55,17 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 		map.put("boardList", boardList);
 		return map;
 	}
+
+	// 특정 id 게시판 모두 삭제
+	@Override
+	public void boardDeleteAll(String id) throws Exception {
+		freeboardDao.deleteBoardAll(id);
+	}
+
+	// id가 작성한 게시판 num 리스트
+	@Override
+	public List<String> boardNumList(String id) throws Exception {
+		return freeboardDao.selectBoardNum(id);
+	}
 }
 

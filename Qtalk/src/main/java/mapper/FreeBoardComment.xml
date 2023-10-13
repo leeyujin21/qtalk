@@ -34,12 +34,16 @@
 	</update>
 
 	<delete id="deleteFreeBoardComment" parameterType="Integer">
-	<![CDATA[
-			delete from freeboard_comment where comment_num = #{comment_num}
+		<![CDATA[
+				delete from freeboard_comment where comment_num = #{comment_num}
 		]]>
 	</delete>
 	
-	
+	<delete id="deleteCommentAll" parameterType="String">
+		<![CDATA[
+				delete from freeboard_comment where post_num=#{num}
+		]]>
+	</delete>
 	
 
 </mapper>

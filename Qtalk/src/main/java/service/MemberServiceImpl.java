@@ -27,6 +27,13 @@ public class MemberServiceImpl implements MemberService {
 		if(member.getPassword().equals(password)==false) throw new Exception("비밀번호 오류");
 		return member;
 	}
+	
+	// 회원탈퇴
+	@Override
+	public void memberDelete(String id) throws Exception {
+		memberDao.deleteMember(id);
+	}
+	// 내 정보 수정
 	@Override
 	public void memberchange(Member member) throws Exception {
 		memberDao.updateMember(member);

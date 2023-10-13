@@ -10,6 +10,12 @@
 		]]>
 	</insert>
 	
+	<delete id="deleteMember" parameterType="String">
+		<![CDATA[
+			delete from member where id=#{id}
+		]]>
+	</delete>
+	
 	<select id="selectMember" parameterType="String" resultType="Member">
 		<![CDATA[
 			select * from member where id=#{id}

@@ -10,4 +10,7 @@ public interface FreeBoardCommentService {
 	void boardDelete(Integer comment_num) throws Exception;
 	List<FreeBoardComment>boardCommentSelect(Integer postnum) throws Exception; 
 	FreeBoardComment boardCommentSelectOne(Integer comment_num) throws Exception;
+	
+	// 특정 id 게시판 모두 삭제
+	void commentDeleteAll(String id) throws Exception;
 }

@@ -12,4 +12,7 @@ public interface OneLineBoardDAO {
 	Integer selectOneLineBoardCount() throws Exception;
 	Integer searchOneLineBoardCount(Map<String, Object> param) throws Exception;
 	List<OneLineBoard> searchOneLineBoardList(Map<String, Object> param) throws Exception;
+
+	// writer가 id인 onelineboard 모두 삭제
+	void deleteBoardAll(String id) throws Exception;
 }

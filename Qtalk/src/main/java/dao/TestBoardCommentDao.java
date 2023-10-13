@@ -11,5 +11,7 @@ public interface TestBoardCommentDao {
 	void deleteBoardComment(Integer comment_num) throws Exception;
 	TestBoardComment selectBoardComment(Integer comment_num)throws Exception;
 
+	// post_num이 num인 댓글 모두 삭제
+	void deleteCommentAll(String num) throws Exception;
 
 }
