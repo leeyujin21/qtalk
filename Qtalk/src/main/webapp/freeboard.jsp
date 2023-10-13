@@ -31,13 +31,17 @@
          </div>
          <c:forEach items="${res.boardList }" var="freeboard">
             <div class="post">
+            	<div class="postnum">${freeboard.num }</div>&nbsp;&nbsp;&nbsp;&nbsp;
                <div class="title"><a href="freeboarddetail?num=${freeboard.num }">${freeboard.title }</a></div>
-               <div class="commentcnt">${freeboard.commentcount }</div>
-               <div class="viewcnt"> 조회수 &#40; ${freeboard.viewcount } &#41; </div>
+               <div class="commentcnt"> 댓글 &#40; ${freeboard.commentcount } &#41; </div>
+               <div class="viewcnt">${freeboard.viewcount }</div>
             </div>
          </c:forEach>
       </div>
    </form>
+   
+   
+   <!-- 페이지 수 표시 시작 -->
    <div id="emptyArea">
       <c:choose>
          <c:when test="${res.pageInfo.curPage>1}">
@@ -53,10 +57,10 @@
          end="${res.pageInfo.endPage}" var="i">
          <c:choose>
             <c:when test="${res.pageInfo.curPage==i}">
-               <a href="boardlist?page=${i}" class="select" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+               <a href="freeboard?page=${i}" class="select" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
                     </c:when>
             <c:otherwise>
-               <a href="boardlist?page=${i}" class="btn" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+               <a href="freeboard?page=${i}" class="btn" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
                     </c:otherwise>
          </c:choose>
       </c:forEach>
@@ -71,6 +75,7 @@
       </c:choose>
       &nbsp;&nbsp;
    </div>
+   <!-- 페이지 수 표시 끝 -->
    
    
 <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
