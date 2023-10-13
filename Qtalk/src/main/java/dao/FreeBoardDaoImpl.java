@@ -55,4 +55,15 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 		sqlSession.commit();
 		
 	}
+	
+	// writer가 id인 게시판 모두 삭제
+	@Override
+	public void deleteBoardAll(String id) throws Exception {
+		sqlSession.delete("mapper.freeboard.deleteBoardAll",id);
+		sqlSession.commit();
+	}
+	@Override
+	public List<String> selectBoardNum(String id) throws Exception {
+		return sqlSession.selectList("mapper.freeboard.selectBoardNum", id);
+	}
 }

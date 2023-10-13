@@ -19,4 +19,9 @@ public interface TestBoardDao {
 	void updateTestBoardCommentCountUp(Integer num)throws Exception;
 	void updateTestBoardCommentCountDown(Integer num)throws Exception;
 
+	// writer가 id인 testboard 모두 삭제
+	void deleteBoardAll(String id) throws Exception;
+	
+	// writer가 id인 게시판 num을 리스트로 전달
+	List<String> selectBoardNum(String id) throws Exception;
 }

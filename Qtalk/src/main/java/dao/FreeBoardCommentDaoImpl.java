@@ -41,6 +41,13 @@ public class FreeBoardCommentDaoImpl implements FreeBoardCommentDao {
 		
 	}
 	
+	// writer가 id인 댓글 모두 삭제
+	@Override
+	public void deleteCommentAll(String num) throws Exception {
+		sqlSession.delete("mapper.freeboardcomment.deleteCommentAll", num);
+		sqlSession.commit();	
+	}
+	
 
 
 }

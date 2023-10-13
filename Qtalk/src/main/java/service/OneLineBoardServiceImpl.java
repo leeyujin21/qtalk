@@ -76,5 +76,11 @@ public class OneLineBoardServiceImpl implements OneLineBoardService {
 		return map;
 	}
 	
+	// 특정 id 게시판 모두 삭제
+	@Override
+	public void boardDeleteAll(String id) throws Exception {
+		oneLineBoardDao.deleteBoardAll(id);
+	}
+	
 	
 }

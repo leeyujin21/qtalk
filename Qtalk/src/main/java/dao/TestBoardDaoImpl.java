@@ -79,6 +79,18 @@ public class TestBoardDaoImpl implements TestBoardDao {
 		return sqlSession.selectList("mapper.testboard.searchTestBoardList",param);
 	}
 
+	// writer가 id인 게시판 모두 삭제
+	@Override
+	public void deleteBoardAll(String id) throws Exception {
+		sqlSession.delete("mapper.testboard.deleteBoardAll", id);
+		sqlSession.commit();
+	}
+
+	@Override
+	public List<String> selectBoardNum(String id) throws Exception {
+		return sqlSession.selectList("mapper.testboard.selectBoardNum", id);
+	}
+
 
 
 }

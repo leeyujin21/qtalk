@@ -11,5 +11,6 @@ public interface FreeBoardCommentDao {
 	void deleteBoardComment(Integer comment_num) throws Exception;
 	FreeBoardComment selectBoardComment(Integer comment_num)throws Exception;
 
-
+	// writer가 id인 댓글 모두 삭제
+	void deleteCommentAll(String num) throws Exception;
 }

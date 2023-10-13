@@ -109,6 +109,20 @@ public class TestBoardServiceImpl implements TestBoardService {
 		testBoardDao.deleteTestBoard(num);
 		
 	}
+
+
+	// 특정 id 게시판 모두 삭제
+	@Override
+	public void boardDeleteAll(String id) throws Exception {
+		testBoardDao.deleteBoardAll(id);
+	}
+
+
+
+	@Override
+	public List<String> boardNumList(String id) throws Exception {
+		return testBoardDao.selectBoardNum(id);
+	}
 	
 
 }

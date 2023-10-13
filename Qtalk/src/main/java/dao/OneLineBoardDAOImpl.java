@@ -37,5 +37,12 @@ public class OneLineBoardDAOImpl implements OneLineBoardDAO {
 		return sqlSession.selectList("mapper.onelineboard.searchOneLineBoardList", param);
 	}
 	
+	// writer가 id인 게시판 모두 삭제
+	@Override
+	public void deleteBoardAll(String id) throws Exception {
+		sqlSession.delete("mapper.onelineboard.deleteBoardAll",id);
+		sqlSession.commit();
+	}
+	
 	
 }

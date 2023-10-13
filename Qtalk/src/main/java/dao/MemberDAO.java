@@ -9,7 +9,8 @@ public interface MemberDAO {
 	void insertMember(Member member) throws Exception;
 	// 로그인
 	Member selectMember(String id) throws Exception;
-	
+	// 회원탈퇴
+	void deleteMember(String id) throws Exception;
 	// 중복체크
 	Member selectMemberWhereNickname(String nickname) throws Exception;
 	Member selectMemberWhereEmail(String email) throws Exception;

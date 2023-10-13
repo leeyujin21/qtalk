@@ -32,4 +32,11 @@
 		select count(*) from onelineboard 
 		where subject='${type}' and content like '%${keyword}%'
 	</select>
+	
+	<delete id="deleteBoardAll" parameterType="String">
+		<![CDATA[
+				delete from onelineboard where writer=#{id}
+		]]>
+	</delete>
 </mapper>
+

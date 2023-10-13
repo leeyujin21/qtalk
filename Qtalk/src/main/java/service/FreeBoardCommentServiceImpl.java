@@ -52,6 +52,13 @@ public class FreeBoardCommentServiceImpl implements FreeBoardCommentService {
 	}
 
 
+	@Override
+	public void commentDeleteAll(String id) throws Exception {
+		freeBoardCommentDao.deleteCommentAll(id);
+		
+	}
+
+
 
 
 

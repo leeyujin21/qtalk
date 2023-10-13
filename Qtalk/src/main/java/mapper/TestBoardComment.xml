@@ -39,7 +39,11 @@
 		]]>
 	</delete>
 	
+	<delete id="deleteCommentAll" parameterType="String">
+		<![CDATA[
+			delete from testboard_comment where post_num=#{num}
+		]]>
+	</delete>
 	
 	
-
 </mapper>
