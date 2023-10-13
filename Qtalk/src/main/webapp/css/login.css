@@ -10,7 +10,6 @@
 * {
 	font-family: 'Pretendard-Regular';
 }
-
 .header {
 	height: 100px;
 }
@@ -30,6 +29,9 @@ a {
 	align-items: center;
 	cursor: pointer;
 }
+#goback > a{
+	font-family: 'Pretendard-Regular';
+}
 
 #loginspace {
 	width: 60%;
@@ -43,6 +45,7 @@ a {
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
+	font-family: 'Pretendard-Regular';
 }
 
 #idtext {
@@ -78,6 +81,10 @@ a {
 	background: #FFF;
 }
 
+.textcommon > label {
+	font-family: 'Pretendard-Regular';
+}
+
 .textinput {
 	width: 95%;
 	height: 90%;
@@ -109,10 +116,11 @@ a {
 }
 
 .bottomspace a {
-	color: lightgray;
+	color: gray; /*lightgray*/
 	font-size: 0.9em;
 	font-weight: bold;
 	text-decoration: none;
+	font-family: 'Pretendard-Regular';
 }
 
 #joinbtn {

@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -14,6 +15,11 @@ public class ExamScheduleDaoImpl implements ExamScheduleDao {
 	@Override
 	public List<ExamSchedule> getExamScheduleRounds() throws Exception {
 		return sqlSession.selectList("mapper.examschedule.selectRoundList");
+	}
+
+	@Override
+	public List<Object> selectedSubjectRound(String subject) throws Exception {
+		return sqlSession.selectList("mapper.examschedule.selectedSubjectRound", subject);
 	}
 
 }

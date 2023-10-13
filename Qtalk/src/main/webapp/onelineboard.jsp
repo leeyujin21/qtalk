@@ -74,39 +74,42 @@
     	    	</c:if> --%>
     	    </div>
     	</c:forEach>
- 		<div id="emptyArea">
-    	<c:choose>
-    		<c:when test="${res.pageInfo.curPage>1}">
-    			<a href="onelineboardpost?page=${res.pageInfo.curPage-1}">&lt;</a>
-    		</c:when>
-    		<c:otherwise>
-    			&lt;
-    		</c:otherwise>
-    	</c:choose>
-    	&nbsp;&nbsp;
-    	
-    	<c:forEach begin="${res.pageInfo.startPage}" end="${res.pageInfo.endPage }" var="i">
-    		<c:choose>
-    			<c:when test="${res.pageInfo.curPage==i}">
-   					<a href="onelineboardpost?page=${i}" class="select" onclick="callBtn(${i});return ${res.keyword==null};">${i}</a>&nbsp;
-    			</c:when>
-    			<c:otherwise>
-   					<a href="onelineboardpost?page=${i}" class="btn" onclick="callBtn(${i});return ${res.keyword==null};">${i}</a>&nbsp;
-    			</c:otherwise>
-    		</c:choose>
-    	</c:forEach>
-    	
-    	<c:choose>
-    		<c:when test="${res.pageInfo.curPage < res.pageInfo.allPage}">
- 				<a href="onelineboardpost?page=${res.pageInfo.curPage+1}">&gt;</a>
-    		</c:when>
-    		<c:otherwise>
-    			&gt;
-    		</c:otherwise>
-    	</c:choose>
-    	&nbsp;&nbsp;
     </div>
-    </div>
+    <!-- 페이지 수 표시 시작 -->
+   <div id="emptyArea">
+      <c:choose>
+         <c:when test="${res.pageInfo.curPage>1}">
+            <a href="boardlist?page=${res.pageInfo.curPage-1}">&lt;</a>
+         </c:when>
+         <c:otherwise>
+             &lt;
+         </c:otherwise>
+      </c:choose>
+      &nbsp;&nbsp;
+
+      <c:forEach begin="${res.pageInfo.startPage}"
+         end="${res.pageInfo.endPage}" var="i">
+         <c:choose>
+            <c:when test="${res.pageInfo.curPage==i}">
+               <a href="onlineboardpost?page=${i}" class="select" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+            </c:when>
+            <c:otherwise>
+               <a href="onlineboardpost?page=${i}" class="btn" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+            </c:otherwise>
+         </c:choose>
+      </c:forEach>
+
+      <c:choose>
+         <c:when test="${res.pageInfo.curPage<res.pageInfo.allPage}">
+            <a href="onlineboard?page=${res.pageInfo.curPage+1}">&gt;</a>
+         </c:when>
+         <c:otherwise>
+             &gt;
+         </c:otherwise>
+      </c:choose>
+      &nbsp;&nbsp;
+   </div>
+   <!-- 페이지 수 표시 끝 -->
     <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
 </html>
