@@ -8,9 +8,9 @@
 
 <body>
 	<main class="test-schedule-main">
-	
-	<%@ include file="header.jsp"%>
-	
+
+		<%@ include file="header.jsp"%>
+
 		<section class="category-search-section">
 			<!-- 카테고리 -->
 			<div class="category-search-container">
@@ -24,19 +24,25 @@
 						<div class="category-box">
 							<div class="box-title">대분류</div>
 							<ul>
-								<li>전체</li>
+								<c:forEach items="${examInfoList}" var="categoryList">
+									<li value="${categoryList.mdobligfldnm}">${categoryList.mdobligfldnm}</li>
+								</c:forEach>
 							</ul>
 						</div>
 						<div class="category-box">
 							<div class="box-title">중분류</div>
 							<ul>
-								<li>전체</li>
+								<c:forEach items="${examInfoList}" var="categoryList">
+									<li value="${categoryList.obligfldnm}">${categoryList.obligfldnm}</li>
+								</c:forEach>
 							</ul>
 						</div>
 						<div class="category-box">
 							<div class="box-title">소분류</div>
 							<ul>
-								<li>전체</li>
+								<c:forEach items="${examInfoList}" var="categoryList">
+									<li value="${categoryList.jmfldnm}">${categoryList.jmfldnm}</li>
+								</c:forEach>
 							</ul>
 						</div>
 						<div class="category-footer">
@@ -109,7 +115,8 @@
 	</main>
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="js/category.js"></script>
-	<script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/ad2be14d60.js"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -15,6 +15,7 @@
 		<typeAlias type="dto.TestBoardComment" alias="TestBoardComment" />
 		<typeAlias type="dto.OneLineBoard" alias="OneLineBoard" />
 		
+		
 	</typeAliases>
 
 
@@ -43,7 +44,8 @@
 		<mapper resource="mapper/FreeBoardComment.xml"/>
 		<mapper resource="mapper/TestBoard.xml"/>
 		<mapper resource="mapper/TestBoardComment.xml"/>
-		<mapper resource="mapper/OneLineBoard.xml"/>		
+		<mapper resource="mapper/OneLineBoard.xml"/>
+		<mapper resource="mapper/CategoryList.xml"/>			
 	</mappers>
 
 
