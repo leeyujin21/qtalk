@@ -1,11 +1,18 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dto.ExamSchedule;
+import service.ExamScheduleService;
+import service.ExamScheduleServiceImpl;
 
 /**
  * Servlet implementation class Main
@@ -26,7 +33,20 @@ public class Main extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("main.jsp").forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		List<String> jmfldnm = new ArrayList<>();
+		jmfldnm.add("정보처리기사");
+		jmfldnm.add("금형기술사");
+		jmfldnm.add("수산양식기술사");
+		
+		try {
+			ExamScheduleService examScheduleService = new ExamScheduleServiceImpl();
+			List<ExamSchedule> examList = examScheduleService.
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("main 오류");
+			request.getRequestDispatcher("main.jsp").forward(request, response);
+		}
 	}
 
 	/**

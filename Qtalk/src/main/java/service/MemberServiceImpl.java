@@ -33,7 +33,7 @@ public class MemberServiceImpl implements MemberService {
 	public void memberDelete(String id) throws Exception {
 		memberDao.deleteMember(id);
 	}
-	// 내 정보 수정
+	// 내 정보 수정 (닉네임, 비밀번호)
 	@Override
 	public void memberchange(Member member) throws Exception {
 		memberDao.updateMember(member);

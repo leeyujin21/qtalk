@@ -14,4 +14,10 @@
 		SELECT implplannm FROM examschedule
 		where jmfldnm = '${subject}'
 	</select>
+	
+	<select id="selectSubject" parameterType="String" resultType="ExamSchedule">
+		<![CDATA[
+			select * from examschedule where jmfldnm=#{subject}
+		]]>
+	</select>
 </mapper>

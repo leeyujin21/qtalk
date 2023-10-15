@@ -21,5 +21,11 @@ public class ExamScheduleDaoImpl implements ExamScheduleDao {
 	public List<Object> selectedSubjectRound(String subject) throws Exception {
 		return sqlSession.selectList("mapper.examschedule.selectedSubjectRound", subject);
 	}
+	
+	// List로 종목명을 입력받아 main info box에 들어갈 정보를 리턴
+	@Override
+	public List<ExamSchedule> selectSubject(String sub) throws Exception {
+		return sqlSession.selectList("mapper.examschedule.selectSubject")
+	}
 
 }

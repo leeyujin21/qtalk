@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -10,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dto.ExamInfo;
 import dto.Member;
 import dto.OneLineBoard;
+import service.ExamInfoService;
+import service.ExamInfoServiceImpl;
 import service.OneLineBoardService;
 import service.OneLineBoardServiceImpl;
 
@@ -41,9 +45,14 @@ public class OneLineBoardPost extends HttpServlet {
 			curpage = Integer.parseInt(page);
 		}
 		
+		// 서블릿에서 examinfo 데이터를 가져오는 코드 (예시)
+		List<ExamInfo> examInfoList = null;
 		try {
 			OneLineBoardService oneLineBoardService = new OneLineBoardServiceImpl();
 			Map<String, Object> res = oneLineBoardService.oneLineBoardListByPage(curpage);
+			ExamInfoService examinfoservice = new ExamInfoServiceImpl();
+			examInfoList = examinfoservice.getExamInfoNames();
+			request.setAttribute("examInfoList", examInfoList); // JSP 페이지로 데이터 전달
 			request.setAttribute("res", res);
 			request.getRequestDispatcher("onelineboard.jsp").forward(request, response);
 		} catch(Exception e) {

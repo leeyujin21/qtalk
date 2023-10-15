@@ -56,7 +56,7 @@ public class Join extends HttpServlet {
 			response.sendRedirect("login");
 		} catch(Exception e) {
 			request.setAttribute("err", e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.getRequestDispatcher("join.jsp").forward(request, response);
 		}
 		
 	}
