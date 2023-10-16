@@ -63,5 +63,17 @@
 				update freeboard set commentcount=commentcount-1 where num=#{num}
 		]]>
 	</update>
+	
+	<delete id="deleteBoardAll" parameterType="String">
+		<![CDATA[
+				delete from freeboard where writer=#{id}
+		]]>
+	</delete>
+	
+	<select id="selectBoardNum" parameterType="String" resultType="String">
+		<![CDATA[
+				select num from freeboard where writer=#{id}
+		]]>
+	</select>
 
 </mapper>
