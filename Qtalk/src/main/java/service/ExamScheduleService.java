@@ -9,5 +9,6 @@ public interface ExamScheduleService {
 	List<Object> selectRoundList(String subject) throws Exception;
 	
 	// main info box
-	List<ExamSchedule> mainInfoList(List<String> list) throws Exception;
+	List<ExamSchedule> scheduleList() throws Exception;
+	/* List<ExamSchedule> mainInfoList(List<String> list) throws Exception; */
 }

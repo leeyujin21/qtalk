@@ -1,30 +1,26 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.ExamSchedule;
 import service.ExamScheduleService;
 import service.ExamScheduleServiceImpl;
 
 /**
- * Servlet implementation class Main
+ * Servlet implementation class ScheduleSearch
  */
-@WebServlet("/main")
-public class Main extends HttpServlet {
+@WebServlet("/schedulesearch")
+public class ScheduleSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Main() {
+    public ScheduleSearch() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,13 +29,23 @@ public class Main extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("main.jsp").forward(request, response);
+		request.setCharacterEncoding("uft-8");
+		String search = request.getParameter("search");
+		
+		try {
+		} catch(Exception e) {
+			e.printStackTrace();
+			request.setAttribute("err", "error");
+			request.getRequestDispatcher("testschedule.jsp").forward(request, response);
+		}
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

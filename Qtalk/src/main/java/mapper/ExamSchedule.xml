@@ -15,9 +15,9 @@
 		where jmfldnm = '${subject}'
 	</select>
 	
-	<select id="selectSubject" parameterType="String" resultType="ExamSchedule">
+	<select id="selectSubjectSchedule" resultType="ExamSchedule">
 		<![CDATA[
-			select * from examschedule where jmfldnm=#{subject}
+			SELECT * from examschedule WHERE docregstartdt >= CURDATE() OR pracregstartdt >= CURDATE();
 		]]>
 	</select>
 </mapper>

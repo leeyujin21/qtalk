@@ -24,8 +24,11 @@ public class ExamScheduleServiceImpl implements ExamScheduleService {
 		return examscheduleDao.selectedSubjectRound(subject);
 	}
 
-	// main info box
-	public List<ExamSchedule> mainInfoList(List<String> list) throws Exception {
-		return examscheduleDao.;
+	// main 페이지 시험 일정
+	@Override
+	public List<ExamSchedule> scheduleList() throws Exception {
+		return examscheduleDao.selectSubjectSchedule();
 	}
+	
+
 }
