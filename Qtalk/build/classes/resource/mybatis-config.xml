@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD COnfig 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="dto.Member" alias="Member" />
+		<typeAlias type="dto.ExamInfo" alias="ExamInfo" />
+		<typeAlias type="dto.ExamSchedule" alias="ExamSchedule" />
+		<typeAlias type="dto.FreeBoard" alias="FreeBoard" />
+		<typeAlias type="dto.FreeBoardComment" alias="FreeBoardComment" />
+		<typeAlias type="dto.TestBoard" alias="testboard" />
+		<typeAlias type="dto.TestBoardComment" alias="TestBoardComment" />
+		<typeAlias type="dto.OneLineBoard" alias="OneLineBoard" />
+		
+	</typeAliases>
+
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+    	    <dataSource type="POOLED">
+        	<property name="driver" value="org.mariadb.jdbc.Driver"/>
+	        <property name="url" value="jdbc:mariadb://localhost:3306/qtalk"/>
+	        <property name="username" value="root"/>
+	        <property name="password" value="1234"/>
+      		</dataSource>		
+<!--			
+  			<dataSource type="JNDI">
+				<property name="data_source" value="java:comp/env/jdbc/kosta"/>
+			</dataSource>
+ -->
+   		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="mapper/Member.xml" />
+		<mapper resource="mapper/ExamInfo.xml"/>
+		<mapper resource="mapper/ExamSchedule.xml"/>
+		<mapper resource="mapper/FreeBoard.xml"/>
+		<mapper resource="mapper/FreeBoardComment.xml"/>
+		<mapper resource="mapper/TestBoard.xml"/>
+		<mapper resource="mapper/TestBoardComment.xml"/>
+		<mapper resource="mapper/OneLineBoard.xml"/>		
+	</mappers>
+
+
+</configuration>
