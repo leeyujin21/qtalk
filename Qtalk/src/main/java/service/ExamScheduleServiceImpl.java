@@ -24,10 +24,16 @@ public class ExamScheduleServiceImpl implements ExamScheduleService {
 		return examscheduleDao.selectedSubjectRound(subject);
 	}
 
-	// main 페이지 시험 일정
+	// main page 임박한 시험 일정 List로 가져오기
 	@Override
 	public List<ExamSchedule> scheduleList() throws Exception {
 		return examscheduleDao.selectSubjectSchedule();
+	}
+
+	// testschedule search
+	@Override
+	public List<ExamSchedule> searchSchedule(String search) throws Exception {
+		return examscheduleDao.selectTestSchedule(search);
 	}
 	
 

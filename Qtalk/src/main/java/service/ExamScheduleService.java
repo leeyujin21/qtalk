@@ -11,4 +11,7 @@ public interface ExamScheduleService {
 	// main info box
 	List<ExamSchedule> scheduleList() throws Exception;
 	/* List<ExamSchedule> mainInfoList(List<String> list) throws Exception; */
+	
+	// examschedule list to testschedule
+	List<ExamSchedule> searchSchedule(String search) throws Exception;
 }

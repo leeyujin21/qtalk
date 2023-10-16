@@ -6,6 +6,7 @@ import java.util.Map;
 
 import dao.OneLineBoardDAO;
 import dao.OneLineBoardDAOImpl;
+import dto.Level;
 import dto.OneLineBoard;
 import util.PageInfo;
 
@@ -80,6 +81,12 @@ public class OneLineBoardServiceImpl implements OneLineBoardService {
 	@Override
 	public void boardDeleteAll(String id) throws Exception {
 		oneLineBoardDao.deleteBoardAll(id);
+	}
+	
+	// onelineboard 에서 인기 있는 시험 3가지 가져오기
+	@Override
+	public List<Level> oneLineBoardMostSubject() throws Exception {
+		return oneLineBoardDao.selectMostSubject();
 	}
 	
 	

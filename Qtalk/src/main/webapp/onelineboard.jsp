@@ -23,10 +23,6 @@
 	           			 <!-- subject 데이터 가져오기 -->
 	                	<option value="${examInfo.jmfldnm}" ${res.type eq '${examInfo.jmfldnm}'? 'selected':''}>#${examInfo.jmfldnm}</option> 
 	                </c:forEach>
-	               		<%-- <option value="기사이름1" ${res.type eq '기사이름1'? 'selected':''}>#기사이름1</option>
-	               		<option value="기사이름2" ${res.type eq '기사이름2'? 'selected':''}>#기사이름2</option>
-	               		<option value="기사이름3" ${res.type eq '기사이름3'? 'selected':''}>#기사이름3</option>
-	               		<option value="기사이름4" ${res.type eq '기사이름4'? 'selected':''}>#기사이름4</option> --%>
 	            </select>
 	            <input type="text" id="search" name="keyword" value="${res.keyword}" placeholder="게시글 검색하기">
 	           <input type="submit" id="searchsubmit" class="search-btn"> <i class="fas fa-search" style="width:20px; position: absolute; right:25px; top:20%;"></i>

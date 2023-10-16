@@ -66,7 +66,7 @@
 
 		<!-- 검색창 -->
 		<section class="search-section test-search ">
-			<form action="#" method="post" class="search-form">
+			<form action="testschedulesearch" method="get" class="search-form">
 				<input type="search" name="search" class="input-search">
 				<button class="search-btn">
 					<i class="fas fa-search"></i>
