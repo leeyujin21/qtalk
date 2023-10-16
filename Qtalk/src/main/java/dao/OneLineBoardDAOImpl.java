@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import dto.Level;
 import dto.OneLineBoard;
 import util.MybatisSqlSessionFactory;
 
@@ -42,6 +43,12 @@ public class OneLineBoardDAOImpl implements OneLineBoardDAO {
 	public void deleteBoardAll(String id) throws Exception {
 		sqlSession.delete("mapper.onelineboard.deleteBoardAll",id);
 		sqlSession.commit();
+	}
+
+	// onelineboard에서 인기 있는 시험 3개 가져오기
+	@Override
+	public List<Level> selectMostSubject() throws Exception {
+		return sqlSession.selectList("mapper.onelineboard.selectMostSubject");
 	}
 	
 	

@@ -14,6 +14,7 @@
 		<typeAlias type="dto.TestBoard" alias="testboard" />
 		<typeAlias type="dto.TestBoardComment" alias="TestBoardComment" />
 		<typeAlias type="dto.OneLineBoard" alias="OneLineBoard" />
+		<typeAlias type="dto.Level" alias="Level" />
 		
 		
 	</typeAliases>

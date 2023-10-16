@@ -1,7 +1,9 @@
 package service;
 
+import java.util.List;
 import java.util.Map;
 
+import dto.Level;
 import dto.OneLineBoard;
 
 public interface OneLineBoardService {
@@ -11,4 +13,7 @@ public interface OneLineBoardService {
 	
 	// 특정 id 게시판 모두 삭제
 	void boardDeleteAll(String id) throws Exception;
+	
+	// onelineboard 에서 인기 있는 시험 3가지 가져오기
+	List<Level> oneLineBoardMostSubject() throws Exception;
 }
