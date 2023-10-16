@@ -3,6 +3,8 @@ package service;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.ibatis.javassist.compiler.MemberResolver;
+
 import dao.MemberDAO;
 import dao.MemberDAOImpl;
 import dto.Member;
@@ -75,6 +77,11 @@ public class MemberServiceImpl implements MemberService {
 		Member member = memberDao.selectMemberWhereEmail(email);
 		if(member == null) return true;
 		return false;
+	}
+
+	@Override
+	public Member selectMember(String id) throws Exception {
+		return memberDao.selectMember(id);
 	}
 
 }

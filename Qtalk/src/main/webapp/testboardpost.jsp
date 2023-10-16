@@ -56,6 +56,7 @@
 					</c:if>
 						
 				</div>	
+				
 			</c:forEach>
 			
 <script>

@@ -75,5 +75,15 @@
 				select num from freeboard where writer=#{id}
 		]]>
 	</select>
+		<select id="searchFreeBoardList" parameterType="hashmap"   resultType="FreeBoard" >
+		select * from freeboard
+		where ${type} like '%${keyword}%'  order by num desc 
+		limit #{row},10 
+	</select>
+	
+	<select id="searchFreeBoardCount" resultType="Integer">
+			select count (*) from freeboard
+			where ${type} like '%${keyword}%'
+	</select> 
 
 </mapper>

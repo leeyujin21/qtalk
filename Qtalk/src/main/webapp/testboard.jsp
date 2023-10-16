@@ -9,12 +9,20 @@
 <body>
 <%@ include file="header.jsp" %>
 <div class="board-title">
-        <h1 style="margin-bottom: 50px;">시험문제공유</h1>
+    <h1 style="margin-bottom: 50px;">시험문제공유</h1>
+    <form action="testboardsearch" method="post" id="searchform">    
         <div class="search" style="position: relative;">
-            <input type="text" id="search" style="outline: none;">
+        	<select name="type" id="selectbar">
+        		<option value="all">선택</option>
+				<option value="subject" ${ res.type eq 'subject' ? 'selected' : ''}>시험종목</option>
+				<option value="writer" ${ res.type eq 'writer' ? 'selected' : ''}>작성자</option>
+				<option value="title" ${ res.type eq 'title' ? 'selected' : ''}>제목</option>
+				<option value="content" ${ res.type eq 'content' ? 'selected' : ''}>내용</option>
+        	</select>
+            <input type="text" id="search" name="keyword" style="outline: none;">
             <button class="search-btn"><i class="fas fa-search" style="width:20px; position: absolute; right:25px; top:20%;"></i></button>
-            
         </div>
+       </form> 
     </div>
 
     
@@ -31,8 +39,8 @@
             <div class="viewcnt">${testboard.viewcount }</div>
         </div> 
         </c:forEach> 
-        
     </div>
+    
     <div id="emptyArea">
       <c:choose>
          <c:when test="${res.pageInfo.curPage>1}">

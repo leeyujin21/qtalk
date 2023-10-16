@@ -6,39 +6,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Qtalk | FreeBoard</title>
 <link href="css/freeboard.css" rel="stylesheet" type="text/css">
 </head>
 <body>
    <%@ include file="header.jsp"%>
-   <div class="board-title">
+  <div class="board-title">
       <h1 style="margin-bottom: 50px;">자유게시판</h1>
-      <div class="search" style="position: relative;">
-         <input type="text" id="search" style="outline: none;">
-         
-         <button class="search-btn">
-            <i class="fas fa-search"
-               style="width: 20px; position: absolute; right: 25px; top: 20%;"></i>
-         </button>
-
-      </div>
+      <form action="freeboardsearch" method="post" id="searchform">    
+     	 <div class="search" style="position: relative;">
+     	 	<select name="type" id="selectbar">
+        		<option value="all">선택</option>
+				<option value="title" ${ res.type eq 'title' ? 'selected' : ''}>제목</option>
+				<option value="writer" ${ res.type eq 'writer' ? 'selected' : ''}>작성자</option>
+				<option value="content" ${ res.type eq 'content' ? 'selected' : ''}>내용</option>
+        	</select>
+        	 <input type="text" id="search" name="keyword" style="outline: none;">
+        	 <button class="search-btn"><i class="fas fa-search" style="width: 20px; position: absolute; right: 25px; top: 20%;"></i></button>
+  	    </div>
+      </form> 
    </div>
-
-   <form action="freeboard" method="post">
+	
+  <!--  <form action="freeboard" method="post"> -->
       <div class="container">
          <div class="write">
-            <a href="freeboardwrite">글쓰기</a>
-         </div>
-         <c:forEach items="${res.boardList }" var="freeboard">
+            <a href="freeboardwrite">글쓰기</a></div>
+         <c:forEach items="${res.freeBoardList}" var="freeboard">
             <div class="post">
-            	<div class="postnum">${freeboard.num }</div>&nbsp;&nbsp;&nbsp;&nbsp;
-               <div class="title"><a href="freeboarddetail?num=${freeboard.num }">${freeboard.title }</a></div>
-               <div class="commentcnt"> 댓글 &#40; ${freeboard.commentcount } &#41; </div>
-               <div class="viewcnt">${freeboard.viewcount }</div>
+           		<div class="postnum">${freeboard.num }</div>
+           		<div class="left" >
+	               	<div class="title"><a href="freeboarddetail?num=${freeboard.num }">${freeboard.title }</a></div>
+	               	<div class="left_bot">
+	               	<div class="writer">작성자 : ${freeboard.writer}</div>
+	               	<div class="viewcnt">조회 : ${freeboard.viewcount }</div>	               	
+	               	<div class="writedate">${freeboard.writedate }</div>
+	               	</div>
+           		</div>
+           		<div class="right">
+	               	<div class="commentcnt"> 댓글 &#40; ${freeboard.commentcount } &#41; </div>
+           		</div>
             </div>
          </c:forEach>
       </div>
-   </form>
+   <!-- </form> -->
    
    
    <!-- 페이지 수 표시 시작 -->

@@ -18,6 +18,7 @@
                  // 문자열에서 첫 글자와 마지막 글자를 제외하고, 그 후에 ','로 분할
                    var cleanedData = res.substring(1, res.length - 1).split(',');
                    var dataArray = []; // dataArray 변수를 정의합니다.
+                   $('#round').empty();
                    for(var i=0; i<cleanedData.length; i++){
                        var trimmedData = cleanedData[i].trim();
                        // 옵션을 dataArray 배열에 추가
@@ -47,12 +48,14 @@
          <div class="div">
             <div class="select">
                &nbsp;&nbsp;시험명&nbsp;&nbsp;
-               <select id="subject" name="subject">
-                   <option value="">시험명을 선택하세요</option>
+               <input id="subject" name="subject" list="subject1" placeholder="시험명을 선택하세요">
+               <datalist id="subject1" >
                    <c:forEach items="${examInfoList}" var="examInfo">
-                       <option value="${examInfo.jmfldnm}">${examInfo.jmfldnm}</option>
+                       <option value="${examInfo.jmfldnm}"></option>
                    </c:forEach>
-               </select>
+               </datalist>
+                       
+                       
             </div>
          </div>
          <div class="div">
@@ -94,7 +97,7 @@
    <!--게시글 작성 폼 끝-->
 
    <div class="list-back-btn">
-      <span><a href="..\gunwoo\testboard.html">목록</a></span>
+      <span><a href="\testboard">목록</a></span>
    </div>
 </body>
 </html>

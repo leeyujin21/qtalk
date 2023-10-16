@@ -50,17 +50,17 @@
 		]]>
 	</delete>
 	
-	<!-- 
-	<select id="searchBoardList" parameterType="hashmap"   resultType="TestBoard" >
+	
+	<select id="searchTestBoardList" parameterType="hashmap"   resultType="TestBoard" >
 		select * from testboard
 		where ${type} like '%${keyword}%'  order by num desc 
 		limit #{row},10 
 	</select>
 	
-	<select id="searchBoardCount" resultType="Integer">
+	<select id="searchTestBoardCount" resultType="Integer">
 			select count (*) from testboard
 			where ${type} like '%${keyword}%'
-	</select> -->
+	</select> 
 	
 	<update id="updateTestBoardViewCount" parameterType="Integer">
 		<![CDATA[
