@@ -56,8 +56,19 @@
 		<hr>
 		<div class="mywrite">
 			<h2>내가 쓴 글</h2>
-			<div id="mywrite" class="inputspace">
-				<div>content</div>
+				<div id="mywrite" class="inputspace">
+					<div class="container">
+				        <div class="write"><a href="testboardwrite">글쓰기</a></div>
+				        <c:forEach items="${res.testBoardList}" var="testboard">
+				        <div class="post">
+				            <div class="subject" style="font-family: 'Pretendard-Regular';">
+				                ${testboard.subject}
+				            </div>
+				            <div class="title" ><a href="testboarddetail?num=${testboard.num }">${testboard.title }</a>
+				            </div>
+				        </div> 
+				        </c:forEach> 
+	   			 </div>
 			</div>
 		</div>
 		<hr>

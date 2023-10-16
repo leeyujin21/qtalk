@@ -17,4 +17,7 @@ public interface TestBoardService {
 	void boardDeleteAll(String id) throws Exception;
 	// id가 작성한 게시판 num 리스트
 	List<String> boardNumList(String id) throws Exception;
+	
+	// testboardDAO 에서 id로 testboard List 가져오기
+	List<TestBoard> myWriteTestBoard(String id) throws Exception;
 }

@@ -89,5 +89,11 @@
 				select num from testboard where writer=#{id}
 		]]>
 	</select>
+	
+	<select id="selectBoardList" parameterType="String" resultType="Object">
+		<![CDATA[
+				select * from testboard where writer='1' order by writedate desc
+		]]>
+	</select>
 
 </mapper>

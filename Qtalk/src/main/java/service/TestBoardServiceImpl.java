@@ -123,6 +123,13 @@ public class TestBoardServiceImpl implements TestBoardService {
 	public List<String> boardNumList(String id) throws Exception {
 		return testBoardDao.selectBoardNum(id);
 	}
+
+
+
+	@Override
+	public List<TestBoard> myWriteTestBoard(String id) throws Exception {
+		return testBoardDao.selectBoardList(id);
+	}
 	
 
 }

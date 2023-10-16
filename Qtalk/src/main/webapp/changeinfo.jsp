@@ -22,7 +22,7 @@
 				<p>내 정보 수정</p>
 				<div class="nicknametext">
 					<label for="nickname" class="textlabel">닉네임</label>
-					 <input	type="text" name="nickname" id="nickname" class="textinput" required="required" placeholder="${member.nickname }">
+					 <input	type="text" name="nickname" id="nickname" class="textinput" required="required" placeholder="${member.nickname}">
 					 <input type="button" id="nicknameduplication" value="중복확인">
 				</div>
 				<!-- <fieldset>

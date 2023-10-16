@@ -21,8 +21,8 @@ $(function() {
 								alert("닉네임 중복됩니다.")
 							}
 						},
-						error:function(res) {
-							alert(res.err)
+						error:function(err) {
+							alert(err)
 						}
 					})   
 				}

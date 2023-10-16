@@ -63,13 +63,11 @@ public class Main extends HttpServlet {
 	         OneLineBoardService oneLineBoardService = new OneLineBoardServiceImpl();
 	         List<Level> mostSub = oneLineBoardService.oneLineBoardMostSubject();
 	         for(int i = 0; i < mostSub.size(); i++) {
-	        	 System.out.println(mostSub.get(i).getCnt());
-	        	 System.out.println(mostSub.get(i).getTot());
 	        	 String temp = Math.round( mostSub.get(i).getTot() / mostSub.get(i).getCnt()) + "";
-	        	 System.out.println(temp);
 	        	 mostSub.get(i).setLevel(temp);
-	        	 System.out.println("------------------------");
 	         }
+	         
+	         // main right box 확률 추가
 	         
 	         request.setAttribute("subjects", mostSub);
 	         request.getRequestDispatcher("main.jsp").forward(request, response);
