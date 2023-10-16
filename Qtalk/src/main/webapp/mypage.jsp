@@ -34,7 +34,7 @@
 						<div id='content'>
 							<input type='button' value='X' class="close" id='btnClose'/>
 							<p>	비밀번호를 입력하세요</p><br/>
-							<input type='password' id='pwd' /><br>
+							<input type='password' id='pwd' style="text-align:center;"/><br>
 							<input type='button' value='check' id='btnCheck'/>
 						</div>
 					</div>
