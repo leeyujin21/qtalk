@@ -12,6 +12,7 @@
 }
 
 a {
+	font-family: 'Pretendard-Regular';
 	text-decoration: none;
 	color: black;
 }
@@ -36,13 +37,18 @@ a {
 	cursor: pointer;
 }
 
+#goback > a{
+	font-family: 'Pretendard-Regular';
+}
+
 #changeinfospace {
+	padding-top: 30px;
 	width: 60%;
 	margin: 0 auto 0 auto;
-	background-color: #FDFDFD;
 }
 
 #changeinfospace>p {
+	font-family: 'Pretendard-Regular';
 	height: 50px;
 	margin: 0 auto 14.5px auto;
 	padding-top: 31px;
@@ -58,6 +64,12 @@ a {
 	border: 1px solid gainsboro;
 	display: flex;
 	align-items: center;
+}
+
+.nicknametext > label,
+.passwordchange >  label
+{
+	font-family: 'Pretendard-Regular';
 }
 
 #nicknameduplication {

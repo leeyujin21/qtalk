@@ -6,6 +6,8 @@
 	<meta charset="UTF-8">
 	<link href="css/mypage.css" rel="stylesheet" />
 	<title>마이페이지</title>
+	<style>
+	</style>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -26,8 +28,16 @@
 						value="${member.email}">
 				</div>
 				<div class="changeinfo">
-					<a href="deletemember">회원탈퇴</a>
-					<a href="changeinfo">내 정보 수정</a>
+					<a href="deletemember">회원탈퇴</a> &nbsp;&nbsp;
+					<input type="button" id="btnOpen" value="내정보수정">
+					<div id='modal'>
+						<div id='content'>
+							<input type='button' value='X' class="close" id='btnClose'/>
+							<p>	비밀번호를 입력하세요</p><br/>
+							<input type='password' id='pwd' /><br>
+							<input type='button' value='check' id='btnCheck'/>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -57,4 +67,50 @@
 	<!--틀만 잡아뒀습니다.-->
 </footer>
 </body>
+<script>
+	var btnOpen  = document.getElementById('btnOpen');
+	var btnCheck = document.getElementById('btnCheck');
+	var btnClose = document.getElementById('btnClose');
+	var passwordInput = document.getElementById('pwd');
+	
+	// 경고 메시지를 표시하는 함수
+	function showAlert(message) {
+	    alert(message);
+	}
+	
+	// 입력한 비밀번호가 사용자의 비밀번호와 일치하는지 확인하는 함수
+	function checkPassword() {
+	    var userPassword = "${member.password}"; // 서버 측에서 실제 비밀번호 값으로 대체해주세요
+
+	    if (passwordInput.value === userPassword) {
+	        closeRtn(); // 모달을 숨깁니다
+	        window.location.href = 'changeinfo'; // changeinfo 페이지로 이동합니다
+	    } else {
+	        showAlert('일치하지 않는 비밀번호입니다.'); // 일치하지 않는 비밀번호에 대한 경고를 표시합니다
+	    }
+	}
+	
+	
+	// modal 창을 감춤
+	var closeRtn = function(){
+	  var modal = document.getElementById('modal');
+	  modal.style.display = 'none';
+	}
+	
+	// modal 창을 보여줌
+	btnOpen.onclick = function(){
+	  var modal = document.getElementById('modal');
+	  modal.style.display = 'block';
+	}
+	
+	// check 버튼 클릭 시 changeinfo 페이지로 이동
+    btnCheck.onclick = function () {
+        closeRtn(); // 모달 창 감추기
+        window.location.href = 'changeinfo'; // changeinfo 페이지로 이동
+    }
+
+ 	// 비밀번호 유효성을 검사하기 위한 'check' 버튼 클릭 이벤트
+    btnCheck.onclick = checkPassword;
+	btnClose.onclick = closeRtn;
+</script>
 </html>
