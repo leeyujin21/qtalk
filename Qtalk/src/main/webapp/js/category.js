@@ -1,13 +1,17 @@
 $(document).ready(function() {
-    let crtBtn = $(".category-btn");
-    let crtCon = $(".category-box-container");
+	let crtBtn = $(".category-btn");
+	let crtCon = $(".category-box-container");
+	let crtTitle = $(".category-title");
+	let closeBtn = $(".close-btn");
 
-    let closeBtn =$(".close-btn");
+	crtBtn.click(function() {
+		crtCon.toggleClass("hidden");
+		crtTitle.toggleClass("category-color");		
+	});
+	closeBtn.click(function() {
+		crtCon.toggleClass("hidden");
+	});
 
-    crtBtn.click(function() {
-        crtCon.toggleClass("hidden");
-    });
-    closeBtn.click(function(){
-        crtCon.toggleClass("hidden");
-    });
 });
+
+

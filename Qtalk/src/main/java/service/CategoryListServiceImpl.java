@@ -14,8 +14,18 @@ public class CategoryListServiceImpl implements CategoryListService {
 	}
 
 	@Override
-	public List<ExamInfo> getCategoryList() throws Exception {
-		return categoryListDao.selectCategory();
+	public List<ExamInfo> getAllCategoryList() throws Exception {
+		return categoryListDao.selectAllCategory();
 	}
 
+	@Override
+	public List<ExamInfo> getFirstCategoryList() throws Exception {
+		return categoryListDao.selectFirstCategory();
+	}
+
+	@Override
+	public List<ExamInfo> getSecoundCategoryList() throws Exception {
+		return categoryListDao.selectSecondCategory();
+	}
+	
 }

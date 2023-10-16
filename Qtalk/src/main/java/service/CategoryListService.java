@@ -5,7 +5,9 @@ import java.util.List;
 import dto.ExamInfo;
 
 public interface CategoryListService {	
-	List<ExamInfo> getCategoryList() throws Exception;
+	List<ExamInfo> getAllCategoryList() throws Exception;
+	List<ExamInfo> getFirstCategoryList() throws Exception;
+	List<ExamInfo> getSecoundCategoryList() throws Exception;
 }
 
 

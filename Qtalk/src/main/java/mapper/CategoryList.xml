@@ -9,10 +9,23 @@
 	
 	<mapper namespace="mapper.categorylist">
 	
-	<select id="selectCategory" parameterType="Integer" resultType="ExamInfo">
+	<select id="selectAllCategory" parameterType="Integer" resultType="ExamInfo">
 		<![CDATA[
-			SELECT DISTINCT mdobligfldnm, obligfldnm, jmfldnm FROM examinfo WHERE qualgbcd = 'T'
+			SELECT * FROM examinfo WHERE qualgbcd = 'T'
 			]]>
 	</select>
+	
+	<select id="selectFirstCategory" parameterType="Integer" resultType="ExamInfo">
+		<![CDATA[
+			SELECT DISTINCT mdobligfldnm FROM examinfo WHERE qualgbcd = 'T'
+			]]>
+	</select>
+	
+	<select id="selectSecondCategory" parameterType="Integer" resultType="ExamInfo">
+		<![CDATA[
+			SELECT DISTINCT obligfldnm FROM examinfo WHERE qualgbcd = 'T'
+			]]>
+	</select>
+	
 	
 	</mapper>
