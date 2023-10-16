@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD COnfig 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.examschedule">
+	<select id="selectRoundList" resultType="ExamSchedule">
+		<![CDATA[
+			select * from examschedule
+		]]>
+	</select>
+	
+	<select id="selectedSubjectRound" parameterType="String" resultType="String">
+		SELECT implplannm FROM examschedule
+		where jmfldnm = '${subject}'
+	</select>
+</mapper>

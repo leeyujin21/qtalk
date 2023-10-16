@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD COnfig 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.examinfo">
+	<select id="selectSubjectList" resultType="ExamInfo">
+		<![CDATA[
+			select * from examinfo
+		]]>
+	</select>
+
+	<select id="selectJmcd" resultType="String">
+		<![CDATA[
+			select jmcd from examinfo where qualgbcd='T'
+		]]>
+	</select>
+</mapper>
