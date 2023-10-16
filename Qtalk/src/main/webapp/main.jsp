@@ -13,7 +13,7 @@
 	<main class="main">
 		<!-- 메인검색창(test-detail 의 검색창과도 같다)  -->
 		<section class="search-section">
-			<form action="#" method="post" class="search-form">
+			<form action="schedulesearch" method="Get" class="search-form">
 				<input type="search" name="search" class="input-search">
 				<button class="search-btn">
 					<i class="fas fa-search"></i>

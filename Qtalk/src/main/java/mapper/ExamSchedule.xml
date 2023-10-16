@@ -14,4 +14,10 @@
 		SELECT implplannm FROM examschedule
 		where jmfldnm = '${subject}'
 	</select>
+	
+	<select id="selectSubjectSchedule" resultType="ExamSchedule">
+		<![CDATA[
+			SELECT * from examschedule WHERE docregstartdt >= CURDATE() OR pracregstartdt >= CURDATE();
+		]]>
+	</select>
 </mapper>

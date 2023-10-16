@@ -19,14 +19,14 @@
 	        <div class="search" style="position: relative; margin-bottom: 20px;">
 	            <select name="type" id="subjectse2">
 	            	<option value="all">선택</option> 
-	            	<c:forEach items="${res.subjectList}" var="sbj"> 
+	            	<c:forEach items="${examInfoList}" var="examInfo"> 
 	           			 <!-- subject 데이터 가져오기 -->
-	                	<option value="${sbj}" ${res.type eq '${sbj}'? 'selected':''}>#${sbj}</option> 
+	                	<option value="${examInfo.jmfldnm}" ${res.type eq '${examInfo.jmfldnm}'? 'selected':''}>#${examInfo.jmfldnm}</option> 
 	                </c:forEach>
-	               		<option value="기사이름1" ${res.type eq '기사이름1'? 'selected':''}>#기사이름1</option>
+	               		<%-- <option value="기사이름1" ${res.type eq '기사이름1'? 'selected':''}>#기사이름1</option>
 	               		<option value="기사이름2" ${res.type eq '기사이름2'? 'selected':''}>#기사이름2</option>
 	               		<option value="기사이름3" ${res.type eq '기사이름3'? 'selected':''}>#기사이름3</option>
-	               		<option value="기사이름4" ${res.type eq '기사이름4'? 'selected':''}>#기사이름4</option>
+	               		<option value="기사이름4" ${res.type eq '기사이름4'? 'selected':''}>#기사이름4</option> --%>
 	            </select>
 	            <input type="text" id="search" name="keyword" value="${res.keyword}" placeholder="게시글 검색하기">
 	           <input type="submit" id="searchsubmit" class="search-btn"> <i class="fas fa-search" style="width:20px; position: absolute; right:25px; top:20%;"></i>
@@ -41,11 +41,11 @@
 	        <div class="write">
 	            <div class="subsel">
 	                <select name="subject" id="subjectsel" >
-	                	<option value="none" disabled >선택</option>
-	                    <option value="기사이름1">#정보처리기사(jmfldnm)</option> 
-	                    <option value="기사이름2">#기사이름2</option> 
-	                    <option value="기사이름3">#기사이름3</option> 
-	                    <option value="기사이름4">#기사이름4</option> 
+		                <option value="none">선택</option>
+	                	<c:forEach items="${examInfoList}" var="examInfo"> 
+	           				 <!-- subject 데이터 가져오기 -->
+	                		<option value="${examInfo.jmfldnm}">#${examInfo.jmfldnm}</option> 
+	               		 </c:forEach>
 	                </select>
 	            </div>
 	            <div class="level">
