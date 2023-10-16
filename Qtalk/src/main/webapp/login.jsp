@@ -5,6 +5,14 @@
 <head>
 	<meta charset="UTF-8">
 	<link href="css/login.css" rel="stylesheet" />
+	<script>
+		/* login 실패 시 servlet(login)에서 err 출력 */
+		/* let err = "${err}";
+		if(err !== null){
+			alert("${err}");
+			err = null;
+		} */
+	</script>
 </head>
 <body>
 	<%@ include file="header.jsp"%>

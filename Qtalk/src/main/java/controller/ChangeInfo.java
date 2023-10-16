@@ -32,7 +32,17 @@ public class ChangeInfo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("changeinfo.jsp").forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		
+		// 로그인 여부 확인
+		if(member==null) {
+			request.setAttribute("err", "로그인 되지 않았습니다.");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("changeinfo.jsp").forward(request, response);
+		}
 	}
 
 	/**
@@ -43,30 +53,40 @@ public class ChangeInfo extends HttpServlet {
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("member");
 		
+		// 로그인 여부 확인
 		if(member==null) {
-			request.setAttribute("err", "로그인이 되지 않았습니다.");
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.setAttribute("err", "로그인 되지 않았습니다.");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
+		// 현재 비밀번호
+		String password = request.getParameter("password");
+		// 변경할 닉네임
+		String nickname = request.getParameter("nickname");
+		// 변경 할 비밀번호
+		String newPassword = request.getParameter("password1");
 		
-		if(!(request.getParameter("password1").equals(request.getParameter("password2")))) {
-			request.setAttribute("err", "비밀번호가 일치하지 않습니다.");
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+		if(!((member.getPassword()).equals(password))) {
+			System.out.println("현재 비밀번호가 일치하지 않습니다.");
+			String err = "현재 비밀번호가 일치하지 않습니다.";
+			request.setAttribute("err", err);
+			request.getRequestDispatcher("changeinfo.jsp").forward(request, response);
+		} else if(!(newPassword == null)) {
+			member.setNickname(nickname);
+			member.setPassword(newPassword);
+		} else {
+			member.setNickname(nickname);
 		}
-		
-		member.setNickname(request.getParameter("nickname"));
-		member.setPassword(request.getParameter("password1"));
 
 		try {
 			MemberService memberService = new MemberServiceImpl();
 			memberService.memberchange(member);
 			session.setAttribute("member", member);
-			request.getRequestDispatcher("mypage").forward(request, response);
+			request.getRequestDispatcher("mypage.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("err", e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.getRequestDispatcher("changeinfo.jsp").forward(request, response);
 		}
-		
 	}
 
 }
