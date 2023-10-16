@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,68 +10,10 @@
 <body>
 	<%@ include file="header.jsp"%>
 	<main class="test-schedule-main">
-
-		<section class="category-search-section">
-			<!-- 카테고리 -->
-			<div class="category-search-container">
-
-				<div class="category">
-					<div class="category-btn">
-						<div class="category-title">카테고리</div>
-					</div>
-
-					<div class="category-box-container hidden">
-						<div class="category-box">
-							<div class="box-title">대분류</div>
-							<ul>
-								<c:forEach items="${examInfoList}" var="categoryList">
-									<li value="${categoryList.mdobligfldnm}">${categoryList.mdobligfldnm}</li>
-								</c:forEach>
-							</ul>
-						</div>
-						<div class="category-box">
-							<div class="box-title">중분류</div>
-							<ul>
-								<c:forEach items="${examInfoList}" var="categoryList">
-									<li value="${categoryList.obligfldnm}">${categoryList.obligfldnm}</li>
-								</c:forEach>
-							</ul>
-						</div>
-						<div class="category-box">
-							<div class="box-title">소분류</div>
-							<ul>
-								<c:forEach items="${examInfoList}" var="categoryList">
-									<li value="${categoryList.jmfldnm}">${categoryList.jmfldnm}</li>
-								</c:forEach>
-							</ul>
-						</div>
-						<div class="category-footer">
-							<i class="fas fa-times close-btn"></i>
-							<div>
-								<i class="fas fa-redo-alt"></i>
-								<button class="submit-btn">적용</button>
-							</div>
-
-						</div>
-					</div>
-
-
-
-				</div>
-
-
-				<!-- 검색창 -->
-				<section class="search-section test-search ">
-					<form action="#" method="post" class="search-form">
-						<input type="search" name="search" class="input-search">
-						<button class="search-btn">
-							<i class="fas fa-search"></i>
-						</button>
-					</form>
-				</section>
-
-			</div>
-		</section>
+	
+	<!-- 인클루드한 다른 파일 -->
+	<%@ include file ="categorylist.jsp" %>
+	
 
 		<section class="test-list-section">
 			<div class="test-list-header">
@@ -94,19 +37,39 @@
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach items="${examScheduleList}"  var="examScheduleList">
 					<tr>
 						<td><i class="fas fa-bookmark"></i></td>
-						<td>정보처리기사</td>
-						<td>4회</td>
-						<td>2023-01-01 <br> 2023-01-01
+						<!-- 종목명 -->
+						<td value="${examScheduleList.jmfldnm}">${examScheduleList.jmfldnm}</td>
+						<!-- 회차 -->
+						<td value="${examScheduleList.implplannm}">${examScheduleList.implplannm}</td>
+						<td>
+						<!-- 필기 시험 접수 시작일자 -->
+						<span value="${examScheduleList.docregstartdt}">${examScheduleList.docregstartdt} </span><br>
+						<!-- 필기 시험 접수 끝일자 -->
+						<span  value="${examScheduleList.docregstartdt}">${examScheduleList.docregenddt}</span>
 						</td>
-						<td>2023-01-01 <br> 2023-01-01
+						<td>
+						<!-- 필기 시험 일자 -->
+						<span value="${examScheduleList.docexamstartdt}">${examScheduleList.docexamstartdt} </span><br> 
+						<!-- 필기 시험 끝 일자-->
+						<span  value="${examScheduleList.docexamenddt}">${examScheduleList.docexamenddt}</span>
 						</td>
-						<td>2023-01-01 <br> 2023-01-01
+						<td>
+						<!-- 실기 시험 접수 시작일자  -->
+						<span value="${examScheduleList.pracregstartdt}">${examScheduleList.pracregstartdt} </span><br> 
+						<!-- 실기 시험 접수 마감 시작일자  -->
+						<span  value="${examScheduleList.pracregenddt}">${examScheduleList.pracregenddt}</span>
 						</td>
-						<td>2023-01-01 <br> 2023-01-01
+						<td>
+						<!-- 실기 시험 접수 시작일자  -->
+						<span value="${examScheduleList.pracexamstartdt}">${examScheduleList.pracexamstartdt} </span><br> 
+						<!-- 실기 시험 접수 마감 시작일자  -->
+						<span  value="${examScheduleList.pracexamenddt}">${examScheduleList.pracexamenddt}</span>
 						</td>
 					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</section>
