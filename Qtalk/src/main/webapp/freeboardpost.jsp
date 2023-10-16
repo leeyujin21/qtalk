@@ -15,7 +15,7 @@
 	<div class="back" name="submitButton" style="cursor: pointer;">
 		<img src="https://cdn-icons-png.flaticon.com/128/8371/8371124.png"
 			alt="돌아가기" style="width: 20px; margin-bottom: -5px;"
-			name="submitButton"> <a href = "freeboard.jsp">돌아가기</a>
+			name="submitButton"> <a href = "freeboard">돌아가기</a>
 	</div>
 	
 	<div class="testboard_title"name="title">${freeboard.title}</div>

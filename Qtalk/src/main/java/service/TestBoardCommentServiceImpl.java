@@ -53,6 +53,12 @@ public class TestBoardCommentServiceImpl implements TestBoardCommentService {
 	}
 
 
+	@Override
+	public void commentDeleteAll(String num) throws Exception {
+		testBoardCommentDao.deleteCommentAll(num);
+	}
+
+
 
 
 

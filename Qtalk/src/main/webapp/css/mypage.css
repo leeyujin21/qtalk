@@ -30,11 +30,18 @@ a {
 	align-items: center;
 	cursor: pointer;
 }
+#goback > a {
+	font-family: 'Pretendard-Regular';
+}
 
 #myinfo {
 	padding-top: 30px;
 	width: 60%;
 	margin: 0 auto 0 auto;
+}
+#myinfo > p{
+	
+	font-family: 'Pretendard-Regular';
 }
 
 hr {
@@ -70,12 +77,14 @@ hr {
 	height: 70px;
 	border-radius: 66px;
 	border: 3px solid #3B5998;
+	font-family: 'Pretendard-Regular';
 }
 
 .idemail {
 	font-size: 20px;
 	margin-left: 50px;
 	width: 800px;
+	font-family: 'Pretendard-Regular';
 }
 
 .changeinfo {
@@ -84,6 +93,7 @@ hr {
 	align-items: center;
 	width: 158px;
 	height: 63px;
+	font-family: 'Pretendard-Regular';
 }
 
 .changeinfo a {
@@ -110,6 +120,9 @@ hr {
 .inputspace {
 	margin-left: 100px;
 	overflow-y: scroll;
+}
+.inputspace > div {
+	font-family: 'Pretendard-Regular';
 }
 
 .textinput {

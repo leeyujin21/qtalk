@@ -41,6 +41,11 @@ public class TestBoardCommentDaoImpl implements TestBoardCommentDao {
 		
 	}
 	
-
+	// writer가 id인 댓글 모두 삭제
+	@Override
+	public void deleteCommentAll(String num) throws Exception {
+		sqlSession.delete("mapper.testboardcomment.deleteCommentAll", num);
+		sqlSession.commit();	
+	}
 
 }

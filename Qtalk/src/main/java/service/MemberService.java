@@ -7,7 +7,10 @@ public interface MemberService {
 	void join(Member member) throws Exception;
 	
 	void memberchange(Member member) throws Exception;
-
+	
+	// id 값을 받아서 회원탈퇴
+	void memberDelete(String id) throws Exception;
+	
 	String idforget(String email) throws Exception;
 	String pwforget(String id, String email) throws Exception;
 	

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD COnfig 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	<!-- ExamInfo table 사용함 -->
+	
+	<mapper namespace="mapper.categorylist">
+	
+	<select id="selectCategory" parameterType="Integer" resultType="ExamInfo">
+		<![CDATA[
+			SELECT DISTINCT mdobligfldnm, obligfldnm, jmfldnm FROM examinfo WHERE qualgbcd = 'T'
+			]]>
+	</select>
+	
+	</mapper>

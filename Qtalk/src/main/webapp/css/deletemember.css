@@ -10,13 +10,19 @@
 * {
 	font-family: 'Pretendard-Regular';
 }
-.header {
-	height: 100px;
+
+a {
+	text-decoration: none;
+	color: black;
 }
 
 a {
 	text-decoration: none;
 	color: black;
+}
+
+.header {
+	height: 100px;
 }
 
 .jh-container {
@@ -29,26 +35,23 @@ a {
 	align-items: center;
 	cursor: pointer;
 }
-#goback > a{
-	font-family: 'Pretendard-Regular';
-}
 
-#loginspace {
+#changeinfospace {
 	width: 60%;
 	margin: 0 auto 0 auto;
+	background-color: #FDFDFD;
 }
 
-#loginspace>p {
+#changeinfospace>p {
 	height: 50px;
 	margin: 0 auto 14.5px auto;
 	padding-top: 31px;
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
-	font-family: 'Pretendard-Regular';
 }
 
-#idtext {
+.nicknametext {
 	width: 50%;
 	height: 60px;
 	margin: 0 auto 10px auto;
@@ -57,7 +60,18 @@ a {
 	align-items: center;
 }
 
-#passwordtext {
+#nicknameduplication {
+	border-radius: 10px;
+	background: #DFE3EE;
+	color: #3B5998;
+	border: none;
+	width: 70px;
+	height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.passwordchange {
 	width: 50%;
 	height: 60px;
 	margin: 0 auto 60px auto;
@@ -74,19 +88,10 @@ a {
 	line-height: normal;
 	padding-right: 21px;
 	padding-left: 10px;
-	width: 100px;
-}
-
-.textcommon {
-	background: #FFF;
-}
-
-.textcommon > label {
-	font-family: 'Pretendard-Regular';
 }
 
 .textinput {
-	width: 95%;
+	width: 65%;
 	height: 90%;
 	border: none;
 	background: transparent;
@@ -94,39 +99,30 @@ a {
 	font-size: 20px;
 }
 
-.loginbtn {
+.changeinfobtn {
 	text-align: center;
 }
 
-#loginbtn {
+#changeinfobtn {
 	border-radius: 10px;
 	background: #3B5998;
 	color: #FFF;
 	border: none;
-	width: 200px;
+	width: 100px;
 	height: 50px;
 	font-weight: bold;
 	font-size: 1.2em;
 	cursor: pointer;
 }
 
-.bottomspace {
-	padding-top: 15px;
-	text-align: center;
-}
-
-.bottomspace a {
-	color: gray; /*lightgray*/
-	font-size: 0.9em;
+#changeinfocancelbtn {
+	border-radius: 10px;
+	background: #DFE3EE;
+	color: #3B5998;
+	border: none;
+	width: 100px;
+	height: 50px;
 	font-weight: bold;
-	text-decoration: none;
-	font-family: 'Pretendard-Regular';
-}
-
-#joinbtn {
-	margin-right: 10px;
-}
-
-#idforget {
-	margin-right: 10px;
+	font-size: 1.2em;
+	cursor: pointer;
 }

@@ -50,6 +50,12 @@ public class MemberDAOImpl implements MemberDAO {
 	public Member selectMemberWhereEmail(String email) throws Exception {
 		return sqlSession.selectOne("mapper.member.selectMemberWhereEmail", email);
 	}
+	//회원탈퇴
+	@Override
+	public void deleteMember(String id) throws Exception {
+		sqlSession.delete("mapper.member.deleteMember", id);
+		sqlSession.commit();
+	}
 
 	
 }

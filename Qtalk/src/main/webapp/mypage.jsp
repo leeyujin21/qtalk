@@ -26,6 +26,7 @@
 						value="${member.email}">
 				</div>
 				<div class="changeinfo">
+					<a href="deletemember">회원탈퇴</a>
 					<a href="changeinfo">내 정보 수정</a>
 				</div>
 			</div>
