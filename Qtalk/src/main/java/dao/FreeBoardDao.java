@@ -1,16 +1,23 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import dto.FreeBoard;
 
 public interface FreeBoardDao {
 	void insertFreeBoard(FreeBoard freeboard) throws Exception;
+	List <FreeBoard> selectFreeBoardList (Integer row) throws Exception;
 	FreeBoard selectFreeBoard(Integer num) throws Exception;
 	void updateFreeBoard(FreeBoard freeboard) throws Exception;
 	
-	List <FreeBoard> selectFreeBoardList (Integer row) throws Exception;
 	Integer selectFreeBoardCount() throws Exception;
+	
+	Integer searchFreeBoardCount(Map<String,Object> param) throws Exception;
+	List<FreeBoard> searchFreeBoardList(Map<String,Object> param)throws Exception;
+	// 서치
+	
+	
 	void updateFreeBoardViewCount(Integer viewcount)throws Exception;
 	void updateFreeBoardCommentCountUp(Integer num)throws Exception;
 	void updateFreeBoardCommentCountDown(Integer num)throws Exception;

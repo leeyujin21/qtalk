@@ -29,7 +29,6 @@ a {
 }
 
 .search {
-	height: 30px;
 	margin-left: 10px;
 	margin-right: 10px;
 	border: 1px;
@@ -39,14 +38,25 @@ a {
 	color: rgb(116, 111, 111);
 	font-family: 'Pretendard-Regular';
 }
-
+#selectbar{
+	max-width: fit-content;
+    margin-left: 0px;
+    outline: none;
+    background-color: transparent;
+    border: 2px;
+    border-radius: 10px;
+    border-color: #1D2C62;
+    text-align: center;
+    color: #3B5998;
+    font-size: 16px;
+    font-weight: 600;
+}
 #search {
-	width: 95%;
+	width: 80%;
 	min-width: 60%;
 	margin: 0px;
 	border: 1px;
 	border-radius: 10px;
-	padding: 10px;
 	color: rgb(116, 111, 111);
 	background-color: rgba(0, 0, 0, 0);
 }
@@ -71,6 +81,7 @@ a {
 }
 
 .post {
+	height:30px;
 	overflow-anchor: auto;
 	margin: 13px;
 	padding: 30px;

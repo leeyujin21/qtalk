@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -65,5 +66,13 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 	@Override
 	public List<String> selectBoardNum(String id) throws Exception {
 		return sqlSession.selectList("mapper.freeboard.selectBoardNum", id);
+	}
+	@Override
+	public Integer searchFreeBoardCount(Map<String, Object> param) throws Exception {
+		return sqlSession.selectOne("mapper.freeboard.searchFreeBoardCount",param);
+	}
+	@Override
+	public List<FreeBoard> searchFreeBoardList(Map<String, Object> param) throws Exception {
+		return sqlSession.selectList("mapper.freeboard.searchFreeBoardList",param);
 	}
 }

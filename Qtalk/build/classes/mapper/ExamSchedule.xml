@@ -17,6 +17,7 @@
 	
 	<select id="selectSubjectSchedule" resultType="ExamSchedule">
 		<![CDATA[
+
 			SELECT jmfldnm, implplannm, if(docregstartdt >= '2023-08-01', docregstartdt, NULL) ,docregenddt, if(pracregstartdt >= '2023-08-01', pracregstartdt, NULL), pracregstartdt, pracregenddt FROM examschedule
 			WHERE jmfldnm LIKE '%기사%' AND (docregstartdt >= '2023-08-01' OR pracregstartdt >= '2023-08-01') ORDER BY docregstartdt, pracregstartdt;
 		]]>
@@ -26,4 +27,5 @@
 			select * from examschedule
 			where jmfldnm like '%${search}%'
 	</select>
+
 </mapper>
