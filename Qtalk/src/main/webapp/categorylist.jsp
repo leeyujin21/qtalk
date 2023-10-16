@@ -12,49 +12,51 @@
 				</div>
 
 				<div class="category-box-container hidden">
-				
+
 					<div class="category-box">
 						<div class="box-title">대분류</div>
-						<ul class="categorys">
-							<c:if test="${examInfoList == null}">
+						<ul class="categorys" id="firstcategory">
+							<c:if test="${firstCategoryList == null}">
 								<li>내용이 없습니다</li>
 							</c:if>
-							<c:if test="${examInfoList != null}">
+							<c:if test="${firstCategoryList != null}">
 								<li>전체</li>
 							</c:if>
 
-							<c:forEach items="${examInfoList}" var="categoryList">
-								<li value="${categoryList.mdobligfldnm}">${categoryList.mdobligfldnm}</li>
+							<c:forEach items="${firstCategoryList}" var="firstCategoryList">
+								<li value="${firstCategoryList.mdobligfldnm}">${firstCategoryList.mdobligfldnm}</li>
+							</c:forEach>
+						</ul>
+					</div>
+
+					<div class="category-box">
+						<div class="box-title">중분류</div>
+						<ul class="categorys" id="secondcategory">
+							<c:if test="${secondCategoryList == null}">
+								<li>내용이 없습니다</li>
+							</c:if>
+							<c:if test="${secondCategoryList != null}">
+								<li>전체</li>
+							</c:if>
+							<c:forEach items="${secondCategoryList}" var="secondCategoryList">
+								<li value="${secondCategoryList.obligfldnm}">${secondCategoryList.obligfldnm}</li>
 							</c:forEach>
 
 						</ul>
 					</div>
-					
-					<div class="category-box">
-						<div class="box-title">중분류</div>
-						<ul class="categorys">
-							<c:forEach items="${examInfoList}" var="categoryList">
-								<li value="${categoryList.obligfldnm}">${categoryList.obligfldnm}</li>
-							</c:forEach>
-						</ul>
-					</div>
-					
+
 					<div class="category-box">
 						<div class="box-title">소분류</div>
-						
-						<ul class="categorys">
-							<c:forEach items="${examInfoList}" var="categoryList">
-								<li value="${categoryList.jmfldnm}">${categoryList.jmfldnm}</li>
-							</c:forEach>
+						<ul class="categorys" id="thirdcategory">
+
 						</ul>
-						
 					</div>
-					
+
 					<div class="category-footer">
 						<i class="fas fa-times close-btn"></i>
 						<div>
 							<i class="fas fa-redo-alt"></i>
-							<button class="submit-btn">적용</button>
+							<button class="submit-btn" id="category-submit-btn">적용</button>
 						</div>
 
 					</div>
