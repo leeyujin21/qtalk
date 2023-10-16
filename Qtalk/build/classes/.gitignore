@@ -1,4 +1,6 @@
-/mapper/
-/service/
-/dao/
 /controller/
+/mapper/
+/resource/
+/dao/
+/service/
+/dto/
