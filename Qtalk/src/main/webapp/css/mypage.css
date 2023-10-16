@@ -97,10 +97,22 @@ hr {
 }
 
 .changeinfo a {
+	width: 120px;
 	color: #8B9DC3;
 	font-weight: bold;
 	text-decoration: none;
 	font-size: 16px;
+}
+
+.changeinfo #btnOpen {
+	width: 120px;
+	color: #8B9DC3;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 16px;
+	border: none;
+	background-color: white;
+	cursor: pointer;
 }
 
 .bookmark {
@@ -131,4 +143,57 @@ hr {
 	outline: none;
 	font-size: 20px;
 	color: black;
+}
+
+input:focus {outline: none;}
+#modal{
+	z-index : 1;
+	background-color: rgba(0,0,0,.3);
+	position:fixed;
+	left:0;
+	top: 0;
+	width:100%;
+	height:100%;
+	display : none;
+}
+#modal>#content{
+	width:15%;
+	margin:20% auto;
+	padding:10px;
+	position: relative;
+	background-color:#fff;
+	border-radius: 20px;
+	text-align: center;
+}
+#modal>#content p{margin-top:13px;}
+#modal .close{
+   position:absolute;
+   top:13px;
+   width: 40px;
+   right:5px;	
+   font-size:20px;
+   border:0;
+   background-color: #fff;
+ } 
+ #modal .close:hover,
+ #modal .close:focus {
+   color : #000;
+   text-decoration: none;
+   cursor :pointer;
+ }
+ .changeinfo #pwd{
+ 	border-width: 0 0 1px 0;
+ 	border-color: lightgray;
+ 	}
+ .changeinfo #btnCheck{border: none;}
+ .changeinfo #pwd,
+ .changeinfo #btnCheck {
+	width: 120px;
+	color: #8B9DC3;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 16px;
+	background-color: white;
+	cursor: pointer;
+	margin-top: 5px;
 }
