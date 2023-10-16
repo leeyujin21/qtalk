@@ -22,8 +22,8 @@
 				<p>회원탈퇴</p>
 				<div class="nicknametext">
 					<label for="idshow" class="textlabel">아이디</label>
-					 <input	type="text" name="idshow" id="nickname" class="textinput" value="${member.id}" disabled="disabled">
-					 <input type="hidden" name="id" value="${member.id}">
+					 <input	type="text" name="idshow" id="nickname" class="textinput" value="${member.id}" readonly="readonly">
+					 <%-- <input type="hidden" name="id" value="${member.id}"> --%>
 				</div>
 				<div class="passwordchange" style="margin-bottom: 10px;">
 					<label for="password" class="textlabel">비밀번호</label>
