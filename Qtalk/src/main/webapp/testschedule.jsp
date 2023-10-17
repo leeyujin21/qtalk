@@ -37,36 +37,38 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${examScheduleList}"  var="examScheduleList">
+					<c:forEach items="${examScheduleList}"  var="examSchedule">
 					<tr>
 						<td><i class="fas fa-bookmark"></i></td>
 						<!-- 종목명 -->
-						<td value="${examScheduleList.jmfldnm}">${examScheduleList.jmfldnm}</td>
+						<td value="${examSchedule.jmfldnm}">
+						<a href="craftsman.jsp">${examSchedule.jmfldnm}</a>
+						</td>
 						<!-- 회차 -->
-						<td value="${examScheduleList.implplannm}">${examScheduleList.implplannm}</td>
+						<td value="${examSchedule.implplannm}">${examSchedule.implplannm}</td>
 						<td>
 						<!-- 필기 시험 접수 시작일자 -->
-						<span value="${examScheduleList.docregstartdt}">${examScheduleList.docregstartdt} </span><br>
+						<span value="${examSchedule.docregstartdt}">${examSchedule.docregstartdt} </span><br>
 						<!-- 필기 시험 접수 끝일자 -->
-						<span  value="${examScheduleList.docregstartdt}">${examScheduleList.docregenddt}</span>
+						<span  value="${examSchedule.docregstartdt}">${examSchedule.docregenddt}</span>
 						</td>
 						<td>
 						<!-- 필기 시험 일자 -->
-						<span value="${examScheduleList.docexamstartdt}">${examScheduleList.docexamstartdt} </span><br> 
+						<span value="${examSchedule.docexamstartdt}">${examSchedule.docexamstartdt} </span><br> 
 						<!-- 필기 시험 끝 일자-->
-						<span  value="${examScheduleList.docexamenddt}">${examScheduleList.docexamenddt}</span>
+						<span  value="${examSchedule.docexamenddt}">${examSchedule.docexamenddt}</span>
 						</td>
 						<td>
 						<!-- 실기 시험 접수 시작일자  -->
-						<span value="${examScheduleList.pracregstartdt}">${examScheduleList.pracregstartdt} </span><br> 
+						<span value="${examSchedule.pracregstartdt}">${examSchedule.pracregstartdt} </span><br> 
 						<!-- 실기 시험 접수 마감 시작일자  -->
-						<span  value="${examScheduleList.pracregenddt}">${examScheduleList.pracregenddt}</span>
+						<span  value="${examSchedule.pracregenddt}">${examSchedule.pracregenddt}</span>
 						</td>
 						<td>
 						<!-- 실기 시험 접수 시작일자  -->
-						<span value="${examScheduleList.pracexamstartdt}">${examScheduleList.pracexamstartdt} </span><br> 
+						<span value="${examSchedule.pracexamstartdt}">${examSchedule.pracexamstartdt} </span><br> 
 						<!-- 실기 시험 접수 마감 시작일자  -->
-						<span  value="${examScheduleList.pracexamenddt}">${examScheduleList.pracexamenddt}</span>
+						<span  value="${examSchedule.pracexamenddt}">${examSchedule.pracexamenddt}</span>
 						</td>
 					</tr>
 					</c:forEach>
