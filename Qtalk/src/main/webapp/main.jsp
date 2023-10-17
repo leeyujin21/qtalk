@@ -85,17 +85,18 @@
 						</div>
 						</c:forEach>
 					</div>
-				</div>	
-
 					
-				
-
 				<button id="prevSlide">
 					<i class="fas fa-chevron-left icon-left"></i>
 				</button>
 				<button id="nextSlide">
 					<i class="fas fa-chevron-right icon-right"></i>
 				</button>
+				</div>	
+
+					
+				
+
 			</div>
 		</section>
 
