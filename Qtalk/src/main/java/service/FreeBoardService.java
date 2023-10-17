@@ -13,7 +13,8 @@ public interface FreeBoardService {
 
 	Map<String, Object> FreeBoardListByPage (Integer page) throws Exception;
 	Map<String, Object> FreeBoardSearch(String type,String keyword ,Integer page )throws Exception;
-
+	void freeBoardDelete(Integer num)throws Exception;
+	
 	// 특정 id 게시판 모두 삭제
 	void boardDeleteAll(String id) throws Exception;
 	

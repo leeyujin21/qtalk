@@ -70,6 +70,12 @@
 		]]>
 	</delete>
 	
+	<delete id="deleteFreeBoard" parameterType="Integer">
+		<![CDATA[
+				delete from freeboard where num=#{num}
+		]]>
+	</delete>
+	
 	<select id="selectBoardNum" parameterType="String" resultType="String">
 		<![CDATA[
 				select num from freeboard where writer=#{id}

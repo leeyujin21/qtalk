@@ -85,5 +85,10 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 	public List<FreeBoard> searchFreeBoardList(Map<String, Object> param) throws Exception {
 		return sqlSession.selectList("mapper.freeboard.searchFreeBoardList",param);
 	}
+	@Override
+	public void deleteFreeBoard(Integer num) throws Exception {
+		sqlSession.delete("mapper.freeboard.deleteFreeBoard",num);
+		sqlSession.commit();
+	}
 
 }

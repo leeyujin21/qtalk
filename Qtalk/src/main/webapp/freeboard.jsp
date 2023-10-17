@@ -11,7 +11,7 @@
 <body>
    <%@ include file="header.jsp"%>
   <div class="board-title">
-      <h1 style="margin-bottom: 50px;">자유게시판</h1>
+      <h1 style="margin-bottom: 50px;"><a href="freeboard" style="font-family: 'Pretendard-Regular';">자유게시판</a></h1>
       <form action="freeboardsearch" method="post" id="searchform">    
      	 <div class="search" style="position: relative;">
      	 	<select name="type" id="selectbar">

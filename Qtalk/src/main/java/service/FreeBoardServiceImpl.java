@@ -73,7 +73,8 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 	@Override
 	public List<FreeBoard> myWriteFreeBoard(String id) throws Exception {
 		return freeboardDao.selectIdFreeBoardList(id);
-
+	}
+	
 	@Override
 	public Map<String, Object> FreeBoardSearch(String type, String keyword, Integer page) throws Exception {
 		Map<String, Object> param = new HashMap<>();
@@ -107,5 +108,10 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 		return map;
 
 	}
+
+	@Override
+	public void freeBoardDelete(Integer num) throws Exception {
+		freeboardDao.deleteFreeBoard(num);
+	}// 게시물 하나 삭제
 }
 

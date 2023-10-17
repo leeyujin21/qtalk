@@ -42,13 +42,13 @@ public class FreeBoardDetail extends HttpServlet {
 			FreeBoard freeBoard = freeBoardService.FreeBoardDetail(postnum);
 			FreeBoardCommentService freeBoardCommentService = new FreeBoardCommentServiceImpl();
 			List<FreeBoardComment> freeBoardCommentList = freeBoardCommentService.boardCommentSelect(postnum);
-			
-			request.setAttribute("freeboard",freeBoard);
-			request.setAttribute("freeboardCommentList",freeBoardCommentList);
-			
 			HttpSession session = request.getSession();
 			Member member = (Member)session.getAttribute("member");
 			
+			
+			request.setAttribute("freeboard",freeBoard);
+			request.setAttribute("freeboardCommentList",freeBoardCommentList);
+			request.setAttribute("member", member);
 			request.getRequestDispatcher("freeboardpost.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
