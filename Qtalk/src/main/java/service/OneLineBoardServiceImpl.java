@@ -89,5 +89,11 @@ public class OneLineBoardServiceImpl implements OneLineBoardService {
 		return oneLineBoardDao.selectMostSubject();
 	}
 	
+	// onelineboardDAO 에서 id로 onelineboard List 가져오기
+	@Override
+	public List<OneLineBoard> myWriteOneLineBoard(String id) throws Exception {
+		return oneLineBoardDao.selectIdOneLineBoardList(id);
+	}
+	
 	
 }

@@ -62,8 +62,16 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 		sqlSession.delete("mapper.freeboard.deleteBoardAll",id);
 		sqlSession.commit();
 	}
+	// 
 	@Override
 	public List<String> selectBoardNum(String id) throws Exception {
 		return sqlSession.selectList("mapper.freeboard.selectBoardNum", id);
 	}
+	
+	// freeboard DB에서 writer = id인 freeboard List 가져오기
+	@Override
+	public List<FreeBoard> selectIdFreeBoardList(String id) throws Exception {
+		return sqlSession.selectList("mapper.freeboard.selectFreeBoardList", id);
+	}
+
 }

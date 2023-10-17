@@ -125,10 +125,10 @@ public class TestBoardServiceImpl implements TestBoardService {
 	}
 
 
-
+	// testboardDAO 에서 id로 testboard List 가져오기
 	@Override
 	public List<TestBoard> myWriteTestBoard(String id) throws Exception {
-		return testBoardDao.selectBoardList(id);
+		return testBoardDao.selectIdBoardList(id);
 	}
 	
 

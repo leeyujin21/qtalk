@@ -26,5 +26,5 @@ public interface TestBoardDao {
 	List<String> selectBoardNum(String id) throws Exception;
 	
 	// testboard DB에서 writer = id인 testboard List 가져오기
-	List<TestBoard> selectBoardList(String id) throws Exception;
+	List<TestBoard> selectIdBoardList(String id) throws Exception;
 }

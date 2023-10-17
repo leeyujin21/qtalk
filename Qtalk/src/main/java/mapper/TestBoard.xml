@@ -90,9 +90,9 @@
 		]]>
 	</select>
 	
-	<select id="selectBoardList" parameterType="String" resultType="Object">
+	<select id="selectIdTestBoardList" parameterType="String" resultType="TestBoard">
 		<![CDATA[
-				select * from testboard where writer='1' order by writedate desc
+				select * from testboard where writer=#{id} order by writedate desc
 		]]>
 	</select>
 

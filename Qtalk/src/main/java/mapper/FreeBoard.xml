@@ -75,5 +75,11 @@
 				select num from freeboard where writer=#{id}
 		]]>
 	</select>
+	
+	<select id="selectIdFreeBoardList" parameterType="String" resultType="FreeBoard">
+		<![CDATA[
+				select * from freeboard where writer=#{id} order by writedate desc
+		]]>
+	</select>
 
 </mapper>

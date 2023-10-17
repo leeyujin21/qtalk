@@ -5,6 +5,7 @@ import java.util.Map;
 
 import dto.Level;
 import dto.OneLineBoard;
+import dto.TestBoard;
 
 public interface OneLineBoardDAO {
 	void insertOneLineBoard(OneLineBoard olb);
@@ -19,4 +20,7 @@ public interface OneLineBoardDAO {
 	
 	// 한 줄평 게피산에서 가장 인기 있는 시험 3개
 	List<Level> selectMostSubject() throws Exception;
+	
+	// onelineboard DB에서 writer = id인 onelineboard List 가져오기
+	List<OneLineBoard> selectIdOneLineBoardList(String id) throws Exception;
 }

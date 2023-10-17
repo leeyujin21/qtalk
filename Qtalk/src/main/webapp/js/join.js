@@ -65,26 +65,36 @@ $(function() {
 					$("#email").attr("readonly", false)
 					$("#emailCheck").attr("value", "중복체크")
 				} else {
-					$.ajax({
-						url:'emailcheck',
-						type: 'post',
-						data: {'email': $("#email").val()},
-						success:function(res) {
-							if(res == "true") {
-								isEmailCheck = true
-								$("#email").attr("readonly", true)
-								$("#emailCheck").attr("value", "다시입력")
-								alert("이메일 사용 가능합니다.")
-							} else {
-								alert("이메일이 중복됩니다.")
-							}
-						},
-						error:function(err) {
-								alert("이메일 양식이 올바르지 않습니다.")
+					if ($("#email").val() !== null) {
+						let regEmail = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{2,4}$/;
+						if (!regEmail.test($("#email").val())) {
+							console.log($("#email").val())
+							alert('이메일 형식에 맞춰주세요.');
+							e.preventDefault() 
+				  		} else {
+							$.ajax({
+								url:'emailcheck',
+								type: 'post',
+								data: {'email': $("#email").val()},
+								success:function(res) {
+									if(res == "true") {
+										isEmailCheck = true
+										$("#email").attr("readonly", true)
+										$("#emailCheck").attr("value", "다시입력")
+										alert("이메일 사용 가능합니다.")
+									} else {
+										alert("이메일이 중복됩니다.")
+									}
+								},
+								error:function(err) {
+										alert("서버 오류.")
+								}
+							})   
 						}
-					})   
-				}
+					}
+        		}	
         	})
+        	
         	
         	$('#joinbtn').click(function(e) {
         		let p1 = $('#password1').val()

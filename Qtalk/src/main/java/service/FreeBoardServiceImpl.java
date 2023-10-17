@@ -67,5 +67,11 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 	public List<String> boardNumList(String id) throws Exception {
 		return freeboardDao.selectBoardNum(id);
 	}
+
+	// freeboarddDAO 에서 id로 freeboard List 가져오기
+	@Override
+	public List<FreeBoard> myWriteFreeBoard(String id) throws Exception {
+		return freeboardDao.selectIdFreeBoardList(id);
+	}
 }
 

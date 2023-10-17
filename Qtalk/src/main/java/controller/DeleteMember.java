@@ -42,8 +42,6 @@ public class DeleteMember extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		Member smember = (Member)session.getAttribute("member");
-		System.out.println(id);
-		System.out.println(password);
 		try {
 			if(!(smember.getPassword().equals(password))) {
 				request.setAttribute("err", "비밀번호 오류");

@@ -16,4 +16,7 @@ public interface OneLineBoardService {
 	
 	// onelineboard 에서 인기 있는 시험 3가지 가져오기
 	List<Level> oneLineBoardMostSubject() throws Exception;
+	
+	// onelineboardDAO 에서 id로 onelineboard List 가져오기
+	List<OneLineBoard> myWriteOneLineBoard(String id) throws Exception;
 }
