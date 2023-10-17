@@ -22,6 +22,7 @@ a {
 
 .jh-container {
 	margin: 0 auto;
+	height: 880px;
 }
 
 #goback {
@@ -118,20 +119,19 @@ hr {
 .bookmark {
 	width: 60%;
 	margin: 0 auto;
-	margin-top: 30px;
-	margin-bottom: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 35px;
 }
 
 .mywrite {
 	width: 60%;
 	margin: 0 auto;
-	margin-top: 50px;
 	margin-bottom: 80px;
 }
 
 .inputspace {
-	margin-left: 100px;
-	overflow-y: scroll;
+	margin-left: 10px;
 }
 .inputspace > div {
 	font-family: 'Pretendard-Regular';
@@ -196,4 +196,29 @@ input:focus {outline: none;}
 	background-color: white;
 	cursor: pointer;
 	margin-top: 5px;
+}
+
+.v-line {
+	margin-top: 25px;
+  	border-left : 3.5px solid #DFE3EE;
+  	height : 20px; 
+}
+.category {
+    width: 24%;
+    border-right: 3px solid #DFE3EE;
+}
+h3{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.contents{
+	display: flex;
+	width: 60%;
+	margin: 0 auto;
+    height: 545px;
+}
+.content {
+    width: 76%;
+    margin-top: 30px;
+    margin-left: 50px;
 }
