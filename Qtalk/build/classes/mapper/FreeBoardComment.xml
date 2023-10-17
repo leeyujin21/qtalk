@@ -7,7 +7,7 @@
 	<insert id="insertFreeBoardComment" parameterType="FreeBoardComment"
 		useGeneratedKeys="true" keyProperty="comment_num">
 		<![CDATA[
-			insert into freeboard_comment (post_num,writer, content, comment_date) values(#{post_num},#{writer}, #{content}, curdate())
+			insert into freeboard_comment (post_num,writer, content, comment_date,nickname) values(#{post_num},#{writer}, #{content}, curdate(),#{nickname})
 		]]>
 	</insert>
 

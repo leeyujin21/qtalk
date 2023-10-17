@@ -79,7 +79,7 @@ public class OneLineBoardPost extends HttpServlet {
 		olb.setContent(content);
 		olb.setLevel(level);
 		olb.setWriter(writer);
-		
+		olb.setNickname(member.getNickname());
 		try {
 			OneLineBoardService oneLineBoardService = new OneLineBoardServiceImpl();
 			oneLineBoardService.boardwirte(olb);

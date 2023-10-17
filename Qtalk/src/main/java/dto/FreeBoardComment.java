@@ -8,7 +8,14 @@ public class FreeBoardComment {
 	private String writer;
 	private String content;
 	private Date comment_date;
+	private String nickname;
 	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public Integer getComment_num() {
 		return comment_num;
 	}

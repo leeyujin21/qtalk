@@ -32,13 +32,12 @@ public class FreeBoardCommentEdit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		FreeBoardComment freeBoardComment = new FreeBoardComment();
 		FreeBoardCommentService freeBoardCommentService = new FreeBoardCommentServiceImpl();
 		try {
 			Integer comment_num= Integer.parseInt(request.getParameter("num"));
-			freeBoardComment = freeBoardCommentService.boardCommentSelectOne(comment_num);
+			Integer post_num= Integer.parseInt(request.getParameter("post_num"));
 			freeBoardCommentService.boardDelete(comment_num);
-			response.sendRedirect("freeboarddetail?num="+(freeBoardComment.getPost_num()));
+			response.sendRedirect("freeboarddetail?num="+post_num);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

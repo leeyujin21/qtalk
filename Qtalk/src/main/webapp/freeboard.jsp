@@ -17,7 +17,7 @@
      	 	<select name="type" id="selectbar">
         		<option value="all">선택</option>
 				<option value="title" ${ res.type eq 'title' ? 'selected' : ''}>제목</option>
-				<option value="writer" ${ res.type eq 'writer' ? 'selected' : ''}>작성자</option>
+				<option value="nickname" ${ res.type eq 'nickname' ? 'selected' : ''}>작성자</option>
 				<option value="content" ${ res.type eq 'content' ? 'selected' : ''}>내용</option>
         	</select>
         	 <input type="text" id="search" name="keyword" style="outline: none;">
@@ -36,7 +36,7 @@
            		<div class="left" >
 	               	<div class="title"><a href="freeboarddetail?num=${freeboard.num }">${freeboard.title }</a></div>
 	               	<div class="left_bot">
-	               	<div class="writer">작성자 : ${freeboard.writer}</div>
+	               	<div class="writer">작성자 : ${freeboard.nickname}</div>
 	               	<div class="viewcnt">조회 : ${freeboard.viewcount }</div>	               	
 	               	<div class="writedate">${freeboard.writedate }</div>
 	               	</div>

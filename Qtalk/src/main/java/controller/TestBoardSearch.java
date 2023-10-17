@@ -57,5 +57,31 @@ public class TestBoardSearch extends HttpServlet {
 	
 	}
 	
-
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		String type = request.getParameter("type");
+		String keyword = request.getParameter("keyword");
+		String page = request.getParameter("page");
+		int curpage = 1;
+		if (page != null) {
+			curpage = Integer.parseInt(page);
+		}
+		if (type.equals("all")) {
+			response.sendRedirect("testboard");
+			return;
+		}
+		
+		try {
+			TestBoardService testboardService = new TestBoardServiceImpl();
+			Map<String, Object> res  = testboardService.TestBoardSearch(type,keyword,curpage);
+			request.setAttribute("res", res);
+			request.getRequestDispatcher("testboard.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("err", "검색실패" );
+			request.getRequestDispatcher("error.jsp").forward(request, response);		
+			}
+	
+	}
 }

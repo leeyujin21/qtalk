@@ -48,7 +48,7 @@ public class Login extends HttpServlet {
 			Member member = memberService.login(id, password);
 			HttpSession session = request.getSession();
 			session.setAttribute("member", member);
-			request.getRequestDispatcher("main.jsp").forward(request, response);
+			request.getRequestDispatcher("main").forward(request, response);
 		} catch(Exception e) {
 			request.setAttribute("err", e.getMessage());
 			request.getRequestDispatcher("login.jsp").forward(request, response);

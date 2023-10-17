@@ -69,7 +69,27 @@ a {
 	width: 60%;
 	margin: 0 auto;
 }
-
+.left{
+	width:90%
+}
+.left_bot{
+	display : flex;
+	
+}
+.writer {
+	font-size: 12px;
+	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+	margin-right: 12px;
+	color: gray;
+}
+.viewcnt {
+	font-size: 12px;
+	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+	margin-right: 12px;
+	color: gray;
+}
 .write {
 	padding: 10px;
 	padding-right: 20px;
@@ -98,9 +118,28 @@ a {
 	font-weight: bold;
 	overflow: hidden;
 }
+.right{
+	position :inherit;
+	width : 10%;
+	height : 100%
+	
+}
+.commentcnt{
+	font-weight: bold;
+	font-size: 15px;
+	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+}
+.writedate{
+	font-size: 12px;
+	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+	color: gray;
+}
 
 .title {
-	max-width: 60%;
+	max-width: 100%;
+	height : 100%;
 	color: rgb(116, 111, 111);
 	font-family: 'Pretendard-Regular';
 }

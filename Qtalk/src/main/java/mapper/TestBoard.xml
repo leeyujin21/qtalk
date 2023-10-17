@@ -7,7 +7,7 @@
 	<insert id="insertTestBoard" parameterType="TestBoard"
 		useGeneratedKeys="true" keyProperty="num">
 		<![CDATA[
-			insert into testboard (subject,round,title,content,writedate,fileurl, writer) values(#{subject},#{round},#{title}, #{content},curdate(),#{fileurl}, #{writer})
+			insert into testboard (subject,round,title,content,writedate,fileurl, writer,nickname) values(#{subject},#{round},#{title}, #{content},curdate(),#{fileurl}, #{writer},#{nickname})
 		]]>
 	</insert>
 

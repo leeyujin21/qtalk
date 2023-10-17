@@ -62,11 +62,14 @@ public class FreeBoardDetail extends HttpServlet {
 		Integer postnum= Integer.parseInt(request.getParameter("comment_board"));
 		String writer= request.getParameter("comment_id");			
 		String content= request.getParameter("comment_content");
+		String nickname = request.getParameter("comment_nickname");
+		
 		
 		FreeBoardComment freeBoardComment = new FreeBoardComment();
 		freeBoardComment.setPost_num(postnum);
 		freeBoardComment.setWriter(writer);
 		freeBoardComment.setContent(content);
+		freeBoardComment.setNickname(nickname);
 		
 		try {
 			FreeBoardCommentService freeBoardCommentService = new FreeBoardCommentServiceImpl();

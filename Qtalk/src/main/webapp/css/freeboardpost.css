@@ -35,29 +35,20 @@ hr {
 	overflow: auto;
 }
 
+.testboard_title {
+	margin-bottom: 20px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.3em;
+}
 
 .div {
 	display: flex;
-	justify-content: space-between;
 	
-}
-.sub_title{
-	width :fit-content;
-	margin : 0 auto;
-
 }
 .testboard_subject {
 	font-weight: bold;
-	font-size : 0.8em;
-	color : grey;
-}
-.right{
-		
-}
-.testboard_title {
-	margin-top: 10px;
-	font-weight: bold;
-	font-size: 1.3em;
+	width : 200px;
 }
 
 .testboard_writer {
@@ -66,14 +57,18 @@ hr {
 
 .writedate{
 	color: lightgray;
+	position: absolute;
+	right: 22%;
+	top:23.3%;
 	font-size: 12px;
-	float:right;
 }
 .testview_cnt {
 	color: lightgray;
-	font-size: 12px;	
-	float :right;
-	right : 0px;
+	position: absolute;
+	right: 22%;
+	top:22%;
+	font-size: 12px;
+	
 }
 
 textarea {
@@ -147,4 +142,37 @@ textarea {
 	width: 50px;
 	cursor: pointer;
 	line-height: normal;
+}
+
+
+
+.viewmore {
+    position: relative;
+    display: inline-block;
+}
+
+#image {
+    cursor: pointer;
+}
+
+#dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+#dropdown a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+#dropdown a:hover {
+    background-color: #ddd;
 }
