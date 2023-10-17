@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,17 +26,18 @@
 				</thead>
 				<tbody>
 					<tr>
+		
 						<td><i class="fas fa-bookmark"></i></td>
-						<td>정보처리기사</td>
-						<td>4회</td>
-						<td>2023-01-01 <br> 2023-01-01
+						<td>${examDetail.jmfldnm }</td>
+						<td>${examDetail.implplannm }</td>
+						<td>${examDetail.docregstartdt }<br> ${examDetail.docregenddt }
 						</td>
-						<td>2023-01-01 <br> 2023-01-01
+						<td>${examDetail.docexamstartdt }<br> ${examDetail.docexamstartdt }
 
 						</td>
-						<td>2023-01-01 <br> 2023-01-01
+						<td>${examDetail.pracregstartdt }<br> ${examDetail.pracregenddt }
 						</td>
-						<td>2023-01-01 <br> 2023-01-01
+						<td>${examDetail.pracexamstartdt }<br> ${examDetail.pracexamenddt }
 						</td>
 					</tr>
 					<tr>
@@ -63,7 +66,7 @@
 
 
 	<div class="list-back-btn">
-		<span><a href="testschedule.html">목록</a></span>
+		<span><a href="testschedule">목록</a></span>
 	</div>
 </body>
 </html>

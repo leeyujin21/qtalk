@@ -10,6 +10,13 @@
 		]]>
 	</select>
 	
+	<select id="selectJmImTotestdetail" parameterType="Integer" resultType="ExamSchedule">
+		 <![CDATA[
+			SELECT * FROM examschedule WHERE num=#{num}	
+		]]>
+		
+	</select>
+	
 	<select id="selectedSubjectRound" parameterType="String" resultType="String">
 		SELECT implplannm FROM examschedule
 		where jmfldnm = '${subject}'

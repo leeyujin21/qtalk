@@ -326,6 +326,21 @@ i{
     background-color: #DFE3EE;
 }
 
+#bookMarkIcon{
+	font-size: 1.2rem;
+	color: lightgray;
+	padding: 1rem;
+}
+
+#bookMarkIcon:hover{
+	color: #3B5998;
+	transition: color .2s ease-in-out;
+}
+
+.book-icon-color{
+	color: #3B5998;
+}
+
 .submit-btn{
     border: none;
     border-radius: 10px;
