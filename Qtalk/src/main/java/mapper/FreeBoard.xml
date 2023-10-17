@@ -9,7 +9,7 @@
 		parameterType="FreeBoard" >
 
 	<![CDATA[
-			INSERT INTO freeboard (title, content, fileurl, writedate, writer) VALUES (#{title}, #{content}, #{fileurl},curdate(),#{writer})
+			INSERT INTO freeboard (title, content, fileurl, writedate, writer,nickname) VALUES (#{title}, #{content}, #{fileurl},curdate(),#{writer},#{nickname})
 		]]>
 	</insert>
 

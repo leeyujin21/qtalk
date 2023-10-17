@@ -6,7 +6,7 @@
 <mapper namespace="mapper.onelineboard">
 	<insert id="insertOneLineBoard" parameterType="OneLineBoard" useGeneratedKeys="true" keyProperty="num">
 		<![CDATA[
-			insert into onelineboard (subject,content,level,writedate,writer) values (#{subject},#{content},#{level},curdate(),#{writer})
+			insert into onelineboard (subject,content,level,writedate,writer,nickname) values (#{subject},#{content},#{level},curdate(),#{writer},#{nickname})
 		]]>
 	</insert>
 	

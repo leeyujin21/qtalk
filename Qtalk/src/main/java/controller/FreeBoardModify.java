@@ -7,11 +7,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import dto.FreeBoard;
+import dto.Member;
 import service.FreeBoardService;
 import service.FreeBoardServiceImpl;
 
@@ -36,12 +38,15 @@ public class FreeBoardModify extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		Integer num = Integer.parseInt(request.getParameter("num"));
-		
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
 		try {
 			FreeBoardService freeboardService = new FreeBoardServiceImpl();
 			FreeBoard freeboard = freeboardService.FreeBoardDetail(num);
-			request.setAttribute("freeboard", freeboard);
-			request.getRequestDispatcher("freeboardmodify.jsp").forward(request, response);
+			if (freeboard.getWriter().equals(member.getId())) {
+				request.setAttribute("freeboard", freeboard);
+				request.getRequestDispatcher("freeboardmodify.jsp").forward(request, response);
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 			request.setAttribute("err", "게시글 수정 실패");
@@ -73,7 +78,9 @@ public class FreeBoardModify extends HttpServlet {
 		try {
 			FreeBoardService freeboardService = new FreeBoardServiceImpl();
 			freeboardService.FreeBoardModify(freeboard);
-			response.sendRedirect("freeboardpost?num="+freeboard.getNum());
+//			request.setAttribute("num", num);
+//			request.getRequestDispatcher("freeboarddetail").forward(request, response);
+			response.sendRedirect("freeboarddetail?num="+num);
 		} catch(Exception e) {
 			e.printStackTrace();
 			request.setAttribute("err", "게시글 수정 오류");

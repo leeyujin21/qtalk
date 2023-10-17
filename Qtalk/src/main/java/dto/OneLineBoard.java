@@ -9,7 +9,15 @@ public class OneLineBoard {
 	private String level;
 	private String writer;
 	private Date writedate;
+	private String nickname;
+
 	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public int getNum() {
 		return num;
 	}

@@ -11,7 +11,14 @@ public class FreeBoard {
 	private String writer;
 	private Integer viewcount;
 	private Integer commentcount;
+	private String nickname;
 	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public Integer getNum() {
 		return num;
 	}

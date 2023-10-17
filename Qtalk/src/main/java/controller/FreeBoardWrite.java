@@ -67,6 +67,7 @@ public class FreeBoardWrite extends HttpServlet {
 		freeboard.setContent(content);
 		freeboard.setFileurl(fileUrl);
 		freeboard.setWriter(member.getId());
+		freeboard.setNickname(member.getNickname());
 		
 		try {
 			FreeBoardService freeboardService = new FreeBoardServiceImpl();

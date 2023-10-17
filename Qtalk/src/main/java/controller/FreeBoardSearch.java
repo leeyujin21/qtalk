@@ -54,7 +54,6 @@ public class FreeBoardSearch extends HttpServlet {
 			request.setAttribute("err", "검색실패" );
 			request.getRequestDispatcher("error.jsp").forward(request, response);		
 			}
-	
 	}
 
 }
