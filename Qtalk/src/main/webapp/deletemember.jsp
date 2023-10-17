@@ -15,7 +15,7 @@
 		<div id="goback">
 			<img src="https://cdn-icons-png.flaticon.com/128/8371/8371124.png"
 				style="width: 20px; margin-bottom: -2px;"> <a
-				href="..\jeha\mypage.html">뒤로가기</a>
+				href="mypage">뒤로가기</a>
 		</div>
 		<form action="deletemember" method="post">
 			<div id="changeinfospace">

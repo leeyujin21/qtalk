@@ -36,6 +36,9 @@ $(function() {
 				if(isPwOnOff == false) {
 					isPwOnOff = true
 					/* disabled required 해제*/
+					document.getElementById('switch').style.color="#3B5998";
+					document.getElementById('password1_').style.color="#000000";
+					document.getElementById('password2_').style.color="#000000";
 					$('#password1').attr("disabled", false)
 					$('#password2').attr("disabled", false)
 					/* required 설정*/
@@ -44,11 +47,17 @@ $(function() {
 				} else {
 					/* disabled 설정*/
 					isPwOnOff = false
+					document.getElementById('switch').style.color="#8B9DC3";
+					document.getElementById('password1_').style.color="#D3D3D3";
+					document.getElementById('password2_').style.color="#D3D3D3";
 					$('#password1').attr("disabled", true)
 					$('#password2').attr("disabled", true)
 					/* required 해제*/
 					$("#password1").attr("required", false)
 					$("#password2").attr("required", false)
+					
+					$("#password1").val('');
+					$("#password2").val('');
 				}
 			})
 

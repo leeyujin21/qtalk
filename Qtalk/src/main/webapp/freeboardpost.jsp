@@ -7,8 +7,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<link href="css/testboardpost.css" rel="stylesheet">
+<link href="css/freeboardpost.css" rel="stylesheet">
 <title>자유게시판 : ${freeboard.title}</title>
+	<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function () {
+	    const icon = document.getElementById('image');
+	    const dropdown = document.getElementById('dropdown');
+	    let isDropdownVisible = false;
+
+	    icon.addEventListener('click', function () {
+	        if (isDropdownVisible) {
+	            dropdown.style.display = 'none';
+	        } else {
+	            dropdown.style.display = 'block';
+	        }
+	        isDropdownVisible = !isDropdownVisible;
+	    });
+
+	    document.addEventListener('click', function (e) {
+	        if (!icon.contains(e.target) && !dropdown.contains(e.target)) {
+	            dropdown.style.display = 'none';
+	            isDropdownVisible = false;
+	        }
+	    });
+	});
+	</script>
+
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -23,10 +47,18 @@
 	<div class="container">
 		<div class="div">
 			<%-- <div class="testboard_subject" name="writer">&nbsp;#${testboard.subject}&nbsp;${testboard.round}회</div>   --%>
-			<div class="testboard_writer" name="writer">&nbsp;&nbsp;작성자:&nbsp;
-				${freeboard.writer}</div>
-			<div class="testview_cnt" name="viewcount">&nbsp;&nbsp;조회수:&nbsp;
-				${freeboard.viewcount}</div>
+			<div class="testboard_writer" name="writer">&nbsp;&nbsp;작성자:&nbsp;${freeboard.nickname}</div>
+			<div class="testview_cnt" name="viewcount">&nbsp;&nbsp;조회수:&nbsp;${freeboard.viewcount}</div>
+			<div class="writedate" name="writedate">${freeboard.writedate}</div>
+				
+			<div class="viewmore">
+			<i class="fas fa-ellipsis-v" id="image"></i>
+				 <div class="dropdown" id="dropdown">
+				 <form action="freeboardmodify" method	='get'>
+		           <button type="submit" name="num" value="${freeboard.num}" >수정</button>
+				 </form>
+		        </div>
+			</div>	
 		</div>
 		<hr>
 		<div class="textarea">
@@ -45,34 +77,29 @@
 		<!--댓글개수 보여주기  -->
 
 		<c:forEach var="comments" items="${requestScope.freeboardCommentList}">
-			<div class="comment">
-				<div class="com_id">${comments.writer}</div>
-				<div class="com_content">${comments.content}</div>
-				&nbsp;&nbsp;
-				<c:if test="${comments.writer eq member.id}">
-					<form action="freeboardcommentedit" method="post"
-						onclick="return confirmDelete();">
-						<div class="com_del">
-							<input type="hidden" name="num" value="${comments.comment_num}">
-							<input type="submit"
-								style="border-style: none; background-color: transparent; cursor: pointer;"
-								value="삭제"></input>
-						</div>
-					</form>
-				</c:if>
-
-			</div>
-		</c:forEach>
-
-		<script>
-			function confirmDelete() {
-				return confirm("정말로 삭제하시겠습니까?"); // 사용자에게 확인 메시지를 표시합니다.
-			}
-		</script>
+    <div class="comment">
+        <div class="com_id">${comments.nickname}</div>
+        <div class="com_content">${comments.content}</div>
+        &nbsp;&nbsp;
+        <c:if test="${comments.writer eq member.id}">
+            <form action="freeboardcommentedit" method="post" onclick="return confirmDelete();">
+                <div class="com_del">
+                    <input type="hidden" name="num" value="${comments.comment_num}">
+                    <input type="hidden" name="post_num" value="${freeboard.num}">
+                    <input type="submit" style="border-style: none; background-color: transparent; cursor: pointer;" value="삭제"></input>
+                </div>
+            </form>
+        </c:if>
+    </div>
+</c:forEach>
 
 
-		<c:if test="${requestScope.freeBoardCommentList != null}">
-		</c:if>
+
+<script>
+function confirmDelete() {
+	return confirm("정말로 삭제하시겠습니까?"); // 사용자에게 확인 메시지를 표시합니다.
+}
+</script> 
 
 
 
@@ -89,6 +116,7 @@
 				<form id="writeCommentForm" method="post">
 					<input type="hidden" name="comment_board" value="${freeboard.num}">
 					<input type="hidden" name="comment_id" value="${member.id}">
+					<input type="hidden" name="comment_nickname" value="${member.nickname}">
 					<input type="text" name="comment_content" class="com_write"
 						style="border-style: none;" /> <input type="submit" value="제출"
 						class="com_submit" style="border-style: none;">
@@ -102,5 +130,6 @@
 		-->
 
 	</div>
+	<script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
 </html>

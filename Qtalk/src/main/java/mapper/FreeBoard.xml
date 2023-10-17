@@ -9,7 +9,7 @@
 		parameterType="FreeBoard" >
 
 	<![CDATA[
-			INSERT INTO freeboard (title, content, fileurl, writedate, writer) VALUES (#{title}, #{content}, #{fileurl},curdate(),#{writer})
+			INSERT INTO freeboard (title, content, fileurl, writedate, writer,nickname) VALUES (#{title}, #{content}, #{fileurl},curdate(),#{writer},#{nickname})
 		]]>
 	</insert>
 
@@ -75,11 +75,24 @@
 				select num from freeboard where writer=#{id}
 		]]>
 	</select>
+
 	
 	<select id="selectIdFreeBoardList" parameterType="String" resultType="FreeBoard">
 		<![CDATA[
 				select * from freeboard where writer=#{id} order by writedate desc
 		]]>
 	</select>
+
+		<select id="searchFreeBoardList" parameterType="hashmap"   resultType="FreeBoard" >
+		select * from freeboard
+		where ${type} like '%${keyword}%'  order by num desc 
+		limit #{row},10 
+	</select>
+	
+	<select id="searchFreeBoardCount" resultType="Integer">
+			select count (*) from freeboard
+			where ${type} like '%${keyword}%'
+	</select> 
+
 
 </mapper>

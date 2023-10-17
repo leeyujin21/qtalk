@@ -3,16 +3,39 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD COnfig 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	
-	
-	<!-- ExamInfo table 사용함 -->
-	
-	<mapper namespace="mapper.categorylist">
-	
-	<select id="selectCategory" parameterType="Integer" resultType="ExamInfo">
+
+
+<!-- ExamInfo table 사용함 -->
+
+<mapper namespace="mapper.categorylist">
+
+	<select id="selectAllCategory" parameterType="Integer"
+		resultType="ExamInfo">
 		<![CDATA[
-			SELECT DISTINCT mdobligfldnm, obligfldnm, jmfldnm FROM examinfo WHERE qualgbcd = 'T'
+			SELECT * FROM examinfo WHERE qualgbcd = 'T'
 			]]>
 	</select>
-	
-	</mapper>
+
+	<select id="selectFirstCategory" parameterType="Integer"
+		resultType="ExamInfo">
+		<![CDATA[
+			SELECT DISTINCT mdobligfldnm FROM examinfo WHERE qualgbcd = 'T'
+			]]>
+	</select>
+
+	<select id="selectSecondCategory" parameterType="Integer"
+		resultType="ExamInfo">
+		<![CDATA[
+			SELECT DISTINCT obligfldnm FROM examinfo WHERE qualgbcd = 'T'
+			]]>
+	</select>
+
+	<select id="selectSeriesnmJoinEs" parameterType="Integer"
+		resultType="ExamInfo">
+		<![CDATA[
+			SELECT ei.seriesnm FROM examinfo ei JOIN examschedule es ON ei.jmfldnm = es.jmfldnm
+			]]>
+	</select>
+
+
+</mapper>

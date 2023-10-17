@@ -9,6 +9,8 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script type="text/javascript" src="js/onelineboard.js"></script>
 </head>
+
+
 <body>
 	<%@ include file="header.jsp" %>
     <div class="board-title">
@@ -25,7 +27,7 @@
 	                </c:forEach>
 	            </select>
 	            <input type="text" id="search" name="keyword" value="${res.keyword}" placeholder="게시글 검색하기">
-	           <input type="submit" id="searchsubmit" class="search-btn"> <i class="fas fa-search" style="width:20px; position: absolute; right:25px; top:20%;"></i>
+	           	<button class="search-btn"><i class="fas fa-search" style="width:20px; position: absolute; right:25px; top:20%;"></i></button>
 	        </div>
         </form>
     </div>
@@ -35,6 +37,7 @@
     	<%-- <c:if test="${member ne Empty}"> --%>
 	    <form action="onelineboardpost" method="post">
 	        <div class="write">
+	            <div class="sibal">
 	            <div class="subsel">
 	                <select name="subject" id="subjectsel" >
 		                <option value="none">선택</option>
@@ -44,32 +47,78 @@
 	               		 </c:forEach>
 	                </select>
 	            </div>
-	            <div class="level">
-	            	<!-- <input type="range" name="level"  max="5" min="1" step="1">  -->
-	                <input type="radio" name="level" value="1" checked> 
-	                <input type="radio" name="level" value="2">
-	                <input type="radio" name="level" value="3">
-	                <input type="radio" name="level" value="4">
-	                <input type="radio" name="level" value="5">
+	            <!-- <div class="checkbox-container">
+				    <input type="checkbox" id="checkbox1" class="hidden-checkbox" name="level" value="1">
+				    <label for="checkbox1" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				
+				    <input type="checkbox" id="checkbox2" class="hidden-checkbox" name="level" value="2">
+				    <label for="checkbox2" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				
+				    <input type="checkbox" id="checkbox3" class="hidden-checkbox" name="level" value="3">
+				    <label for="checkbox3" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				
+				    <input type="checkbox" id="checkbox4" class="hidden-checkbox" name="level" value="4">
+				    <label for="checkbox4" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				
+				    <input type="checkbox" id="checkbox5" class="hidden-checkbox" name="level" value="5">
+				    <label for="checkbox5" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				</div> -->
+	            
+	            <div class="checkbox-container">
+				   	<input type="checkbox" id="checkbox1" class="hidden-checkbox" name="level1" value="1">
+				    <label for="checkbox1" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				
+				    <input type="checkbox" id="checkbox2" class="hidden-checkbox" name="level2" value="2">
+				    <label for="checkbox2" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				
+				    <input type="checkbox" id="checkbox3" class="hidden-checkbox" name="level3" value="3">
+				    <label for="checkbox3" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				
+				    <input type="checkbox" id="checkbox4" class="hidden-checkbox" name="level4" value="4">
+				    <label for="checkbox4" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				
+				    <input type="checkbox" id="checkbox5" class="hidden-checkbox" name="level5" value="5">
+				    <label for="checkbox5" class="custom-checkbox">
+				        <i class="fas fa-pen"></i>
+				    </label>
+				    <input type="hidden" id="levelField" name="level" value="">
+				</div>
 	            </div>
+
 	            <div class="text">
 	                <input type="text" id="textbox" name="content" style="outline: none;"> 
-	                <input type="submit" id="submit" value="등록">
+	                <input type="submit" id="submit" value="등록" style="cursor: pointer;">
 	            </div>
 	    	</div>
+	    	<c:forEach items="${res.oneLineBoardList}" var="olb">
+	 	       <div class="post">
+		            <div class="subject">#${olb.subject}</div>
+	            	<div class="title">${olb.content}</div>
+	            	<div class="level">난이도: ${olb.level}</div>
+	            	<div class="time">${olb.writedate}</div>
+	    	    </div>
+	    	</c:forEach>
 		</form>
 		<%-- </c:if> --%>
-       	<c:forEach items="${res.oneLineBoardList}" var="olb">
- 	       <div class="post">
-	            <div class="subject">#${olb.subject}</div>
-            	<div class="title">${olb.content}</div>
-            	<div class="level">${olb.level}</div>
-            	<div class="time">${olb.writedate}</div>
-            	<%-- <c:if test="${member.id == olb.writer}">
-            		<div class="delete"><a href="boarddelete?num=${olb.num}&page=${res.pageInfo.curPage}"></a>삭제</div>
-    	    	</c:if> --%>
-    	    </div>
-    	</c:forEach>
+       	
     </div>
     <!-- 페이지 수 표시 시작 -->
    <div id="emptyArea">
@@ -99,8 +148,7 @@
          <c:when test="${res.pageInfo.curPage<res.pageInfo.allPage}">
             <a href="onlineboard?page=${res.pageInfo.curPage+1}">&gt;</a>
          </c:when>
-         <c:otherwise>
-             &gt;
+         <c:otherwise> 
          </c:otherwise>
       </c:choose>
       &nbsp;&nbsp;
@@ -108,4 +156,35 @@
    <!-- 페이지 수 표시 끝 -->
     <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
+<script>
+const levelField = document.getElementById('levelField');
+const checkboxes = document.querySelectorAll('.hidden-checkbox');
+console.log(checkboxes)
+
+checkboxes.forEach(checkbox => {
+	// console.log(checkbox)
+    checkbox.addEventListener('change', function() {
+		/* console.log(checkbox) */
+        const level = parseInt(checkbox.value);
+		console.log('1 : '+level) // 1,2,3,4,5
+
+        checkboxes.forEach(cb => {
+            const cbLevel = parseInt(cb.value);
+            console.log('2 : '+cbLevel);
+            
+            // 선택한 버튼의 value 이하인 버튼들만 선택하고 나머지는 해제
+            if (cbLevel <= level) {
+                cb.checked = true;
+                cb.nextElementSibling.querySelector('i').style.color = '#3B5998';
+            } else {
+                cb.checked = false;
+                cb.nextElementSibling.querySelector('i').style.color = 'rgb(116, 111, 111)';
+            }
+
+    		levelField.value = level;
+        });
+    });
+});
+
+</script>
 </html>

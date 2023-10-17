@@ -28,7 +28,6 @@ public class TestSchedule extends HttpServlet {
      */
     public TestSchedule() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -36,16 +35,26 @@ public class TestSchedule extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		List<ExamInfo> examInfoList = null;
+		
 			
 		try {
 			CategoryListService categoryListService = new CategoryListServiceImpl();
-			examInfoList = categoryListService.getCategoryList();
-			request.setAttribute("examInfoList", examInfoList);
+			List<ExamInfo> firstCategoryList = categoryListService.getFirstCategoryList();
+			List<ExamInfo> secondCategoryList = categoryListService.getSecoundCategoryList();
+			List<ExamInfo> allCategoryList = categoryListService.getAllCategoryList();
+			//대분류 중복되는 DB 값 빼고출력
+			request.setAttribute("firstCategoryList", firstCategoryList);
+			//중분류 중복되는 DB 값 빼고출력
+			request.setAttribute("secondCategoryList", secondCategoryList);
+			//examinfo 모든 리스트 출력
+			request.setAttribute("allCategoryList", allCategoryList);
 			
+			
+			//시험 스케쥴(날짜 회차) 나오는 거
 			ExamScheduleService examScheduleService = new ExamScheduleServiceImpl();
 			List<ExamSchedule> examScheduleList = examScheduleService.getExamScheduleRounds();
 			request.setAttribute("examScheduleList", examScheduleList);
+			
 			request.getRequestDispatcher("testschedule.jsp").forward(request, response);
 			
 		}catch(Exception e) {

@@ -36,7 +36,6 @@ a {
 }
 
 .search {
-	height: 30px;
 	margin-left: 10px;
 	margin-right: 10px;
 	border: 1px;
@@ -48,14 +47,26 @@ a {
 }
 
 #search {
-	width: 95%;
+	width:80%;
 	min-width: 60%;
 	margin: 0px;
 	border: 1px;
 	border-radius: 10px;
-	padding: 10px;
 	color: rgb(116, 111, 111);
 	background-color: rgba(0, 0, 0, 0);
+}
+#selectbar{
+	width: 78px;
+    margin-left: 0px;
+    outline: none;
+    background-color: transparent;
+    border: 2px;
+    border-radius: 10px;
+    border-color: #1D2C62;
+    text-align: center;
+    color: #3B5998;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .container {
@@ -76,15 +87,6 @@ a {
 	font-weight: bold;
 }
 
-.post {
-	overflow-anchor: auto;
-	margin: 13px;
-	padding: 30px;
-	border: 1px;
-	display: flex;
-	border-bottom: 1px solid lightgray;
-}
-
 .subject {
 	margin-left: 10px;
 	margin-right: 10px;
@@ -93,31 +95,68 @@ a {
 	font-weight: bold;
 	overflow: hidden;
 }
+
+.post {
+	height:30px;
+	overflow-anchor: auto;
+	margin: 13px;
+	padding: 30px;
+	border: 1px;
+	display: flex;
+	border-bottom: 1px solid lightgray;
+}
 .postnum{
+	font-size : 16px;
 	font-family: 'Pretendard-Regular';
 	color: #3B5998;
+	width : 15%;
 }
-
+.left{
+	width:90%
+}
 .title {
-	max-width: 60%;
+	max-width: 100%;
 	color: rgb(116, 111, 111);
 	font-family: 'Pretendard-Regular';
+	width:100%;
+	height : 100%;
+	}
+.left_bot{
+	display : flex;
+	
 }
-
-.viewcnt {
-	margin-left: 10px;
+.writer {
 	font-size: 12px;
 	overflow: hidden;
 	font-family: 'Pretendard-Regular';
+	margin-right: 12px;
+	color: gray;
+}
+.viewcnt {
+	font-size: 12px;
+	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+	margin-right: 12px;
+	color: gray;
+}
+.right{
+	position :inherit;
+	width : 10%;
+	height : 100%
+	
 }
 
 .commentcnt{
-	position: absolute;
-	right: 23%;
 	font-weight: bold;
-	float: right;
+	font-size: 15px;
 	overflow: hidden;
 	font-family: 'Pretendard-Regular';
+}
+.writedate{
+	font-size: 12px;
+	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+	color: gray;
 }
 
 #emptyArea {

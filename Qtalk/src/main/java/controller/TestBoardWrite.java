@@ -93,7 +93,7 @@ public class TestBoardWrite extends HttpServlet {
 		testboard.setContent(content);
 		testboard.setFileurl(fileUrl);
 		testboard.setWriter(member.getId());
-		
+		testboard.setNickname(member.getNickname());
 		try {
 			TestBoardService testboardService = new TestBoardServiceImpl();
 			testboardService.TestBoardWrite(testboard);

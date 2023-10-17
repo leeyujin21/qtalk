@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.ExamInfo;
+import dto.FreeBoardComment;
 import service.CategoryListService;
 import service.CategoryListServiceImpl;
+import service.FreeBoardCommentService;
+import service.FreeBoardCommentServiceImpl;
 
 /**
  * Servlet implementation class CategoryList
@@ -29,6 +32,11 @@ public class CategoryList extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("categorylist.jsp").forward(request, response);
+		request.getRequestDispatcher("testschedule.jsp").forward(request, response);
 	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		request.getRequestDispatcher("testschedule.jsp").forward(request, response);
+	}
+
 }

@@ -62,11 +62,13 @@ public class TestBoardDetail extends HttpServlet {
 		Integer postnum= Integer.parseInt(request.getParameter("comment_board"));
 		String writer =  request.getParameter("comment_id");
 		String content= request.getParameter("comment_content");
+		String nickname= request.getParameter("comment_nickname");
 		
 		TestBoardComment testBoardComment = new TestBoardComment();
 		testBoardComment.setPost_num(postnum);
 		testBoardComment.setWriter(writer);
 		testBoardComment.setContent(content);
+		testBoardComment.setNickname(nickname);
 		
 		try {
 			TestBoardCommentService testBoardCommentService = new TestBoardCommentServiceImpl();

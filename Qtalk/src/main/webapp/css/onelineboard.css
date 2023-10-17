@@ -18,6 +18,7 @@
     margin: 10px auto;
 }
 .search{ 
+	height: 34px;
     margin-left: 10px;
     margin-right: 10px;
     border: 1px ;
@@ -29,9 +30,8 @@
 }
 #search{
     height: 30px;
-    width:80%;
-    min-width: 60%;
-    margin: 0px;
+    position: absolute;
+    left: 35%;
     border: 1px ;
     border-radius: 10px;
     color : rgb(116, 111, 111);
@@ -39,6 +39,9 @@
     outline: none;
 }
 #subjectse2{
+	position: absolute;
+	top: 15.5px;
+	left: 15px;
     max-width: fit-content;
     margin-left: 0px;
     outline: none;
@@ -46,10 +49,10 @@
     border: 2px ; 
     border-radius: 10px;
     border-color: #1D2C62;
-    text-align: center;
     color: #3B5998;
     font-size: 16px;
     font-weight: 600;
+    cursor: pointer;
 
 }
 .container{
@@ -89,6 +92,7 @@
 }
 #subjectsel{
     margin-left: 6px;
+    cursor: pointer;
     max-width: fit-content;
     height: 130%;
     outline: none;
@@ -105,7 +109,8 @@
 
 .level{
     position: absolute;
-    right: 23%;
+    right: 30%;
+    font-family: 'Pretendard-Regular'; 
 }
 .text{
     display: flex;
@@ -195,8 +200,19 @@
 	width: 20px;
 	height: 20px;
 }
-
 #emptyArea .select {
 	color: #3B5998;
 	font-weight: bold;
+}
+
+.hidden-checkbox {
+    display: none;
+    color: rgb(116, 111, 111);
+}
+.checkbox-container{
+	width: 120px;
+}
+
+.sibal{
+	display: flex;
 }

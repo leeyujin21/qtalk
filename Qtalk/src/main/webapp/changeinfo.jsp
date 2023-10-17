@@ -25,24 +25,19 @@
 					 <input	type="text" name="nickname" id="nickname" class="textinput" required="required" placeholder="${member.nickname}">
 					 <input type="button" id="nicknameduplication" value="중복확인">
 				</div>
-				<!-- <fieldset>
-				  <label for="switch">
-				    <input role="switch" type="checkbox" name="switch" id="switch" />
-				    <span>비밀번호 변경</span>
-				  </label>
-				</fieldset> -->
+				<div class="passwordBtn">
+					  <label for="switch">
+					    <input type="button" id="switch" name="switch" class="swtich" value="비밀번호 변경"/>
+					  </label>
+				</div>
 				<div class="passwordchange" style="margin-bottom: 10px;">
-					<label for="password1" class="textlabel">새 비밀번호</label>
+					<label for="password1" class="textlabel" id="password1_">새 비밀번호</label>
 					<input type="password" id="password1" name="password1" class="textinput" disabled>
 				</div>
 				<div class="passwordchange">
-					<label for="password2" class="textlabel">새 비밀번호 확인</label>
+					<label for="password2" class="textlabel" id="password2_">새 비밀번호 확인</label>
 					<input type="password" id="password2" name="password2" class="textinput" disabled>
 				</div>
-				<!-- <div class="passwordchange">
-					<label for="password" class="textlabel">현재 비밀번호</label>
-					<input type="password" name="password" class="textinput" required="required">
-				</div> -->
 				<div class="changeinfobtn">
 					<input type="submit" value="수정" id="changeinfobtn">
 					<input type="button" formaction="mypage" formmethod="get" value="취소"

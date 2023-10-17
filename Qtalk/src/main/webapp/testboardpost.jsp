@@ -17,14 +17,19 @@
 			alt="돌아가기" style="width: 20px; margin-bottom: -5px;"
 			name="submitButton"> <a href = "testboard">돌아가기</a>
 	</div>
-	
-	<div class="testboard_title"name="title">${testboard.title}</div>
+	<div class = "sub_title">
+		<div class="testboard_subject" name="writer">#${testboard.subject}&nbsp;${testboard.round} </div>
+		<div class="testboard_title"name="title">${testboard.title}</div>
+	</div>
 	
 	<div class="container">
 		<div class="div">
-			<div class="testboard_subject" name="writer">&nbsp;#${testboard.subject}&nbsp;${testboard.round}&nbsp; </div>  
-			<div class="testboard_writer" name="writer">&nbsp;&nbsp;작성자:&nbsp; ${testboard.writer}</div>  
-			<div class="testview_cnt" name="viewcount">&nbsp;&nbsp;조회수:&nbsp; ${testboard.viewcount}</div>
+			<div class="testboard_writer" name="writer"><br>작성자:&nbsp; ${testboard.nickname}</div>  
+			<div class="right">
+				<div class="testview_cnt" name="viewcount">조회수:&nbsp; ${testboard.viewcount}</div>
+				<br>
+				<div class="writedate" name="writedate">${testboard.writedate}</div>
+			</div> 
 		</div>
 		<hr>
 		<div class="textarea">
@@ -56,6 +61,7 @@
 					</c:if>
 						
 				</div>	
+				
 			</c:forEach>
 			
 <script>
@@ -68,10 +74,6 @@ function confirmDelete() {
 		<c:if test="${requestScope.testBoardCommentList != null}">
 		</c:if>
 		
-		
-					
-			
-		
 		<!--1. 달린 댓글 있을때만 보여줌 
 			2. 댓글 작성자와 세션아이디가 같을때만 수정 삭제 보여줌
 		-->
@@ -83,6 +85,7 @@ function confirmDelete() {
 			<form id="writeCommentForm" method="post"  >
 				<input type="hidden" name="comment_board" value="${testboard.num}">
 				<input type="hidden" name="comment_id" value="${member.id}">
+				<input type="hidden" name="comment_nickname" value="${member.nickname}">
 				<input type="text"  name="comment_content" class="com_write" style="border-style: none;" /> 
 				<input type="submit" value="제출" class="com_submit" style="border-style: none;" >
 			</form>	

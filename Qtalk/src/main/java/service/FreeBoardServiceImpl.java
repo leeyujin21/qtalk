@@ -48,11 +48,11 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 		pageInfo.setEndPage(endPage);
 
 		int row = (page-1)*10+1;  //현재 페이지의 시작 row
-		List<FreeBoard> boardList = freeboardDao.selectFreeBoardList(row-1);
-
+		List<FreeBoard> freeboardList = freeboardDao.selectFreeBoardList(row-1);
+		
 		Map<String, Object> map = new HashMap<>();
 		map.put("pageInfo", pageInfo);
-		map.put("boardList", boardList);
+		map.put("freeBoardList", freeboardList);
 		return map;
 	}
 
@@ -68,10 +68,44 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 		return freeboardDao.selectBoardNum(id);
 	}
 
+
 	// freeboarddDAO 에서 id로 freeboard List 가져오기
 	@Override
 	public List<FreeBoard> myWriteFreeBoard(String id) throws Exception {
 		return freeboardDao.selectIdFreeBoardList(id);
+
+	@Override
+	public Map<String, Object> FreeBoardSearch(String type, String keyword, Integer page) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("type", type);
+		param.put("keyword", keyword);
+		
+		
+		PageInfo pageInfo = new PageInfo();
+		int freeBoardCount = freeboardDao.searchFreeBoardCount(param);
+		int maxPage = (int)Math.ceil((double)freeBoardCount/10); //ceil은 올림
+		int startPage = (page-1)/10*10+1;
+		int endPage = startPage+10-1;
+		if(endPage>maxPage) endPage=maxPage;
+		if(page>maxPage) page=maxPage;
+			
+			
+		pageInfo.setAllPage(maxPage);
+		pageInfo.setCurPage(page);
+		pageInfo.setStartPage(startPage);
+		pageInfo.setEndPage(endPage);
+		
+		int row = (page-1)*10+1; //현재 페이지의 시작 row
+		param.put("row", row-1);
+		List<FreeBoard> freeBoardList = freeboardDao.searchFreeBoardList(param);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("pageInfo", pageInfo);
+		map.put("freeBoardList", freeBoardList);
+		map.put("type", type);
+		map.put("keyword", keyword);
+		return map;
+
 	}
 }
 
