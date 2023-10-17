@@ -1,17 +1,29 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import dto.ExamInfo;
+import dto.ExamSchedule;
+import dto.FreeBoard;
+import dto.Member;
 import dto.TestBoard;
+import service.ExamInfoService;
+import service.ExamInfoServiceImpl;
+import service.ExamScheduleService;
+import service.ExamScheduleServiceImpl;
+import service.FreeBoardService;
+import service.FreeBoardServiceImpl;
 import service.TestBoardService;
 import service.TestBoardServiceImpl;
 
@@ -37,13 +49,31 @@ public class TestBoardModify extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 		Integer num = Integer.parseInt(request.getParameter("num"));
-
+		Member member = (Member)session.getAttribute("member");
+		List<ExamInfo> examInfoList = null;
+		List<ExamSchedule> examScheduleList = null;
+		
 		try {
 			TestBoardService testboardService = new TestBoardServiceImpl();
 			TestBoard testboard = testboardService.TestBoardDetail(num);
-			request.setAttribute("testboard", testboard);
-			request.getRequestDispatcher("testboardmodify.jsp").forward(request, response);
+			
+			ExamInfoService examinfoservice = new ExamInfoServiceImpl();
+			
+			examInfoList = examinfoservice.getExamInfoNames();
+			ExamScheduleService examscheduleservice = new ExamScheduleServiceImpl();
+			
+			examScheduleList = examscheduleservice.getExamScheduleRounds();
+			
+			
+			if (testboard.getWriter().equals(member.getId())) {
+				request.setAttribute("member", member);
+				request.setAttribute("examInfoList", examInfoList); // JSP 페이지로 데이터 전달
+				request.setAttribute("examScheduleList", examScheduleList);
+				request.setAttribute("testboard", testboard);
+				request.getRequestDispatcher("testboardmodify.jsp").forward(request, response);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("err", "게시글 수정 실패");
@@ -58,7 +88,6 @@ public class TestBoardModify extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-
 		String uploadPath = request.getServletContext().getRealPath("upload");
 		int size = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8",
@@ -82,7 +111,7 @@ public class TestBoardModify extends HttpServlet {
 		try {
 			TestBoardService testboardService = new TestBoardServiceImpl();
 			testboardService.TestBoardModify(testboard);
-			response.sendRedirect("testboard.jsp");
+			response.sendRedirect("testboarddetail?num="+num);
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("err", "게시글 수정 오류");

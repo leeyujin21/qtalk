@@ -63,9 +63,7 @@
                &nbsp;&nbsp;회차&nbsp;&nbsp;  
                <select id="round" name="round">
                   <option value="">회차를 선택하세요</option>
-                   <%-- <c:forEach items="${examScheduleList}" var="examSchedule">
-                       <option value="${examSchedule.implplannm}">${examSchedule.implplannm}</option>
-                   </c:forEach> --%>
+                   
                </select>
             </div>
          </div>
