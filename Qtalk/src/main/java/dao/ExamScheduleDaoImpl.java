@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,6 +40,11 @@ public class ExamScheduleDaoImpl implements ExamScheduleDao {
 	// 시험목록 검색 
 	public List<ExamSchedule> selectTestSchedule(String search) throws Exception {
 		return sqlSession.selectList("mapper.examschedule.selectTestSchedule", search);
+	}
+
+	@Override
+	public ExamSchedule selectJmImTotestdetail(Integer num) throws Exception {
+		return sqlSession.selectOne("mapper.examschedule.selectJmImTotestdetail", num);
 	}
 
 }

@@ -35,6 +35,11 @@ public class ExamScheduleServiceImpl implements ExamScheduleService {
 	public List<ExamSchedule> searchSchedule(String search) throws Exception {
 		return examscheduleDao.selectTestSchedule(search);
 	}
+
+	@Override
+	public ExamSchedule selectTestDetail(Integer num) throws Exception {
+		return examscheduleDao.selectJmImTotestdetail(num);
+	}
 	
 
 }

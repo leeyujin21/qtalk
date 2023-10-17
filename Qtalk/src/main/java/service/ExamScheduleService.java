@@ -14,4 +14,7 @@ public interface ExamScheduleService {
 	
 	// examschedule list to testschedule
 	List<ExamSchedule> searchSchedule(String search) throws Exception;
+	
+	//test detail 에 들어가는 값
+	ExamSchedule selectTestDetail(Integer num) throws Exception;
 }

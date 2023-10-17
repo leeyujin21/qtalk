@@ -38,11 +38,15 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${examScheduleList}"  var="examSchedule">
+					
 					<tr>
-						<td><i class="fas fa-bookmark"></i></td>
+						
+						<td>
+						<i class="fas fa-bookmark" id="bookMarkIcon"></i>
+						</td>
 						<!-- 종목명 -->
 						<td value="${examSchedule.jmfldnm}">
-						<a href="craftsman.jsp">${examSchedule.jmfldnm}</a>
+						<a href="testdetail?num=${examSchedule.num}">${examSchedule.jmfldnm}</a>
 						</td>
 						<!-- 회차 -->
 						<td value="${examSchedule.implplannm}">${examSchedule.implplannm}</td>
@@ -50,7 +54,7 @@
 						<!-- 필기 시험 접수 시작일자 -->
 						<span value="${examSchedule.docregstartdt}">${examSchedule.docregstartdt} </span><br>
 						<!-- 필기 시험 접수 끝일자 -->
-						<span  value="${examSchedule.docregstartdt}">${examSchedule.docregenddt}</span>
+						<span  value="${examSchedule.docregenddt}">${examSchedule.docregenddt}</span>
 						</td>
 						<td>
 						<!-- 필기 시험 일자 -->
@@ -79,6 +83,7 @@
 	</main>
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="js/category.js"></script>
+	<script src="js/testschedule"></script>
 	<script src="https://kit.fontawesome.com/ad2be14d60.js"
 		crossorigin="anonymous"></script>
 </body>
