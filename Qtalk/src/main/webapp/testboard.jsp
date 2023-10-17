@@ -9,7 +9,7 @@
 <body>
 <%@ include file="header.jsp" %>
 <div class="board-title">
-    <h1 style="margin-bottom: 50px;"><a href="testboard" >시험문제공유</a></h1>
+    <h1 style="margin-bottom: 50px; " ><a href="testboard" style="font-family: 'Pretendard-Regular';" >시험문제공유</a></h1>
     <form action="testboardsearch" method="post" id="searchform">    
         <div class="search" style="position: relative;">
         	<select name="type" id="selectbar">
@@ -32,7 +32,7 @@
         <div class="post">
             <div class="subject" style="font-family: 'Pretendard-Regular';"><a href="testboardsearch?type=subject&keyword=${testboard.subject }" style="color: #3B5998;">#${testboard.subject }</a></div>
         	<div class="left" >        
-            <div class="title" ><a href="testboarddetail?num=${testboard.num }">${testboard.title }</a></div>
+            <div class="title" ><a href="testboarddetail?num=${testboard.num }"style="font-family: 'Pretendard-Regular';">${testboard.title }</a></div>
             	<div class="left_bot">
 	               	<div class="writer">작성자 : ${testboard.nickname}</div>
 	               	<div class="viewcnt">조회 : ${testboard.viewcount }</div>	               	

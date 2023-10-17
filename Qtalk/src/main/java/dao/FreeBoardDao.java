@@ -23,6 +23,10 @@ public interface FreeBoardDao {
 	void updateFreeBoardCommentCountUp(Integer num)throws Exception;
 	void updateFreeBoardCommentCountDown(Integer num)throws Exception;
 
+	//게시물 하나 삭제
+	void deleteFreeBoard(Integer num) throws Exception;
+	
+	
 	// writer가 id인 freeboard 모두 삭제
 	void deleteBoardAll(String id) throws Exception;
 	

@@ -38,26 +38,30 @@
 	<%@ include file="header.jsp"%>
 	<div class="back" name="submitButton" style="cursor: pointer;">
 		<img src="https://cdn-icons-png.flaticon.com/128/8371/8371124.png"
-			alt="돌아가기" style="width: 20px; margin-bottom: -5px;"
-			name="submitButton"> <a href="freeboard">돌아가기</a>
+			alt="돌아가기" style="width: 20px; margin-bottom: -5px; font-family: 'Pretendard-Regular'; "
+			name="submitButton"> <a href="freeboard" style="font-family: 'Pretendard-Regular';">돌아가기</a>
 	</div>
 
 	<div class="testboard_title" name="title">${freeboard.title}</div>
 
 	<div class="container">
-		<div class="div">
-			<%-- <div class="testboard_subject" name="writer">&nbsp;#${testboard.subject}&nbsp;${testboard.round}회</div>   --%>
+		<div class="div" style="position:relative;">
 			<div class="testboard_writer" name="writer">&nbsp;&nbsp;작성자:&nbsp;${freeboard.nickname}</div>
 			<div class="testview_cnt" name="viewcount">&nbsp;&nbsp;조회수:&nbsp;${freeboard.viewcount}</div>
 			<div class="writedate" name="writedate">${freeboard.writedate}</div>
-				
 			<div class="viewmore">
 			<i class="fas fa-ellipsis-v" id="image"></i>
-				 <div class="dropdown" id="dropdown">
-				 <form action="freeboardmodify" method	='get'>
-		           <button type="submit" name="num" value="${freeboard.num}" >수정</button>
-				 </form>
-		        </div>
+				<c:if test="${freeboard.writer eq member.id}">
+					 <div class="dropdown" id="dropdown">
+						 <form action="freeboardmodify" method	='get'>
+				           <button type="submit" name="num" value="${freeboard.num}" >수정</button>
+						 </form>
+						 <form action="freeboarddelete" method	='post' onclick="return confirmDelete();">
+				           <input type="hidden" name="writer" value="${freeboard.writer}">
+				           <button type="submit" name="num" value="${freeboard.num}" >삭제</button>
+						 </form>
+			        </div>
+				</c:if> 
 			</div>	
 		</div>
 		<hr>
@@ -69,7 +73,7 @@
 
 
 		<div class="comment_cnt">
-			<div>
+			<div style="font-family: 'Pretendard-Regular';">
 				댓글 <a style="color: rgb(213, 223, 250); font-weight: bold;">
 					${freeboard.commentcount} </a>개
 			</div>
@@ -86,7 +90,7 @@
                 <div class="com_del">
                     <input type="hidden" name="num" value="${comments.comment_num}">
                     <input type="hidden" name="post_num" value="${freeboard.num}">
-                    <input type="submit" style="border-style: none; background-color: transparent; cursor: pointer;" value="삭제"></input>
+                    <input type="submit" style="border-style: none; background-color: transparent; cursor: pointer; font-family: 'Pretendard-Regular';" value="삭제"></input>
                 </div>
             </form>
         </c:if>
@@ -117,9 +121,8 @@ function confirmDelete() {
 					<input type="hidden" name="comment_board" value="${freeboard.num}">
 					<input type="hidden" name="comment_id" value="${member.id}">
 					<input type="hidden" name="comment_nickname" value="${member.nickname}">
-					<input type="text" name="comment_content" class="com_write"
-						style="border-style: none;" /> <input type="submit" value="제출"
-						class="com_submit" style="border-style: none;">
+					<input type="text" name="comment_content" class="com_write" style="border-style: none;" /> 
+					<input type="submit" value="제출"class="com_submit" style="border-style: none;">
 				</form>
 			</div>
 		</c:if>

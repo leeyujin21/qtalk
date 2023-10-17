@@ -70,11 +70,18 @@
 		]]>
 	</delete>
 	
+	<delete id="deleteFreeBoard" parameterType="Integer">
+		<![CDATA[
+				delete from freeboard where num=#{num}
+		]]>
+	</delete>
+	
 	<select id="selectBoardNum" parameterType="String" resultType="String">
 		<![CDATA[
 				select num from freeboard where writer=#{id}
 		]]>
 	</select>
+
 	
 	<select id="selectIdFreeBoardList" parameterType="String" resultType="FreeBoard">
 		<![CDATA[
@@ -82,7 +89,7 @@
 		]]>
 	</select>
 
-	<select id="searchFreeBoardList" parameterType="hashmap"   resultType="FreeBoard" >
+		<select id="searchFreeBoardList" parameterType="hashmap"   resultType="FreeBoard" >
 		select * from freeboard
 		where ${type} like '%${keyword}%'  order by num desc 
 		limit #{row},10 
@@ -92,5 +99,6 @@
 			select count (*) from freeboard
 			where ${type} like '%${keyword}%'
 	</select> 
+
 
 </mapper>

@@ -20,7 +20,10 @@
 	width: 65%;
 	margin: 0 auto;
 }
-
+.div {
+	display: flex;
+	font-family: 'Pretendard-Regular';
+}
 hr {
 	width: 100%;
 	height: 3px;
@@ -35,12 +38,18 @@ hr {
 	overflow: auto;
 }
 
-
-.div {
-	display: flex;
-	justify-content: space-between;
-	
+.viewmore {
+    position: absolute;
+    top:30%;
+    right : 0%;
+    display: inline-block;
+    color: lightgray;
+    font-family: 'Pretendard-Regular';
 }
+#image {
+    cursor: pointer;
+}
+
 .sub_title{
 	width :fit-content;
 	margin : 0 auto;
@@ -50,30 +59,38 @@ hr {
 	font-weight: bold;
 	font-size : 0.8em;
 	color : grey;
+	font-family: 'Pretendard-Regular';
+	text-align: center;
 }
-.right{
-		
-}
+
 .testboard_title {
 	margin-top: 10px;
 	font-weight: bold;
 	font-size: 1.3em;
+	text-align: center;
+	font-family: 'Pretendard-Regular';
 }
 
 .testboard_writer {
-	font-weight: bold;	
+	font-family: 'Pretendard-Regular';
+	font-weight: bold;
 }
 
 .writedate{
-	color: lightgray;
+	color: rgb(158, 158, 158);
+	position: absolute;
+	right: 2%;
+	top:66%;
 	font-size: 12px;
-	float:right;
+	font-family: 'Pretendard-Regular';
 }
 .testview_cnt {
-	color: lightgray;
-	font-size: 12px;	
-	float :right;
-	right : 0px;
+	color: rgb(158, 158, 158);
+	position: absolute;
+	right: 2%;
+	top:0%;
+	font-size: 12px;
+	font-family: 'Pretendard-Regular';
 }
 
 textarea {
