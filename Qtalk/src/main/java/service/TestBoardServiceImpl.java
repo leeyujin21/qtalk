@@ -123,6 +123,13 @@ public class TestBoardServiceImpl implements TestBoardService {
 	public List<String> boardNumList(String id) throws Exception {
 		return testBoardDao.selectBoardNum(id);
 	}
+
+
+	// testboardDAO 에서 id로 testboard List 가져오기
+	@Override
+	public List<TestBoard> myWriteTestBoard(String id) throws Exception {
+		return testBoardDao.selectIdBoardList(id);
+	}
 	
 
 }

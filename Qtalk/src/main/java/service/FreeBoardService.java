@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import dto.FreeBoard;
+import dto.OneLineBoard;
 
 public interface FreeBoardService {
 	void FreeBoardWrite(FreeBoard freeBoard) throws Exception;
@@ -17,4 +18,7 @@ public interface FreeBoardService {
 	void boardDeleteAll(String id) throws Exception;
 	
 	List<String> boardNumList(String id) throws Exception;
+	
+	// freeboarddDAO 에서 id로 freeboard List 가져오기
+	List<FreeBoard> myWriteFreeBoard(String id) throws Exception;
 }

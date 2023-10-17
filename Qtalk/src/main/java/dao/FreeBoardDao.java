@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import dto.FreeBoard;
+import dto.TestBoard;
 
 public interface FreeBoardDao {
 	void insertFreeBoard(FreeBoard freeboard) throws Exception;
@@ -27,5 +28,8 @@ public interface FreeBoardDao {
 	
 	// writer가 id인 게시판 num을 리스트로 전달
 	List<String> selectBoardNum(String id) throws Exception;
+	
+	// freeboard DB에서 writer = id인 freeboard List 가져오기
+	List<FreeBoard> selectIdFreeBoardList(String id) throws Exception;
 }
 

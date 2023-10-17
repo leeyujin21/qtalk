@@ -42,5 +42,11 @@
 	<select id="selectMostSubject" resultType="Level">
 		SELECT subject, COUNT(SUBJECT) AS cnt, sum(level) as tot FROM onelineboard GROUP BY SUBJECT ORDER BY cnt DESC LIMIT 3;
 	</select>
+	
+	<select id="selectIdOneLineBoardList" parameterType="String" resultType="OneLineBoard">
+		<![CDATA[
+				select * from onelineboard where writer=#{id} order by writedate desc
+		]]>
+	</select>
 </mapper>
 

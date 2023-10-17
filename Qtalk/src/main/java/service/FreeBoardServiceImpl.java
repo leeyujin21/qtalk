@@ -68,6 +68,12 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 		return freeboardDao.selectBoardNum(id);
 	}
 
+
+	// freeboarddDAO 에서 id로 freeboard List 가져오기
+	@Override
+	public List<FreeBoard> myWriteFreeBoard(String id) throws Exception {
+		return freeboardDao.selectIdFreeBoardList(id);
+
 	@Override
 	public Map<String, Object> FreeBoardSearch(String type, String keyword, Integer page) throws Exception {
 		Map<String, Object> param = new HashMap<>();
@@ -99,6 +105,7 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 		map.put("type", type);
 		map.put("keyword", keyword);
 		return map;
+
 	}
 }
 
