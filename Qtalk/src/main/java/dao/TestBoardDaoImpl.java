@@ -89,7 +89,7 @@ public class TestBoardDaoImpl implements TestBoardDao {
 	// testboard DB에서 writer = id인 testboard List 가져오기
 	@Override
 	public List<TestBoard> selectIdBoardList(String id) throws Exception {
-		return sqlSession.selectList("mapper.testboard.selectBoardList", id);
+		return sqlSession.selectList("mapper.testboard.selectIdTestBoardList", id);
 	}
 
 

@@ -46,24 +46,35 @@
 			<div class="category">
 				<div class="bookmark">
 					<h3>북마크</h3>
-					<a href="">&nbsp;&nbsp;북마크</a>
+					<a href="mybookmark">&nbsp;&nbsp;북마크</a>
 					<h3>내가 쓴 글</h3>
-					<a href="">&nbsp;&nbsp;자유게시판</a><br><br>
-					<a href="">&nbsp;&nbsp;시험문제공유</a><br><br>
-					<a href="">&nbsp;&nbsp;시험한줄평</a><br><br>
+					<a href="mywriteboard?typeboard=1">&nbsp;&nbsp;자유게시판</a><br><br>
+					<a href="mywriteboard?typeboard=2">&nbsp;&nbsp;시험문제공유</a><br><br>
+					<a href="mywriteboard?typeboard=3">&nbsp;&nbsp;시험한줄평</a><br><br>
 				</div>
 			</div>
 			<div class="content">
-				내용
+				<c:choose>
+					<c:when test="${typeBoard == '1'}">
+						<%@include file="myfreeboard.jsp"%>
+					</c:when>
+					<c:when test="${typeBoard == '2'}">
+						<%@include file="mytestboard.jsp"%>
+					</c:when>
+					<c:when test="${typeBoard == '3'}">
+						<%@include file="myonelineboard.jsp"%>
+					</c:when>
+					<c:otherwise>
+						<%@include file="mybookmark.jsp"%>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 </div>
-
+	
 	<hr>
 </body>
-<footer style="height: 100px;">
-	<!--틀만 잡아뒀습니다.-->
-</footer>
+
 </body>
 <script>
 	var btnOpen = document.getElementById('btnOpen');

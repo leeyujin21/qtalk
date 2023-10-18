@@ -73,7 +73,7 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 	// freeboard DB에서 writer = id인 freeboard List 가져오기
 	@Override
 	public List<FreeBoard> selectIdFreeBoardList(String id) throws Exception {
-		return sqlSession.selectList("mapper.freeboard.selectFreeBoardList", id);
+		return sqlSession.selectList("mapper.freeboard.selectIdFreeBoardList", id);
 	}
 
 

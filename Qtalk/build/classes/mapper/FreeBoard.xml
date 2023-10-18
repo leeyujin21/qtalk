@@ -89,9 +89,9 @@
 		]]>
 	</select>
 
-		<select id="searchFreeBoardList" parameterType="hashmap"   resultType="FreeBoard" >
+	<select id="searchFreeBoardList" parameterType="hashmap"   resultType="FreeBoard" >
 		select * from freeboard
-		where ${type} like '%${keyword}%'  order by num desc 
+		where ${type} like '%${keyword}%' order by num desc 
 		limit #{row},10 
 	</select>
 	

@@ -2,17 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>마이페이지</title>
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-</head>
-<body>
-	<%-- <%@ include file="mypage.jsp"%> --%>
-	<div class="container">
-		<header>
-			<h2>자유게시판</h2>
+		<header class="boardheader">
+			<h2>북마크</h2>
 		</header>
 		
 		<div class="boardList">
@@ -33,6 +24,3 @@
             	</div>
 			</c:forEach>
 		</div> <!-- boardList  -->
-	</div> <!-- container  -->
-</body>
-</html>

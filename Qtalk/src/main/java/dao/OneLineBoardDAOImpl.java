@@ -54,7 +54,7 @@ public class OneLineBoardDAOImpl implements OneLineBoardDAO {
 	// onelineboard DB에서 writer = id인 onelineboard List 가져오기
 	@Override
 	public List<OneLineBoard> selectIdOneLineBoardList(String id) throws Exception {
-		return sqlSession.selectList("mapper.onelineboard.selectOneLineBoardList", id);
+		return sqlSession.selectList("mapper.onelineboard.selectIdOneLineBoardList", id);
 	}
 	
 	
