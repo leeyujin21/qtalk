@@ -13,7 +13,7 @@
 	<form action="freeboardmodify" method="post" enctype="multipart/form-data">
 	<div class="board_header">
 		<div class="board_title">자유게시판 게시글 수정하기</div>
-		<div class="writer" id="writer">${member.id }</div>
+		<div class="writer" id="writer">${member.nickname }</div>
 	</div>
 	<hr>
 		<input type="hidden" name="num" value="${freeboard.num}">
@@ -40,7 +40,7 @@
 		</div>
 		<div class="button">
 			<input class="btn1" type="submit" value="등록" />&nbsp;&nbsp; 
-			<input class="btn2" type="submit" value="취소" />
+			<input class="btn2" type="submit" value="취소" onclick="location.href='freeboarddetail?num='${freeboard.num}"/>
 		</div>
 	</div>
 	</form>

@@ -165,3 +165,30 @@ textarea {
 	cursor: pointer;
 	line-height: normal;
 }
+
+
+button{
+	background-color: white;
+}
+
+#dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    min-width: 100px;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+#dropdown a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+#dropdown a:hover {
+    background-color: white;
+    }

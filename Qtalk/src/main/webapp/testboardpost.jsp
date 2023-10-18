@@ -43,7 +43,7 @@
 	</div>
 	
 	<div class = "sub_title">
-		<div class="testboard_subject" name="writer">#${testboard.subject}&nbsp;${testboard.round} </div>
+		<div class="testboard_subject" name="writer">#${testboard.subject}&nbsp;&nbsp;#${testboard.round} </div>
 		<div class="testboard_title"name="title">${testboard.title}</div>
 	</div>
 	
