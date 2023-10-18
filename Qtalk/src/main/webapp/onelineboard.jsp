@@ -35,7 +35,7 @@
     
     <div class="container">
     	<%-- <c:if test="${member ne Empty}"> --%>
-	    <form action="onelineboardpost" method="post">
+	    <form action="onelineboardpost" method="post" id="onelineboardpost">
 	        <div class="write">
 	            <div class="sibal">
 	            <div class="subsel">
@@ -136,17 +136,17 @@
          end="${res.pageInfo.endPage}" var="i">
          <c:choose>
             <c:when test="${res.pageInfo.curPage==i}">
-               <a href="onlineboardpost?page=${i}" class="select" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+               <a href="onelineboardpost?page=${i}" class="select" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
             </c:when>
             <c:otherwise>
-               <a href="onlineboardpost?page=${i}" class="btn" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+               <a href="onelineboardpost?page=${i}" class="btn" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
             </c:otherwise>
          </c:choose>
       </c:forEach>
 
       <c:choose>
          <c:when test="${res.pageInfo.curPage<res.pageInfo.allPage}">
-            <a href="onlineboard?page=${res.pageInfo.curPage+1}">&gt;</a>
+            <a href="onelineboardpost?page=${res.pageInfo.curPage+1}">&gt;</a>
          </c:when>
          <c:otherwise> 
          </c:otherwise>
@@ -159,7 +159,7 @@
 <script>
 const levelField = document.getElementById('levelField');
 const checkboxes = document.querySelectorAll('.hidden-checkbox');
-console.log(checkboxes)
+const form = document.querySelector('#onelineboardpost');
 
 checkboxes.forEach(checkbox => {
 	// console.log(checkbox)
@@ -186,5 +186,22 @@ checkboxes.forEach(checkbox => {
     });
 });
 
+
+form.addEventListener('change', function(event) {
+    // 체크된 체크박스가 있는지 여부를 나타내는 변수
+    let isChecked = false;
+
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            isChecked = true;
+        }
+    });
+
+    // 하나도 체크되지 않은 경우에 경고 메시지를 띄움
+    if (levelField.value === '' || isNaN(levelField.value) || !isChecked) {
+        event.preventDefault(); // 폼 제출을 막음
+        alert("난이도를 선택해주세요");
+    }
+});
 </script>
 </html>
