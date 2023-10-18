@@ -51,49 +51,54 @@ public class MyWriteBoard extends HttpServlet {
 		}
 		
 		// x 값으로 board 종류 구분 
-		// x = 1 (freeboard)
-		// x = 2 (testboard)
-		// x = 3 (onelineboard)
-		String typeBoard = request.getParameter("x");
+		// typeBoard = 1 (freeboard)
+		// typeBoard = 2 (testboard)
+		// typeBoard = 3 (onelineboard)
+		String typeBoard = request.getParameter("typeboard");
 		
 		if(typeBoard.equals("1")) { // freeboard
 			try {
 				FreeBoardService freeBoardService = new FreeBoardServiceImpl();
 				List<FreeBoard> freeBoardList = freeBoardService.myWriteFreeBoard(member.getId());
+				request.setAttribute("typeBoard", typeBoard);
 				request.setAttribute("freeBoardList", freeBoardList);
-				request.getRequestDispatcher("myfreeboard.jsp").forward(request, response);
+				request.getRequestDispatcher("mypage.jsp").forward(request, response);
 				
 			} catch(Exception e) {
 				e.printStackTrace();
 				System.out.println("freeBoardList 불러오기 실패");
-				request.getRequestDispatcher("mypage").forward(request, response);
+				request.getRequestDispatcher("error.jsp").forward(request, response);
 			}
 		} else if(typeBoard.equals("2")) { // testboard
 			try {
 				TestBoardService testBoardService = new TestBoardServiceImpl();
 				List<TestBoard> testBoardList = testBoardService.myWriteTestBoard(member.getId());
+				request.setAttribute("typeBoard", typeBoard);
 				request.setAttribute("testBoardList", testBoardList);
-				request.getRequestDispatcher("mytestboard.jsp").forward(request, response);
+				request.getRequestDispatcher("mypage.jsp").forward(request, response);
 				
 			} catch(Exception e) {
 				e.printStackTrace();
-				request.getRequestDispatcher("mypage").forward(request, response);
+				System.out.println("testBoardList 불러오기 실패");
+				request.getRequestDispatcher("error.jsp").forward(request, response);
 			}
 		} else if(typeBoard.equals("3")) { // onelineboard
 			try {
 				OneLineBoardService oneLineBoardService = new OneLineBoardServiceImpl();
 				List<OneLineBoard> oneLineBoardList = oneLineBoardService.myWriteOneLineBoard(member.getId());
+				request.setAttribute("typeBoard", typeBoard);
 				request.setAttribute("oneLineBoardList", oneLineBoardList);
-				request.getRequestDispatcher("myonelineboard.jsp").forward(request, response);
+				request.getRequestDispatcher("mypage.jsp").forward(request, response);
 				
 			} catch(Exception e) {
 				e.printStackTrace();
-				request.getRequestDispatcher("mypage").forward(request, response);
+				System.out.println("onelineBoardList 불러오기 실패");
+				request.getRequestDispatcher("error.jsp").forward(request, response);
 			}
 		} else {
 			System.out.println("서버 오류");
 			request.setAttribute("err", "내가 쓴 글 불러오기 실패");
-			request.getRequestDispatcher("mypage").forward(request, response);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 	}
 }

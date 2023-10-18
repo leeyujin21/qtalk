@@ -221,4 +221,8 @@ h3{
     width: 76%;
     margin-top: 30px;
     margin-left: 50px;
+	overflow-y: auto;
+	text-align: center;
+}
+.boardList{
 }

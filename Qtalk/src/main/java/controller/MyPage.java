@@ -36,26 +36,13 @@ public class MyPage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
+		
+		//  로그인 상태 여부 확인
 		Member member = (Member)session.getAttribute("member");
 		if(member == null) {
-			request.getRequestDispatcher("login").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
-//			else {
-//			try {
-//				// 북마크
-//				
-//				// 내가 쓴 글
-//				TestBoardService testBoardService = new TestBoardServiceImpl();
-//				List<TestBoard> list = testBoardService.myWriteTestBoard(member.getId());
-//				request.setAttribute("res", list);
-//				request.getRequestDispatcher("mypage.jsp").forward(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//				System.out.println("mypage err");
-//				request.getRequestDispatcher("mypage.jsp").forward(request, response);
-//			}
-//			
-//		}
+		
 		request.getRequestDispatcher("mypage.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
