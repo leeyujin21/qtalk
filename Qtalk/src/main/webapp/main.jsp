@@ -40,6 +40,8 @@
 				<!-- 인기있는 시험 보는 곳 (슬라이드 박스)-->
 				<div class="slider-container main-info-box">
 					<div class="slides">
+					<c:choose>
+					<c:when test="${subject != null }">
 						<c:forEach items="${subjects}" var="sub">
 							<div class="slide">
 							<div class="main-info-title">${sub.subject}</div>
@@ -84,6 +86,10 @@
 							</div>
 						</div>
 						</c:forEach>
+						</c:when>
+						<c:otherwise>
+						<p>인기종목이 존재하지 않습니다<p></c:otherwise>
+						</c:choose>
 					</div>
 					
 				<button id="prevSlide">

@@ -40,7 +40,7 @@
 	            <div class="sibal">
 	            <div class="subsel">
 	                <select name="subject" id="subjectsel" >
-		                <option value="none">선택</option>
+		                <option id="subjectsel" value="none">선택</option>
 	                	<c:forEach items="${examInfoList}" var="examInfo"> 
 	           				 <!-- subject 데이터 가져오기 -->
 	                		<option value="${examInfo.jmfldnm}">#${examInfo.jmfldnm}</option> 
@@ -160,6 +160,8 @@
 const levelField = document.getElementById('levelField');
 const checkboxes = document.querySelectorAll('.hidden-checkbox');
 const form = document.querySelector('#onelineboardpost');
+const subjectsel = document.querySelector('#subjectsel');
+const textbox = document.getElementById("textbox");
 
 checkboxes.forEach(checkbox => {
 	// console.log(checkbox)
@@ -186,21 +188,35 @@ checkboxes.forEach(checkbox => {
     });
 });
 
-
-form.addEventListener('change', function(event) {
+form.addEventListener('submit', function(event) {
     // 체크된 체크박스가 있는지 여부를 나타내는 변수
-    let isChecked = false;
-
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            isChecked = true;
-        }
-    });
-
-    // 하나도 체크되지 않은 경우에 경고 메시지를 띄움
-    if (levelField.value === '' || isNaN(levelField.value) || !isChecked) {
+	let isChecked = false;
+	let isSubjectChecked = false;
+	let isContent = false;
+	
+	if(isChecked == false) {
+		 checkboxes.forEach(checkbox => {
+			 console.log(checkbox)
+		     if (checkbox.checked) {
+		         isChecked = true;
+		     }
+		 });
+	}
+	
+	//난이도를 체크하지 않았을때
+    if (!isChecked) {
         event.preventDefault(); // 폼 제출을 막음
         alert("난이도를 선택해주세요");
+    }
+  	//시험명을 체크하지 않았을때
+	if(subjectsel.value == 'none'){
+		event.preventDefault(); // 폼 제출을 막음
+        alert("시험명을 선택해주세요");
+	}
+	//내용을 입력하지 않았을때
+    if (textbox.value.trim() === '') { // 수정된 부분
+        event.preventDefault(); // 폼 제출을 막음
+        alert("내용을 입력해주세요");
     }
 });
 </script>
