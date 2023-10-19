@@ -22,12 +22,24 @@ public class OneLineBoardServiceImpl implements OneLineBoardService {
 	@Override
 	public Map<String, Object> oneLineBoardListByPage(Integer page) throws Exception {
 		PageInfo pageInfo = new PageInfo();
+		System.out.println("page1 :" + page);
 		int Count = oneLineBoardDao.selectOneLineBoardCount();
 		int maxPage = (int)Math.ceil((double)Count/10);
 		int startPage = (page-1)/10*10+1; // 1, 11, 21, 31...
 		int endPage = startPage+10-1; // 10,20,30...
-		if(endPage > maxPage) endPage = maxPage;
+		if(Count == 0) {
+			endPage=1;
+			maxPage=1;
+		} else if(endPage > maxPage) {
+			endPage = maxPage;
+		}
 		if(page > maxPage) page = maxPage;
+		
+		System.out.println("page2 :" + page);
+		System.out.println("count :" + Count);
+		System.out.println("maxPage :" + maxPage);
+		System.out.println("startPage :" + startPage);
+		System.out.println("endPage :" + endPage);
 		
 		pageInfo.setAllPage(maxPage);
 		pageInfo.setCurPage(page);
@@ -61,16 +73,13 @@ public class OneLineBoardServiceImpl implements OneLineBoardService {
 		pageInfo.setCurPage(page);
 		pageInfo.setStartPage(startPage);
 		pageInfo.setEndPage(endPage);
-		
-		Map<String, Object> map = new HashMap<>();
-		map.put("pageInfo", pageInfo);
-		if(page == 0) {
-			return map;
-		}
+
 		int row = (page-1)*10+1; // 현재 페이지의 시작 row 
 		param.put("row", row-1);
 		List<OneLineBoard> oneLineBoardList = oneLineBoardDao.searchOneLineBoardList(param);
 
+		Map<String, Object> map = new HashMap<>();
+		map.put("pageInfo", pageInfo);
 		map.put("oneLineBoardList", oneLineBoardList);
 		map.put("type", type);
 		map.put("keyword", keyword);
