@@ -11,6 +11,7 @@ $(document).ready(function() {
 	});
 	closeBtn.click(function() {
 		crtCon.toggleClass("hidden");
+		crtTitle.toggleClass("category-color");
 	});
 
 
@@ -59,6 +60,7 @@ $(document).ready(function() {
 				console.error("Error occurred:", err);
 			}
 		})
+
 	})
 
 	$("#thirdcategory").on('click', 'li', function() {
@@ -80,6 +82,9 @@ $(document).ready(function() {
         }
     	})
 	})
+
+	})	
+
 });
 
 

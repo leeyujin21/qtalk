@@ -5,6 +5,7 @@
 <html>
 <head>
 <link href="css/testboard.css" rel="stylesheet" type="text/css">
+<title>Qtalk | 시험문제공유</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -79,8 +80,9 @@
       </c:choose>
       &nbsp;&nbsp;
    </div>
-    
-    
+   
+    <!-- footer -->
+    <%@include file="footer.jsp" %>
     <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
 </html>

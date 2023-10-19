@@ -45,6 +45,13 @@ public class OneLineBoardDAOImpl implements OneLineBoardDAO {
 		sqlSession.commit();
 	}
 
+	// onelineboard의 num 삭제
+	@Override
+	public void deleteBoard(String num) throws Exception {
+		sqlSession.delete("mapper.onelineboard.deleteBoard", num);
+		sqlSession.commit();
+	}
+	
 	// onelineboard에서 인기 있는 시험 3개 가져오기
 	@Override
 	public List<Level> selectMostSubject() throws Exception {
@@ -56,6 +63,7 @@ public class OneLineBoardDAOImpl implements OneLineBoardDAO {
 	public List<OneLineBoard> selectIdOneLineBoardList(String id) throws Exception {
 		return sqlSession.selectList("mapper.onelineboard.selectIdOneLineBoardList", id);
 	}
+	
 	
 	
 }

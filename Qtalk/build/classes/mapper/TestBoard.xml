@@ -92,7 +92,7 @@
 	
 	<select id="selectIdTestBoardList" parameterType="String" resultType="TestBoard">
 		<![CDATA[
-				select * from testboard where writer=#{id} order by writedate desc
+				select * from testboard where writer=#{id} order by num desc
 		]]>
 	</select>
 

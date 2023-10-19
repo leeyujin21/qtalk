@@ -83,6 +83,11 @@ public class OneLineBoardServiceImpl implements OneLineBoardService {
 		oneLineBoardDao.deleteBoardAll(id);
 	}
 	
+	// writer가 id인 시험 한 줄 게시판 삭제
+	public void oneLineBoardDelete(String num) throws Exception {
+		oneLineBoardDao.deleteBoard(num);
+	}
+	
 	// onelineboard 에서 인기 있는 시험 3가지 가져오기
 	@Override
 	public List<Level> oneLineBoardMostSubject() throws Exception {

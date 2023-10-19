@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/hj-style.css" rel="stylesheet" type="text/css">
-<title>달력으로보기</title>
+<title>Qtalk | 달력으로보기</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -17,5 +16,7 @@
 				frameborder="0" width="100%" scrolling="no"></iframe>
 		</section>
 	</main>
+	 <!-- footer -->
+    <%@include file="footer.jsp" %>
 </body>
 </html>

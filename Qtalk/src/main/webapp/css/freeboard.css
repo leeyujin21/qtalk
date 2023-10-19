@@ -30,7 +30,7 @@ a {
 	text-align: center;
 	font-family: 'Pretendard-Regular';
 	padding: 10px;
-	width: 60%;
+	width: 50%;
 	margin: 10px auto;
 	margin-bottom: 10px;
 }
@@ -49,7 +49,7 @@ a {
 
 #search {
 	width:80%;
-	min-width: 60%;
+	min-width: 50%;
 	margin: 0px;
 	border: 1px;
 	border-radius: 10px;
@@ -75,7 +75,7 @@ a {
 	margin: 20px;
 	border: 1px solid;
 	border-color: #e4e4e4;
-	width: 60%;
+	width: 50%;
 	margin: 0 auto;
 }
 
@@ -155,8 +155,8 @@ a {
 	overflow: hidden;
 	font-family: 'Pretendard-Regular';
 	position: absolute;
-    right: 23%;
 }
+
 .writedate{
 	font-size: 12px;
 	overflow: hidden;

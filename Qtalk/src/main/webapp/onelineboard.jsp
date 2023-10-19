@@ -8,6 +8,7 @@
 	<link href="css/onelineboard.css" rel="stylesheet" />
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script type="text/javascript" src="js/onelineboard.js"></script>
+	<title>Qtalk | 한줄게시판</title>
 </head>
 
 
@@ -114,6 +115,11 @@
 	            	<div class="title">${olb.content}</div>
 	            	<div class="level">난이도: ${olb.level}</div>
 	            	<div class="time">${olb.writedate}</div>
+	            	<c:if test="${olb.writer == member.id}">
+	            		<div class="delete">
+	            			<a href="onelineboarddelete?num=${olb.num}">삭제</a>
+	            		</div>
+	            	</c:if>
 	    	    </div>
 	    	</c:forEach>
 		</form>
@@ -153,6 +159,8 @@
       </c:choose>
       &nbsp;&nbsp;
    </div>
+    <!-- footer -->
+    <%@include file="footer.jsp" %>
    <!-- 페이지 수 표시 끝 -->
     <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>

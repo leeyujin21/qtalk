@@ -7,7 +7,7 @@
 	<link href="css/deletemember.css" rel="stylesheet" />
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script type="text/javascript" src="js/deletemember.js"></script>
-	<title>회원탈퇴</title>
+	<title>Qtalk | 회원탈퇴</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>

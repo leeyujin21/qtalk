@@ -13,6 +13,7 @@
 			err = null;
 		} */
 	</script>
+	<title>Qtalk | 로그인</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
