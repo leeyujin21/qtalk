@@ -26,4 +26,13 @@ public class CategoryListDaoImpl implements CategoryListDao {
 		return sqlSession.selectList("mapper.categorylist.selectSecondCategory");
 	}
 
+	@Override
+	public List<String> selectMdtoOd(String firstValue) throws Exception {
+		return sqlSession.selectList("mapper.categorylist.selectMdtoOd",firstValue);
+	}
+
+	@Override
+	public List<String> selectOdtoJm(String secondValue) throws Exception {
+		return sqlSession.selectList("mapper.categorylist.selectOdtoJm",secondValue);
+	}
 }
