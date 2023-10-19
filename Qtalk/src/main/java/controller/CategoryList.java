@@ -31,7 +31,6 @@ public class CategoryList extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		
 		try {
 			CategoryListService categoryListService = new CategoryListServiceImpl();
 			String firstCategoryValue = request.getParameter("firstValue");
@@ -47,7 +46,7 @@ public class CategoryList extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		request.getRequestDispatcher("testschedule.jsp").forward(request, response);
+		request.getRequestDispatcher("testschedule").forward(request, response);
 	}
 
 }

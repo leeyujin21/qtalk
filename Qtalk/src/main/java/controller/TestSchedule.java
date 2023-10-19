@@ -40,8 +40,6 @@ public class TestSchedule extends HttpServlet {
 		try {
 			CategoryListService categoryListService = new CategoryListServiceImpl();
 			List<ExamInfo> firstCategoryList = categoryListService.getFirstCategoryList();
-			List<ExamInfo> secondCategoryList = categoryListService.getSecoundCategoryList();
-			List<ExamInfo> allCategoryList = categoryListService.getAllCategoryList();
 			//대분류 중복되는 DB 값 빼고출력
 			request.setAttribute("firstCategoryList", firstCategoryList);
 			//examinfo 모든 리스트 출력

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import dto.ExamInfo;
+import dto.ExamSchedule;
 import util.MybatisSqlSessionFactory;
 
 public class CategoryListDaoImpl implements CategoryListDao {
@@ -34,5 +35,10 @@ public class CategoryListDaoImpl implements CategoryListDao {
 	@Override
 	public List<String> selectOdtoJm(String secondValue) throws Exception {
 		return sqlSession.selectList("mapper.categorylist.selectOdtoJm",secondValue);
+	}
+
+	@Override
+	public List<ExamSchedule> selectJm(String thirdValue) throws Exception {
+		return sqlSession.selectList("mapper.categorylist.selectJm", thirdValue);
 	}
 }
