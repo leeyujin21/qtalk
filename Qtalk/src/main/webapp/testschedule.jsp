@@ -4,12 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/hj-style.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-	
-
-
-
 </head>
 
 <body>
@@ -85,13 +80,6 @@
 	</main>
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="js/category.js"></script>
-	<script>
-	let bookMarkIcon = $("#bookMarkIcon");
-	
-	bookMarkIcon.click(function() {
-		bookMarkIcon.toggleClass("book-icon-color");		
-	});
-	</script>
 	<script src="https://kit.fontawesome.com/ad2be14d60.js"	crossorigin="anonymous"></script>
 	
 </body>

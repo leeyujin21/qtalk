@@ -86,7 +86,9 @@
    </div>
    <!-- 페이지 수 표시 끝 -->
    
-   
+    <!-- footer -->
+    <%@include file="footer.jsp" %>
+    
 <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
 </html>

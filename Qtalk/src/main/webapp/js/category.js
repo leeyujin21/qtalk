@@ -11,6 +11,7 @@ $(document).ready(function() {
 	});
 	closeBtn.click(function() {
 		crtCon.toggleClass("hidden");
+		crtTitle.toggleClass("category-color");
 	});
 
 	
@@ -59,19 +60,7 @@ $(document).ready(function() {
 				console.error("Error occurred:", err);
 			}
 		})
-	})
-	
-	$("#thirdcategory").on('click', 'li', ()=>{
-		let thirdValue = $(this).data('value');
-		$.ajax({
-			url:'',
-			type: 'get',
-			data: {'thirdValue': thirdValue},
-			success: function(searchValue){
-				console.log(searchValue);
-			}
-		})
-	})
+	})	
 });
 
 
