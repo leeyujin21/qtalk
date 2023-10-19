@@ -15,6 +15,7 @@ public interface ExamScheduleDao {
 	// 시험목록 검색
 	List<ExamSchedule> selectTestSchedule(String search) throws Exception;
 	
+	//test detail 가는 sql
 	ExamSchedule selectJmImTotestdetail(Integer num) throws Exception;
 
 }

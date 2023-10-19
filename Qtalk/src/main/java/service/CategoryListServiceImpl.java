@@ -27,5 +27,14 @@ public class CategoryListServiceImpl implements CategoryListService {
 	public List<ExamInfo> getSecoundCategoryList() throws Exception {
 		return categoryListDao.selectSecondCategory();
 	}
-	
+
+	@Override
+	public List<String> getMdtoOd(String firstValue) throws Exception {
+		return categoryListDao.selectMdtoOd(firstValue);
+	}
+
+	@Override
+	public List<String> getOdtoJm(String secondValue) throws Exception {
+		return categoryListDao.selectOdtoJm(secondValue);
+	}	
 }
