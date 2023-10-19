@@ -496,3 +496,21 @@ td,th{
 .list-back-btn>span>a{
     color: #F6F6F6;
 }
+
+.board-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+@media (max-width: 1280px){
+	.info-section{
+		width: 90vw;
+	}
+	.main-info-box{
+		width: 100vw;
+		margin: 0 .3rem;
+	}
+}

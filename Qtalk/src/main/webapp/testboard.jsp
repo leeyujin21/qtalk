@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
+<div class="board-container">
 <div class="board-title">
     <h1 style="margin-bottom: 50px; " ><a href="testboard" style="font-family: 'Pretendard-Regular';" >시험문제공유</a></h1>
     <form action="testboardsearch" method="post" id="searchform">    
@@ -79,6 +80,7 @@
          </c:otherwise>
       </c:choose>
       &nbsp;&nbsp;
+   </div>
    </div>
    
     <!-- footer -->
