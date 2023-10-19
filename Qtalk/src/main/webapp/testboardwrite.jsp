@@ -95,7 +95,7 @@
    <!--게시글 작성 폼 끝-->
 
    <div class="list-back-btn">
-      <span><a href="\testboard">목록</a></span>
+      <span><a href="testboard">목록</a></span>
    </div>
 </body>
 </html>

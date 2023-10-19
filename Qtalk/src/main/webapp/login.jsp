@@ -35,13 +35,15 @@
 				<div class="loginbtn">
 					<input type="submit" value="로그인" id="loginbtn">
 				</div>
+				
+				<div class="bottomspace">
+					<a href="join" id="joinbtn">회원가입</a>
+					<a href="idforget" id="idforget">ID 찾기</a>
+					<a href="passwordforget" id="passwordforget">PW 찾기</a>
+				</div>
 			</div>
 		</form>
-		<div class="bottomspace">
-			<a href="join" id="joinbtn">회원가입</a>
-			<a href="idforget" id="idforget">ID 찾기</a>
-			<a href="passwordforget" id="passwordforget">PW 찾기</a>
-		</div>
+		
 	</div>
 	<script src="https://kit.fontawesome.com/ad2be14d60.js"
 		crossorigin="anonymous"></script>

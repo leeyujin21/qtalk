@@ -14,8 +14,8 @@
 	<div class="jh-container">
 		<div id="goback">
 			<img src="https://cdn-icons-png.flaticon.com/128/8371/8371124.png"
-				style="width: 20px; margin-bottom: -2px;"> <a
-				href="..\index.html">뒤로가기</a>
+				style="width: 20px; margin-bottom: -2px;">
+				<a href="#" onclick="customGoBack();">뒤로가기</a>
 		</div>
 		<div id="myinfo">
 			<p>마이페이지</p>
@@ -120,5 +120,14 @@
 	// 비밀번호 유효성을 검사하기 위한 'check' 버튼 클릭 이벤트
 	btnCheck.onclick = checkPassword;
 	btnClose.onclick = closeRtn;
+	
+	function customGoBack() {
+        var previousPage = document.referrer;
+        if (previousPage.includes("deletemember") || previousPage.includes("changeinfo")) {
+            history.go(-3);
+        } else {
+            history.go(-1);
+        }
+    }
 </script>
 </html>
