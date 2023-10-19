@@ -6,8 +6,6 @@
 <meta charset="UTF-8">
 <link href="css/mypage.css" rel="stylesheet" />
 <title>마이페이지</title>
-<style>
-</style>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -48,9 +46,9 @@
 					<h3>북마크</h3>
 					<a href="mybookmark">&nbsp;&nbsp;북마크</a>
 					<h3>내가 쓴 글</h3>
-					<a href="mywriteboard?typeboard=1">&nbsp;&nbsp;자유게시판</a><br><br>
-					<a href="mywriteboard?typeboard=2">&nbsp;&nbsp;시험문제공유</a><br><br>
-					<a href="mywriteboard?typeboard=3">&nbsp;&nbsp;시험한줄평</a><br><br>
+					<a href="mywriteboard?typeBoard=1">&nbsp;&nbsp;자유게시판</a><br><br>
+					<a href="mywriteboard?typeBoard=2">&nbsp;&nbsp;시험문제공유</a><br><br>
+					<a href="mywriteboard?typeBoard=3">&nbsp;&nbsp;시험한줄평</a><br><br>
 				</div>
 			</div>
 			<div class="content">
