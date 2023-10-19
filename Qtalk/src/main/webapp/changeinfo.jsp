@@ -7,7 +7,7 @@
 	<link href="css/changeinfo.css" rel="stylesheet" />
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script type="text/javascript" src="js/changeinfo.js"></script>
-	<title>내 정보 수정</title>
+	<title>Qtalk | 내 정보 수정</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>

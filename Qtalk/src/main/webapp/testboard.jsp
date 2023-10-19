@@ -5,6 +5,7 @@
 <html>
 <head>
 <link href="css/testboard.css" rel="stylesheet" type="text/css">
+<title>Qtalk | 시험문제공유</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>

@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link href="css/passwordforget.css" rel="stylesheet" />
+	<title>Qtalk | 비밀번호찾기</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>

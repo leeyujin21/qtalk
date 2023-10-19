@@ -5,6 +5,7 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<title>Qtalk | 시험일정보기</title>
 </head>
 
 <body>

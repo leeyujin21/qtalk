@@ -7,9 +7,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/freeboard.css" rel="stylesheet" type="text/css">
+<title>Qtalk | 자유게시판</title>
 </head>
+<style>
+.board-container{
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+</style>
 <body>
    <%@ include file="header.jsp"%>
+  <div class="board-container">
   <div class="board-title">
       <h1 style="margin-bottom: 50px;"><a href="freeboard" style="font-family: 'Pretendard-Regular';">자유게시판</a></h1>
       <form action="freeboardsearch" method="post" id="searchform">    
@@ -86,9 +97,8 @@
    </div>
    <!-- 페이지 수 표시 끝 -->
    
-    <!-- footer -->
-    <%@include file="footer.jsp" %>
-    
+   </div>
+   <%@include file ="footer.jsp"  %>
 <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
 </html>

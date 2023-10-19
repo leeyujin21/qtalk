@@ -7,7 +7,7 @@
 	<link href="css/join.css" rel="stylesheet" />
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="js/join.js"></script>
-	<title>회원가입</title>
+	<title>Qtalk | 회원가입</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>

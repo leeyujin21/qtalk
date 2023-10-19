@@ -202,9 +202,16 @@ a{
     font-weight: 600;
     border-bottom: 1px solid #3B5998;
 }
-.main-info-context{
+.main-info-context,.main-info-err-context{
     margin: 1rem 2rem;
     font-size: 1.2rem;
+}
+
+.main-info-err-context{
+	top:20%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .text-3rem{
