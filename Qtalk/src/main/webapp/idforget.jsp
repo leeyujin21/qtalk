@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link href="css/idforget.css" rel="stylesheet" />
-	<title>아이디찾기</title>
+	<title>Qtalk | 아이디찾기</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>

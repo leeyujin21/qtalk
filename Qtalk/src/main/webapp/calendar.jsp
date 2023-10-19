@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>달력으로보기</title>
+<title>Qtalk | 달력으로보기</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>

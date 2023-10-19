@@ -5,6 +5,7 @@
 <html>
 <head>
 <link href="css/testboardwrite.css" rel="stylesheet" />
+<title>Qtalk | 시험문제공유</title>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script type="text/javascript">
