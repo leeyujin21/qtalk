@@ -9,15 +9,6 @@
 <link href="css/freeboard.css" rel="stylesheet" type="text/css">
 <title>Qtalk | 자유게시판</title>
 </head>
-<style>
-.board-container{
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-}
-
-</style>
 <body>
    <%@ include file="header.jsp"%>
   <div class="board-container">

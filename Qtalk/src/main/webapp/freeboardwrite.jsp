@@ -10,6 +10,7 @@
 <body>
 	<%@ include file="header.jsp"%>
 	<!--게시글 작성 폼 시작-->
+	<div class="board-container">
 	<div class="board_header">
 		<div class="board_title">자유게시판 게시글 작성하기</div>
 		<div class="writer" id="writer" style="font-family: 'Pretendard-Regular';">${member.id }</div>
@@ -43,6 +44,7 @@
 		</div>
 	</div>
 	</form>
+	</div>
 	<!--게시글 작성 폼 끝-->
 
 	<div class="list-back-btn">
