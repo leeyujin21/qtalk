@@ -85,7 +85,7 @@
 	
 	<select id="selectIdFreeBoardList" parameterType="String" resultType="FreeBoard">
 		<![CDATA[
-				select * from freeboard where writer=#{id} order by writedate desc
+				select * from freeboard where writer=#{id} order by num desc
 		]]>
 	</select>
 

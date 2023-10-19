@@ -114,6 +114,11 @@
 	            	<div class="title">${olb.content}</div>
 	            	<div class="level">난이도: ${olb.level}</div>
 	            	<div class="time">${olb.writedate}</div>
+	            	<c:if test="${olb.writer == member.id}">
+	            		<div class="delete">
+	            			<a href="onelineboarddelete?num=${olb.num}">삭제</a>
+	            		</div>
+	            	</c:if>
 	    	    </div>
 	    	</c:forEach>
 		</form>
