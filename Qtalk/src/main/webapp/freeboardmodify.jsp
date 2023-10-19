@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/freeboardmodify.css" rel="stylesheet" />
+<link href="css/freeboardmodify.css" rel="stylesheet" type="text/css">
 <title>자유게시판 글 수정하기</title>
 </head>
 <body>

@@ -15,7 +15,7 @@
 
 					<div class="category-box">
 						<div class="box-title">대분류</div>
-						<ul class="categorys"  id="firstcategory">
+						<ul class="categorys" id="firstcategory">
 							<c:if test="${firstCategoryList == null}">
 								<li>내용이 없습니다</li>
 							</c:if>
@@ -32,7 +32,9 @@
 					<div class="category-box">
 						<div class="box-title">중분류</div>
 						<ul class="categorys" id="secondcategory">
-							
+							<c:if test="${firstCategoryList != null}">
+								<li data-value="${firstCategoryList}">전체</li>
+							</c:if>
 						</ul>
 					</div>
 

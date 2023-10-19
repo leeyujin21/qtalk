@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<link href="css/freeboardpost.css" rel="stylesheet">
+<link href="css/freeboardpost.css" rel="stylesheet" type="text/css">
 <title>자유게시판 : ${freeboard.title}</title>
 	<script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function () {

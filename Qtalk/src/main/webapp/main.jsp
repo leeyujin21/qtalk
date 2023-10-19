@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="css/hj-style.css" rel="stylesheet">
+<title>Qtalk</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -30,8 +29,8 @@
 					<div class="main-info-context">${type}</div>
 					<div class="main-info-context text-2rem">${schedule}</div>
 					<div class="main-info-context bottom5">
-						<a href="https://www.q-net.or.kr/man004.do?id=manSubMain">신청
-							하러 가기 <i class="fas fa-home"></i>
+						<a href="https://www.q-net.or.kr/man004.do?id=manSubMain">
+							신청	하러 가기 <i class="fas fa-home"></i>
 						</a>
 					</div>
 				</div>
@@ -88,7 +87,11 @@
 						</c:forEach>
 						</c:when>
 						<c:otherwise>
-						<p>인기종목이 존재하지 않습니다<p></c:otherwise>
+						<p class="main-info-context">
+							인기종목이 존재하지 않습니다.<br>
+							시험 한줄평을 이용해 주세요!<br>
+						<a href="onelineboardpost">시험 한줄평으로 가기 <i class="fas fa-pen"></i></a><p>
+						</c:otherwise>
 						</c:choose>
 					</div>
 					
@@ -109,7 +112,7 @@
 
 	</main>
 
-	<footer class="footer"> </footer>
+	<%@include file="footer.jsp" %>
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="js/mainSlider.js"></script>

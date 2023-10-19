@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/freeboardwrite.css" rel="stylesheet" />
-<title>자우게시판 글쓰기</title>
+<link href="css/freeboardwrite.css" rel="stylesheet" type="text/css">
+<title>자유게시판 글쓰기</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>

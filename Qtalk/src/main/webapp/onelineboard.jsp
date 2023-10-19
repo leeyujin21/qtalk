@@ -153,6 +153,8 @@
       </c:choose>
       &nbsp;&nbsp;
    </div>
+    <!-- footer -->
+    <%@include file="footer.jsp" %>
    <!-- 페이지 수 표시 끝 -->
     <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
