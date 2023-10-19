@@ -46,9 +46,12 @@
 					</div>
 					<div class="category-footer">
 						<i class="fas fa-times close-btn"></i>
-						<div>
-							<i class="fas fa-redo-alt"></i>
-							<button type="submit" class="submit-btn" id="category-submit-btn">적용</button>
+						<div style="display: flex; align-items: center;">
+							<i class="fas fa-redo-alt" style="margin-right: 5px;"></i>
+							<form action = "categorylistselect" method="get">
+								<input class="selectedSubject" type="text" name="thirdValue" id="thirdValue" readonly>
+								<button class="submit-btn" id="category-submit-btn">적용</button>
+							</form>
 						</div>
 					</div>
 				</div>

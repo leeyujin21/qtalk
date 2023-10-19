@@ -37,7 +37,7 @@ public class CategoryListSelect extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 
-		String thirdCategoryValue = request.getParameter("thirdValue").trim();
+		String thirdCategoryValue = request.getParameter("thirdValue");
 		System.out.println(thirdCategoryValue);
 
 		try {

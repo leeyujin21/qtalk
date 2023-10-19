@@ -403,7 +403,7 @@ i{
     background-color: #3B5998;
     color: #F6F6F6;
     padding: .5rem 1rem;
-    margin-left: 1rem;
+    margin-left: 5px;
     cursor: pointer;
 }
 
@@ -495,4 +495,8 @@ td,th{
 
 .list-back-btn>span>a{
     color: #F6F6F6;
+}
+
+.selectedSubject{
+	border-radius: 5px;
 }
