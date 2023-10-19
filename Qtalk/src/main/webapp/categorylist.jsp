@@ -5,7 +5,7 @@
 <section class="category-search-section">
 	<!-- 카테고리 -->
 	<div class="category-search-container">
-		<form action="categorylist" method="get">
+		<!-- <form action="categorylist" method="get"> -->
 			<div class="category">
 				<div class="category-btn">
 					<div class="category-title">카테고리</div>
@@ -42,19 +42,16 @@
 
 						</ul>
 					</div>
-
 					<div class="category-footer">
 						<i class="fas fa-times close-btn"></i>
 						<div>
 							<i class="fas fa-redo-alt"></i>
-							<button class="submit-btn" id="category-submit-btn">적용</button>
+							<button type="submit" class="submit-btn" id="category-submit-btn">적용</button>
 						</div>
-
 					</div>
 				</div>
-
 			</div>
-		</form>
+		<!-- </form> -->
 
 
 		<!-- 검색창 -->

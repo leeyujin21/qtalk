@@ -67,4 +67,11 @@
 			]]>
 	</select> -->
 	
+	<select id="selectJm" parameterType="String" resultType="ExamSchedule">
+		<![CDATA[
+			select * from examschedule
+			where jmfldnm = '${thirdValue}'
+		]]>
+	</select>
+	
 </mapper>

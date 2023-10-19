@@ -5,6 +5,7 @@ import java.util.List;
 import dao.CategoryListDao;
 import dao.CategoryListDaoImpl;
 import dto.ExamInfo;
+import dto.ExamSchedule;
 
 public class CategoryListServiceImpl implements CategoryListService {
 	private CategoryListDao categoryListDao;
@@ -36,5 +37,10 @@ public class CategoryListServiceImpl implements CategoryListService {
 	@Override
 	public List<String> getOdtoJm(String secondValue) throws Exception {
 		return categoryListDao.selectOdtoJm(secondValue);
+	}
+
+	@Override
+	public List<ExamSchedule> getJm(String thirdValue) throws Exception {
+		return categoryListDao.selectJm(thirdValue);
 	}	
 }
