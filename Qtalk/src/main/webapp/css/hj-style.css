@@ -403,7 +403,7 @@ i{
     background-color: #3B5998;
     color: #F6F6F6;
     padding: .5rem 1rem;
-    margin-left: 1rem;
+    margin-left: 5px;
     cursor: pointer;
 }
 
@@ -497,6 +497,9 @@ td,th{
     color: #F6F6F6;
 }
 
+.selectedSubject{
+	border-radius: 5px;
+
 .board-container {
 	display: flex;
 	flex-direction: column;
@@ -514,4 +517,5 @@ td,th{
 		width: 100vw;
 		margin: 0 .3rem;
 	}
+
 }

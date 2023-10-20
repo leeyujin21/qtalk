@@ -1,4 +1,4 @@
-var search = null;
+var thirdValue = null;
 $(document).ready(function() {
 	let crtBtn = $(".category-btn");
 	let crtCon = $(".category-box-container");
@@ -11,7 +11,6 @@ $(document).ready(function() {
 	});
 	closeBtn.click(function() {
 		crtCon.toggleClass("hidden");
-		crtTitle.toggleClass("category-color");
 	});
 
 
@@ -26,7 +25,7 @@ $(document).ready(function() {
 
 				var cleanedData = secondValue.substring(1, secondValue.length - 1).split(',');
 				var dataArray = [];
-				$('#secondcategory').empty()
+				$('#secondcategory').empty();
 				for (var i = 0; i <= cleanedData.length - 1; i++) {
 					var trimmedData = cleanedData[i].trim();
 					dataArray.push(trimmedData);
@@ -60,12 +59,15 @@ $(document).ready(function() {
 				console.error("Error occurred:", err);
 			}
 		})
-
 	})
 
 	$("#thirdcategory").on('click', 'li', function() {
-		search = $(this).data('value').trim();
+		thirdValue = $(this).data('value').trim();
+		console.log(thirdValue);
+		$('#thirdValue').val(thirdValue);
+		console.log($('#thirdValue').val());
 	})
+
 
 	$('#category-submit-btn').on('click', function() {
 		console.log(search);
