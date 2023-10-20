@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import dto.FreeBoard;
-import dto.TestBoard;
 
 public interface FreeBoardDao {
 	void insertFreeBoard(FreeBoard freeboard) throws Exception;

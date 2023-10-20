@@ -1,7 +1,6 @@
 /controller/
-/mapper/
-/resource/
 /dao/
-/service/
-/dto/
 /db/
+/dto/
+/service/
+/util/

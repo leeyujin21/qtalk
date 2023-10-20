@@ -15,6 +15,7 @@
 		<typeAlias type="dto.TestBoardComment" alias="TestBoardComment" />
 		<typeAlias type="dto.OneLineBoard" alias="OneLineBoard" />
 		<typeAlias type="dto.Level" alias="Level" />
+		<typeAlias type="dto.BookMark" alias="BookMark" />
 		
 		
 	</typeAliases>
@@ -47,6 +48,7 @@
 		<mapper resource="mapper/TestBoardComment.xml"/>
 		<mapper resource="mapper/OneLineBoard.xml"/>
 		<mapper resource="mapper/CategoryList.xml"/>			
+		<mapper resource="mapper/BookMark.xml"/>			
 	</mappers>
 
 

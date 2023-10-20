@@ -38,51 +38,86 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${examScheduleList}" var="examSchedule">
 
-						<tr>
+					<c:forEach items="${examScheduleList}"  var="examSchedule">
+					<tr>
+						<c:if test="${member==null}">
+							<td>
+								<button style="background-color: transparent;">
+									<i class="fas fa-bookmark" id="bookMarkIcon2" ></i>
+								</button>
+							</td>
+						</c:if>
+						
+						<c:if test="${member!=null}">
+						<td>
+						<c:forEach items="${bookMarkList}"  var="books">
+							<input type="hidden" name= "bookmarks" value="${books.num}">
+						</c:forEach>
+								<form action="bookmarkedit" method="post" >
+									<input type="hidden" name= "id" value="${member.id}">
+									<input type="hidden" name= "num" value="${examSchedule.num}">
+								<button style="background-color: transparent;">
+									<i class="fas fa-bookmark off" id="bookMarkIcon"></i>
+								</button>
+								</form>
+								
+								
+						</td>
+						</c:if>
+						
+						<!-- 종목명 -->
+						<td value="${examSchedule.jmfldnm}">
+						<a href="testdetail?num=${examSchedule.num}">${examSchedule.jmfldnm}</a>
+						</td>
+						<!-- 회차 -->
+						<td value="${examSchedule.implplannm}">${examSchedule.implplannm}</td>
+						<td>
+						<!-- 필기 시험 접수 시작일자 -->
+						<span value="${examSchedule.docregstartdt}">${examSchedule.docregstartdt} </span><br>
+						<!-- 필기 시험 접수 끝일자 -->
+						<span  value="${examSchedule.docregenddt}">${examSchedule.docregenddt}</span>
+						</td>
+						<td>
+						<!-- 필기 시험 일자 -->
+						<span value="${examSchedule.docexamstartdt}">${examSchedule.docexamstartdt} </span><br> 
+						<!-- 필기 시험 끝 일자-->
+						<span  value="${examSchedule.docexamenddt}">${examSchedule.docexamenddt}</span>
+						</td>
+						<td>
+						<!-- 실기 시험 접수 시작일자  -->
+						<span value="${examSchedule.pracregstartdt}">${examSchedule.pracregstartdt} </span><br> 
+						<!-- 실기 시험 접수 마감 시작일자  -->
+						<span  value="${examSchedule.pracregenddt}">${examSchedule.pracregenddt}</span>
+						</td>
+						<td>
+						<!-- 실기 시험 접수 시작일자  -->
+						<span value="${examSchedule.pracexamstartdt}">${examSchedule.pracexamstartdt} </span><br> 
+						<!-- 실기 시험 접수 마감 시작일자  -->
+						<span  value="${examSchedule.pracexamenddt}">${examSchedule.pracexamenddt}</span>
+						</td>
+					</tr>
 
-							<td><i class="fas fa-bookmark" id="bookMarkIcon"></i></td>
-							<!-- 종목명 -->
-							<td value="${examSchedule.jmfldnm}"><a
-								href="testdetail?num=${examSchedule.num}">${examSchedule.jmfldnm}</a>
-							</td>
-							<!-- 회차 -->
-							<td value="${examSchedule.implplannm}">${examSchedule.implplannm}</td>
-							<td>
-								<!-- 필기 시험 접수 시작일자 --> <span
-								value="${examSchedule.docregstartdt}">${examSchedule.docregstartdt}
-							</span><br> <!-- 필기 시험 접수 끝일자 --> <span
-								value="${examSchedule.docregenddt}">${examSchedule.docregenddt}</span>
-							</td>
-							<td>
-								<!-- 필기 시험 일자 --> <span value="${examSchedule.docexamstartdt}">${examSchedule.docexamstartdt}
-							</span><br> <!-- 필기 시험 끝 일자--> <span
-								value="${examSchedule.docexamenddt}">${examSchedule.docexamenddt}</span>
-							</td>
-							<td>
-								<!-- 실기 시험 접수 시작일자  --> <span
-								value="${examSchedule.pracregstartdt}">${examSchedule.pracregstartdt}
-							</span><br> <!-- 실기 시험 접수 마감 시작일자  --> <span
-								value="${examSchedule.pracregenddt}">${examSchedule.pracregenddt}</span>
-							</td>
-							<td>
-								<!-- 실기 시험 접수 시작일자  --> <span
-								value="${examSchedule.pracexamstartdt}">${examSchedule.pracexamstartdt}
-							</span><br> <!-- 실기 시험 접수 마감 시작일자  --> <span
-								value="${examSchedule.pracexamenddt}">${examSchedule.pracexamenddt}</span>
-							</td>
-						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</section>
 
 	</main>
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script> 
 	<script src="js/category.js"></script>
-	<script src="https://kit.fontawesome.com/ad2be14d60.js"	crossorigin="anonymous"></script>
-	
+
+	<script src="js/testschedule.js"></script>
+	<script src="https://kit.fontawesome.com/ad2be14d60.js"
+		crossorigin="anonymous"></script>
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<link 
+		 href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+         crossorigin="anonymous"/>		
+
 </body>
 
 </html>
