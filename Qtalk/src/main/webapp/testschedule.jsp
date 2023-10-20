@@ -50,10 +50,10 @@
 						</c:if>
 						
 						<c:if test="${member!=null}">
-						<td>
-						<c:forEach items="${bookMarkList}"  var="books">
-							<input type="hidden" name= "bookmarks" value="${books.num}">
-						</c:forEach>
+							<td>
+								<c:forEach items="${bookMarkList}"  var="books">
+									<input type="hidden" name= "bookmarks" value="${books.num}">
+								</c:forEach>
 								<form action="bookmarkedit" method="post" >
 									<input type="hidden" name= "id" value="${member.id}">
 									<input type="hidden" name= "num" value="${examSchedule.num}">
@@ -61,9 +61,7 @@
 									<i class="fas fa-bookmark off" id="bookMarkIcon"></i>
 								</button>
 								</form>
-								
-								
-						</td>
+							</td>
 						</c:if>
 						
 						<!-- 종목명 -->
@@ -94,7 +92,7 @@
 						<!-- 실기 시험 접수 시작일자  -->
 						<span value="${examSchedule.pracexamstartdt}">${examSchedule.pracexamstartdt} </span><br> 
 						<!-- 실기 시험 접수 마감 시작일자  -->
-						<span  value="${examSchedule.pracexamenddt}">${examSchedule.pracexamenddt}</span>
+						<span value="${examSchedule.pracexamenddt}">${examSchedule.pracexamenddt}</span>
 						</td>
 					</tr>
 

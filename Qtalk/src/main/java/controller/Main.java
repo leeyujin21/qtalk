@@ -74,7 +74,6 @@ public class Main extends HttpServlet {
 	         
 	      } catch(Exception e) {
 	         e.printStackTrace();
-	         System.out.println("main 오류");
 	         request.getRequestDispatcher("main.jsp").forward(request, response);
 	      }
 	}

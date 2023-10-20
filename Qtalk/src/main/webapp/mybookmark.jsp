@@ -8,23 +8,43 @@
 		
 		<div class="boardList">
 			<c:choose>
-				<c:when test="${not empty freeBoardList}">
-					<c:forEach items="${freeBoardList}" var="freeBoard">
+				<c:when test="${not empty examScheduleList}">
 						<div class="post">
-		           			<div class="postnum">${freeboard.num }</div>
-		           			<div class="left" >
-			               	<div class="title"><a href="freeboarddetail?num=${freeboard.num}">${freeboard.title}</a></div>
-			               	<div class="left_bot">
-			               		<div class="writer">작성자 : ${freeboard.nickname}</div>
-			               		<div class="viewcnt">조회 : ${freeboard.viewcount}</div>	               	
-			               		<div class="writedate">${freeboard.writedate}</div>
-			               	</div>
-		           		</div>
-		           		<div class="right">
-			               	<div class="commentcnt"> 댓글 &#40; ${freeboard.commentcount } &#41; </div>
-		           		</div>
-		            	</div>
-					</c:forEach>
+							<table class="schedule-table">
+				<thead>
+					<tr>
+						<th>북마크</th>
+						<th>자격증이름</th>
+						<th>구분</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<c:forEach items="${examScheduleList}"  var="examSchedule">
+							<tr>
+								<td><c:forEach items="${bookMarkList}" var="books">
+										<input type="hidden" name="bookmarks" value="${books.num}">
+									</c:forEach>
+									<form action="bookmarkedit" method="post">
+										<input type="hidden" name="id" value="${member.id}"> <input
+											type="hidden" name="num" value="${examSchedule.num}">
+										<button style="background-color: transparent;">
+											<i class="fas fa-bookmark off" id="bookMarkIcon"></i>
+										</button>
+									</form></td>
+
+								<!-- 종목명 -->
+								<td value="${examSchedule.jmfldnm}"><a
+									href="testdetail?num=${examSchedule.num}">${examSchedule.jmfldnm}</a>
+								</td>
+								<!-- 회차 -->
+								<td value="${examSchedule.implplannm}">${examSchedule.implplannm}</td>
+								<td>
+							</tr>
+						</c:forEach>
+				</tbody>
+			</table>
+		</section>
 				</c:when>
 				<c:otherwise>
 					<p>

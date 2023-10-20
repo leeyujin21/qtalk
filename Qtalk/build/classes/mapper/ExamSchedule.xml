@@ -19,7 +19,7 @@
 	
 	<select id="selectedSubjectRound" parameterType="String" resultType="String">
 		SELECT implplannm FROM examschedule
-		where jmfldnm = '${subject}'
+		where jmfldnm = #{subject}
 	</select>
 	
 	<select id="selectSubjectSchedule" resultType="ExamSchedule">

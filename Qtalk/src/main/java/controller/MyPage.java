@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dto.ExamSchedule;
 import dto.Member;
 import dto.TestBoard;
+import service.BookMarkService;
+import service.BookMarkServiceImpl;
 import service.TestBoardService;
 import service.TestBoardServiceImpl;
 
@@ -43,7 +46,16 @@ public class MyPage extends HttpServlet {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 		
-		request.getRequestDispatcher("mypage.jsp").forward(request, response);
+		try {
+			BookMarkService bookMarkService = new BookMarkServiceImpl();
+			List<ExamSchedule> examScheduleList = bookMarkService.selectBookMark(member.getId());
+			request.setAttribute("examScheduleList", examScheduleList);
+			request.getRequestDispatcher("mypage.jsp").forward(request, response);
+		} catch(Exception e) {
+			e.printStackTrace();
+			request.getRequestDispatcher("mypage.jsp").forward(request, response);
+		}
+		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request,response);

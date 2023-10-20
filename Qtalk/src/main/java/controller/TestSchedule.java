@@ -42,15 +42,17 @@ public class TestSchedule extends HttpServlet {
 			HttpSession session =request.getSession();
 			Member member = (Member)session.getAttribute("member");
 			BookMarkService bookMarkService = new BookMarkServiceImpl();
+			
 		try {
 			CategoryListService categoryListService = new CategoryListServiceImpl();
 			List<ExamInfo> firstCategoryList = categoryListService.getFirstCategoryList();
 			//대분류 중복되는 DB 값 빼고출력
 			request.setAttribute("firstCategoryList", firstCategoryList);
-					
+      
 			//시험 스케쥴(날짜 회차) 나오는 거
 			ExamScheduleService examScheduleService = new ExamScheduleServiceImpl();
 			List<ExamSchedule> examScheduleList = examScheduleService.getExamScheduleRounds();
+			
 			
 			//해당 아이디에 북마크가 저장 되었을경우 북마크 리스트로 보내줌
 			if (member != null) {

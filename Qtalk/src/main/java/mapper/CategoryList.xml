@@ -42,9 +42,9 @@
 	<select id="selectMdtoOd" parameterType="String" resultType="String">
 		<![CDATA[
 			SELECT 
-    		DISTINCT IF(mdobligfldnm IS NOT NULL AND mdobligfldnm = '${firstValue}', obligfldnm, NULL)
+    		DISTINCT IF(mdobligfldnm IS NOT NULL AND mdobligfldnm = #{firstValue}, obligfldnm, NULL)
 			FROM examschedule 
-			WHERE mdobligfldnm IS NOT NULL AND mdobligfldnm = '${firstValue}';
+			WHERE mdobligfldnm IS NOT NULL AND mdobligfldnm = #{firstValue};
 			]]>
 	</select>
 	
@@ -52,9 +52,9 @@
  	<select id="selectOdtoJm" parameterType="String" resultType="String">
 		<![CDATA[
 			SELECT 
-   		 	DISTINCT IF(obligfldnm = '${secondValue}', jmfldnm, NULL) AS resultField
+   		 	DISTINCT IF(obligfldnm = #{secondValue}, jmfldnm, NULL) AS resultField
 			FROM examschedule 
-			WHERE obligfldnm = '${secondValue}';
+			WHERE obligfldnm = #{secondValue};
 			]]>
 	</select>
 	
@@ -70,7 +70,7 @@
 	<select id="selectJm" parameterType="String" resultType="ExamSchedule">
 		<![CDATA[
 			select * from examschedule
-			where jmfldnm = '${thirdValue}'
+			where jmfldnm = #{thirdValue}
 		]]>
 	</select>
 	

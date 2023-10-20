@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.ExamInfo;
 import dto.ExamSchedule;
 import service.CategoryListService;
 import service.CategoryListServiceImpl;
@@ -42,10 +43,13 @@ public class CategoryListSelect extends HttpServlet {
 
 		try {
 			CategoryListService categoryListService = new CategoryListServiceImpl();
+
+			List<ExamInfo> firstCategoryList = categoryListService.getFirstCategoryList();
+			request.setAttribute("firstCategoryList", firstCategoryList);
+			
 			List<ExamSchedule> thirdCategory = categoryListService.getJm(thirdCategoryValue);
-			System.out.println(thirdCategory.size());
-			System.out.println(thirdCategory);
 			request.setAttribute("examScheduleList", thirdCategory);
+			
 			request.getRequestDispatcher("testschedule.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
