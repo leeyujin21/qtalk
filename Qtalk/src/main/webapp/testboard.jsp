@@ -5,9 +5,11 @@
 <html>
 <head>
 <link href="css/testboard.css" rel="stylesheet" type="text/css">
+<title>Qtalk | 시험문제공유</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>
+<div class="board-container">
 <div class="board-title">
     <h1 style="margin-bottom: 50px; " ><a href="testboard" style="font-family: 'Pretendard-Regular';" >시험문제공유</a></h1>
     <form action="testboardsearch" method="post" id="searchform">    
@@ -79,8 +81,10 @@
       </c:choose>
       &nbsp;&nbsp;
    </div>
-    
-    
+   </div>
+   
+    <!-- footer -->
+    <%@include file="footer.jsp" %>
     <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
 </html>

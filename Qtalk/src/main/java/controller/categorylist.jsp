@@ -5,7 +5,7 @@
 <section class="category-search-section">
 	<!-- 카테고리 -->
 	<div class="category-search-container">
-		<!-- <form action="categorylist" method="get"> -->
+		<form action="categorylist" method="get">
 			<div class="category">
 				<div class="category-btn">
 					<div class="category-title">카테고리</div>
@@ -15,7 +15,7 @@
 
 					<div class="category-box">
 						<div class="box-title">대분류</div>
-						<ul class="categorys" id="firstcategory">
+						<ul class="categorys"  id="firstcategory">
 							<c:if test="${firstCategoryList == null}">
 								<li>내용이 없습니다</li>
 							</c:if>
@@ -32,9 +32,7 @@
 					<div class="category-box">
 						<div class="box-title">중분류</div>
 						<ul class="categorys" id="secondcategory">
-							<c:if test="${firstCategoryList != null}">
-								<li data-value="${firstCategoryList}">전체</li>
-							</c:if>
+							
 						</ul>
 					</div>
 
@@ -44,19 +42,19 @@
 
 						</ul>
 					</div>
+
 					<div class="category-footer">
 						<i class="fas fa-times close-btn"></i>
-						<div style="display: flex; align-items: center;">
-							<i class="fas fa-redo-alt" style="margin-right: 5px;"></i>
-							<form action = "categorylistselect" method="get">
-								<input class="selectedSubject" type="text" name="thirdValue" id="thirdValue" readonly>
-								<button class="submit-btn" id="category-submit-btn">적용</button>
-							</form>
+						<div>
+							<i class="fas fa-redo-alt"></i>
+							<button class="submit-btn" id="category-submit-btn">적용</button>
 						</div>
+
 					</div>
 				</div>
+
 			</div>
-		<!-- </form> -->
+		</form>
 
 
 		<!-- 검색창 -->

@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link href="css/passwordforget.css" rel="stylesheet" />
+	<title>Qtalk | 비밀번호찾기</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -12,7 +13,7 @@
 		<div id="goback">
 			<img src="https://cdn-icons-png.flaticon.com/128/8371/8371124.png"
 				style="width: 20px; margin-bottom: -2px;"> <a
-				href="..\index.html">뒤로가기</a>
+				href="javascript: history.back();">뒤로가기</a>
 		</div>
 		<form action="passwordforget" method="post">
 			<div id="loginspace">

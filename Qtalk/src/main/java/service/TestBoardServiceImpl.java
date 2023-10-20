@@ -24,8 +24,13 @@ public class TestBoardServiceImpl implements TestBoardService {
 		int maxPage = (int)Math.ceil((double)testBoardCount/10);
 		int startPage = (page-1)/10*10+1;
 		int endPage = startPage+10-1;
-		if(endPage>maxPage) endPage=maxPage;
-		if(page>maxPage) page=maxPage;
+		if(testBoardCount == 0) {
+			endPage=1;
+			maxPage=1;
+		} else if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+		if(page > maxPage) page = maxPage;
 			
 			
 		pageInfo.setAllPage(maxPage);

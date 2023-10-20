@@ -4,16 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/hj-style.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<title>Qtalk | 시험일정보기</title>
 </head>
 
 <body>
 	<%@ include file="header.jsp"%>
 	<main class="test-schedule-main">
-	
-	<!-- 인클루드한 다른 파일 -->
-	<%@ include file ="categorylist.jsp" %>
-	
+
+		<!-- 인클루드한 다른 파일 -->
+		<%@ include file="categorylist.jsp"%>
+
 
 		<section class="test-list-section">
 			<div class="test-list-header">
@@ -37,6 +38,7 @@
 					</tr>
 				</thead>
 				<tbody>
+
 					<c:forEach items="${examScheduleList}"  var="examSchedule">
 					<tr>
 						<c:if test="${member==null}">
@@ -95,6 +97,7 @@
 						<span  value="${examSchedule.pracexamenddt}">${examSchedule.pracexamenddt}</span>
 						</td>
 					</tr>
+
 					</c:forEach>
 				</tbody>
 			</table>
@@ -103,6 +106,7 @@
 	</main>
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script> 
 	<script src="js/category.js"></script>
+
 	<script src="js/testschedule.js"></script>
 	<script src="https://kit.fontawesome.com/ad2be14d60.js"
 		crossorigin="anonymous"></script>
@@ -112,8 +116,8 @@
 		 href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
          rel="stylesheet"
          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-         crossorigin="anonymous"/>	
-		
+         crossorigin="anonymous"/>		
+
 </body>
 
 </html>

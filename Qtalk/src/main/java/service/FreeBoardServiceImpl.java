@@ -39,8 +39,13 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 		int maxPage = (int)Math.ceil((double)boardCount/10);
 		int startPage = (page-1)/10*10+1;  //1,11,21,31...
 		int endPage = startPage+10-1; //10,20,30...
-		if(endPage>maxPage) endPage=maxPage;
-		if(page>maxPage) page=maxPage;
+		if(boardCount == 0) {
+			endPage=1;
+			maxPage=1;
+		} else if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+		if(page > maxPage) page = maxPage;
 
 		pageInfo.setAllPage(maxPage);
 		pageInfo.setCurPage(page);

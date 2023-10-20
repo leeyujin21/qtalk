@@ -49,6 +49,7 @@ public class OneLineBoardPost extends HttpServlet {
 		List<ExamInfo> examInfoList = null;
 		try {
 			OneLineBoardService oneLineBoardService = new OneLineBoardServiceImpl();
+			System.out.println(curpage);
 			Map<String, Object> res = oneLineBoardService.oneLineBoardListByPage(curpage);
 			ExamInfoService examinfoservice = new ExamInfoServiceImpl();
 			examInfoList = examinfoservice.getExamInfoNames();

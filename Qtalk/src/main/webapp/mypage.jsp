@@ -6,16 +6,14 @@
 <meta charset="UTF-8">
 <link href="css/mypage.css" rel="stylesheet" />
 <title>마이페이지</title>
-<style>
-</style>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
 	<div class="jh-container">
 		<div id="goback">
 			<img src="https://cdn-icons-png.flaticon.com/128/8371/8371124.png"
-				style="width: 20px; margin-bottom: -2px;"> <a
-				href="..\index.html">뒤로가기</a>
+				style="width: 20px; margin-bottom: -2px;">
+				<a href="#" onclick="customGoBack();">뒤로가기</a>
 		</div>
 		<div id="myinfo">
 			<p>마이페이지</p>
@@ -48,9 +46,9 @@
 					<h3>북마크</h3>
 					<a href="mybookmark">&nbsp;&nbsp;북마크</a>
 					<h3>내가 쓴 글</h3>
-					<a href="mywriteboard?typeboard=1">&nbsp;&nbsp;자유게시판</a><br><br>
-					<a href="mywriteboard?typeboard=2">&nbsp;&nbsp;시험문제공유</a><br><br>
-					<a href="mywriteboard?typeboard=3">&nbsp;&nbsp;시험한줄평</a><br><br>
+					<a href="mywriteboard?typeBoard=1">&nbsp;&nbsp;자유게시판</a><br><br>
+					<a href="mywriteboard?typeBoard=2">&nbsp;&nbsp;시험문제공유</a><br><br>
+					<a href="mywriteboard?typeBoard=3">&nbsp;&nbsp;시험한줄평</a><br><br>
 				</div>
 			</div>
 			<div class="content">
@@ -120,5 +118,14 @@
 	// 비밀번호 유효성을 검사하기 위한 'check' 버튼 클릭 이벤트
 	btnCheck.onclick = checkPassword;
 	btnClose.onclick = closeRtn;
+	
+	function customGoBack() {
+        var previousPage = document.referrer;
+        if (previousPage.includes("deletemember") || previousPage.includes("changeinfo")) {
+            history.go(-3);
+        } else {
+            history.go(-1);
+        }
+    }
 </script>
 </html>

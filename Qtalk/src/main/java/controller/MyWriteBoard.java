@@ -54,8 +54,7 @@ public class MyWriteBoard extends HttpServlet {
 		// typeBoard = 1 (freeboard)
 		// typeBoard = 2 (testboard)
 		// typeBoard = 3 (onelineboard)
-		String typeBoard = request.getParameter("typeboard");
-		
+		String typeBoard = request.getParameter("typeBoard");
 		if(typeBoard.equals("1")) { // freeboard
 			try {
 				FreeBoardService freeBoardService = new FreeBoardServiceImpl();
