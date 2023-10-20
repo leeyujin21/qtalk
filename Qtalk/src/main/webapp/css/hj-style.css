@@ -499,4 +499,22 @@ td,th{
 
 .selectedSubject{
 	border-radius: 5px;
+
+.board-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+@media (max-width: 1280px){
+	.info-section{
+		width: 90vw;
+	}
+	.main-info-box{
+		width: 100vw;
+		margin: 0 .3rem;
+	}
+
 }

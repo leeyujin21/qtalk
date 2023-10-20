@@ -18,13 +18,13 @@
 	
 	<select id="selectOneLineBoardCount" resultType="Integer">
 		<![CDATA[
-			select count(*) from onelineboard
+			select count(num) from onelineboard
 		]]>
 	</select>
 	
 	<select id="searchOneLineBoardList" parameterType="hashmap" resultType="OneLineBoard">
 		select * from onelineboard
-		where subject='${type}' and content like '%${keyword}%' order by 1 desc
+		where subject='${type}' and content like '%${keyword}%' order by num desc
 		limit #{row}, 10
 	</select>
 	
