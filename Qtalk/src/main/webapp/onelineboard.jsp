@@ -127,7 +127,8 @@
          <c:when test="${res.pageInfo.curPage<res.pageInfo.allPage}">
             <a href="onelineboardpost?page=${res.pageInfo.curPage+1}">&gt;</a>
          </c:when>
-         <c:otherwise> 
+         <c:otherwise>
+         	&gt;
          </c:otherwise>
       </c:choose>
       &nbsp;&nbsp;
