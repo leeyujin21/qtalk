@@ -6,13 +6,13 @@
 }
 
 .footer{
+	margin-top:auto;
     width: 100%;
     display: flex;
     justify-content: center;
     
     font-family: 'Pretendard-Regular';
     color: rgb(235, 235, 235);
-    margin-top: 5rem;
     background-color: rgba(243, 243, 243, 0.212);
     padding: 1rem 0 0 0;
 }

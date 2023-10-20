@@ -10,6 +10,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
+	<div class="board-container">
 	<main class="main">
 		<!-- 메인검색창(test-detail 의 검색창과도 같다)  -->
 		<section class="search-section">
@@ -118,6 +119,7 @@
 	</main>
 
 	<%@include file="footer.jsp"%>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="js/mainSlider.js"></script>

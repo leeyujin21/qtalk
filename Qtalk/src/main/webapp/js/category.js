@@ -67,6 +67,24 @@ $(document).ready(function() {
 		$('#thirdValue').val(thirdValue);
 		console.log($('#thirdValue').val());
 	})
+
+
+	$('#category-submit-btn').on('click', function() {
+		console.log(search);
+		$.ajax({
+        url: 'testschedulesearch', // 여기에 서블릿의 URL을 넣어주세요.
+        type: 'get', // 또는 'get', 서블릿의 HTTP 메소드에 맞게 선택합니다.
+        data: { 'search': search },
+        success: function(response) {
+            // 서블릿에서 받은 응답을 처리합니다.
+            console.log('서블릿으로 전송 성공:', response);
+        },
+        error: function(err) {
+            console.error("Error occurred:", err);
+        }
+    	})
+	})
+
 });
 
 
