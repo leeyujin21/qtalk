@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.ExamInfo;
 import dto.ExamSchedule;
+import service.CategoryListService;
+import service.CategoryListServiceImpl;
 import service.ExamScheduleService;
 import service.ExamScheduleServiceImpl;
 
@@ -34,13 +37,16 @@ public class TestScheduleSearch extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String search = request.getParameter("search");
-		System.out.println(search);
 		
 		try {
+			CategoryListService categoryListService = new CategoryListServiceImpl();
+			List<ExamInfo> firstCategoryList = categoryListService.getFirstCategoryList();
+			//대분류 중복되는 DB 값 빼고출력
+			request.setAttribute("firstCategoryList", firstCategoryList);
+			
 			ExamScheduleService examScheduleService = new ExamScheduleServiceImpl();
 			List<ExamSchedule> examScheduleList = examScheduleService.searchSchedule(search);
-			System.out.println(examScheduleList.size());
-			System.out.println(examScheduleList.get(0));
+			
 			request.setAttribute("examScheduleList", examScheduleList);
 			request.getRequestDispatcher("testschedule.jsp").forward(request, response);
 		} catch(Exception e) {

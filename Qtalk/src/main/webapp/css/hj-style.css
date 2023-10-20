@@ -533,6 +533,7 @@ td,th{
 
 .selectedSubject{
 	border-radius: 5px;
+}
 
 .board-container {
 	display: flex;

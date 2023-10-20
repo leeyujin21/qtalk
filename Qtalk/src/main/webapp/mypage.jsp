@@ -73,7 +73,8 @@
 	<hr>
 </body>
 
-</body>
+<script src="https://kit.fontawesome.com/ad2be14d60.js"
+		crossorigin="anonymous"></script>
 <script>
 	var btnOpen = document.getElementById('btnOpen');
 	var btnCheck = document.getElementById('btnCheck');
