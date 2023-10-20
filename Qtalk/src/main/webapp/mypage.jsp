@@ -44,7 +44,7 @@
 			<div class="category">
 				<div class="bookmark">
 					<h3>북마크</h3>
-					<a href="mybookmark">&nbsp;&nbsp;북마크</a>
+					<a href="mypage">&nbsp;&nbsp;북마크</a>
 					<h3>내가 쓴 글</h3>
 					<a href="mywriteboard?typeBoard=1">&nbsp;&nbsp;자유게시판</a><br><br>
 					<a href="mywriteboard?typeBoard=2">&nbsp;&nbsp;시험문제공유</a><br><br>

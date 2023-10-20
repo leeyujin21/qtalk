@@ -10,4 +10,7 @@ public interface BookMarkDao {
 	void deleteBookMark(BookMark bookMark) throws Exception;
 	List<ExamSchedule> selectBookMark (String id) throws Exception;
 	BookMark isSelectBookMark(BookMark bookMark)throws Exception;
+	
+	// 회원탈퇴 시 북마크 삭제
+	void deleteBookMarkAll(String id) throws Exception;
 }

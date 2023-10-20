@@ -35,6 +35,7 @@ public class MemberDeleteServiceImpl implements MemberDeleteService {
 		new OneLineBoardServiceImpl().boardDeleteAll(id);
 		
 		// 북마크 삭제
+		new BookMarkServiceImpl().bookMarkDeleteAll(id);
 		
 		// member 삭제
 		new MemberServiceImpl().memberDelete(id);
