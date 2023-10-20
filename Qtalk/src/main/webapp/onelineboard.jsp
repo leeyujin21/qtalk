@@ -14,6 +14,7 @@
 
 <body>
 	<%@ include file="header.jsp" %>
+	<div class="board-container">
     <div class="board-title">
         <h1 style="margin-bottom:50px;">시험 한줄평</h1>
         
@@ -136,6 +137,7 @@
     <!-- footer -->
     <%@include file="footer.jsp" %>
    <!-- 페이지 수 표시 끝 -->
+   </div>
     <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
 <script>
