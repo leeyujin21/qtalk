@@ -38,4 +38,10 @@ public class BookMarkServiceImpl implements BookMarkService {
 		return bookMarkDao.isSelectBookMark(bookMark);
 	}
 
+	// 회원탈퇴 시 북마크 모두 삭제
+	@Override
+	public void bookMarkDeleteAll(String id) throws Exception {
+		bookMarkDao.deleteBookMarkAll(id);
+	}
+
 }

@@ -2,7 +2,9 @@ $(function() {
 			/* 닉네임 중복 체크*/
         	let isNicknameCheck = false
         	$('#nicknameduplication').click(function() {
-				if($("#nicknameduplication").val() == "다시입력") {
+				if ($('#nickname').val() == "") {
+					alert("닉네임 유효하지 않습니다.")
+				} else if($("#nicknameduplication").val() == "다시입력") {
 					isNicknameCheck = false
 					$("#nickname").attr("readonly", false)
 					$("#nicknameduplication").attr("value", "중복체크")
@@ -78,9 +80,9 @@ $(function() {
 	        		} 
 				}
 				
-				if($('#password1').val() == $('#password').val()) {
+				/*if($('#password1').val() == $(member.id).val()) {
 					alert("현재 비밀번호와 새 비밀번호가 일치합니다.")
-	       			e.preventDefault()
 				}
+	       			e.preventDefault()*/
         	})
         })

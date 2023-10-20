@@ -31,6 +31,7 @@ public class NicknameCheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String nickname = request.getParameter("nickname");
+		
 		try {
 			MemberService memberService = new MemberServiceImpl();
 			Boolean res = memberService.nicknameCheck(nickname);

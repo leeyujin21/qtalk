@@ -65,8 +65,8 @@ public class ChangeInfo extends HttpServlet {
 		// 변경 할 비밀번호
 		String newPassword = request.getParameter("password1");
 		
-		if(!((member.getPassword()).equals(password))) {
-			System.out.println("현재 비밀번호가 일치하지 않습니다.");
+		if((member.getPassword()).equals(password)) {
+			System.out.println("현재 비밀번호와 새 비밀번호가 일치합니다.");
 			String err = "현재 비밀번호가 일치하지 않습니다.";
 			request.setAttribute("err", err);
 			request.getRequestDispatcher("changeinfo.jsp").forward(request, response);

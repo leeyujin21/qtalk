@@ -13,7 +13,13 @@
 
 	<delete id="deleteBookMark" parameterType="BookMark">
 		<![CDATA[
-				delete from bookmark where #{exnum}=exnum and #{id}=id
+				delete from bookmark where exnum=#{exnum} and id=#{id}
+		]]>
+	</delete>
+	
+	<delete id="deleteBookMarkAll" parameterType="String">
+		<![CDATA[
+				delete from bookmark where id=#{id}
 		]]>
 	</delete>
 	

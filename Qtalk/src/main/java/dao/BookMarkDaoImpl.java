@@ -34,4 +34,11 @@ public class BookMarkDaoImpl implements BookMarkDao {
 		return sqlSession.selectOne("mapper.bookmark.isSelectBookMark",bookMark);
 	}
 
+	// 회원탈퇴 시 북마크 삭제
+	@Override
+	public void deleteBookMarkAll(String id) throws Exception {
+		sqlSession.delete("mapper.bookmark.isSelectBookMark", id);
+		sqlSession.commit();
+	}
+
 }
