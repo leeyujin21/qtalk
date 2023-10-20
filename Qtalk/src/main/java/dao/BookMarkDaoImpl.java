@@ -40,5 +40,9 @@ public class BookMarkDaoImpl implements BookMarkDao {
 		sqlSession.delete("mapper.bookmark.isSelectBookMark", id);
 		sqlSession.commit();
 	}
+	public boolean isBookMarked(BookMark bookMark) {
+        int count = sqlSession.selectOne("mapper.bookmark.isBookMarked", bookMark);
+        return count > 0;
+    }
 
 }

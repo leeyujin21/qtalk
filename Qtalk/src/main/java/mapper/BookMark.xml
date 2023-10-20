@@ -35,6 +35,11 @@
 			SELECT * FROM bookmark WHERE id=#{id} AND exnum=#{exnum};
 		]]>
 	</select>
+	<select id="isBookMarked" parameterType="BookMark" resultType="Integer">
+        <![CDATA[
+       		 SELECT COUNT(*) FROM bookmark WHERE exnum=#{exnum} AND id=#{id}
+        ]]>
+    </select>
 
 
 

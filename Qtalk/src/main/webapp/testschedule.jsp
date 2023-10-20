@@ -5,6 +5,20 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="js/category.js"></script>
+	<script src="js/testschedule.js"></script>
+	<script src="https://kit.fontawesome.com/ad2be14d60.js"crossorigin="anonymous"></script>
+
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<link 
+		 href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+         crossorigin="anonymous"/>	
+         
+         
 <title>Qtalk | 시험일정보기</title>
 </head>
 
@@ -41,28 +55,22 @@
 
 					<c:forEach items="${examScheduleList}"  var="examSchedule">
 					<tr>
-						<c:if test="${member==null}">
-							<td>
-								<button style="background-color: transparent;">
-									<i class="fas fa-bookmark" id="bookMarkIcon2" ></i>
-								</button>
-							</td>
-						</c:if>
-						
-						<c:if test="${member!=null}">
-							<td>
-								<c:forEach items="${bookMarkList}"  var="books">
-									<input type="hidden" name= "bookmarks" value="${books.num}">
-								</c:forEach>
-								<form action="bookmarkedit" method="post" >
-									<input type="hidden" name= "id" value="${member.id}">
-									<input type="hidden" name= "num" value="${examSchedule.num}">
-								<button style="background-color: transparent;">
-									<i class="fas fa-bookmark off" id="bookMarkIcon"></i>
-								</button>
-								</form>
-							</td>
-						</c:if>
+						<td>
+							<c:choose>
+                                    <c:when test="${empty member}">
+                                        <button style="background-color: transparent;">
+                                            <i class="fas fa-bookmark" id="bookMarkIcon2"></i>
+                                        </button>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <form class="bookmark-form" data-id="${member.id}" data-num="${examSchedule.num}">
+                                            <button type="button" style="background-color: transparent;">
+                                                <i class="fas fa-bookmark bookMarkIcon" id="bmw"></i>
+                                            </button>
+                                        </form>
+                                    </c:otherwise>
+                                </c:choose>
+						</td>
 						
 						<!-- 종목명 -->
 						<td value="${examSchedule.jmfldnm}">
@@ -102,19 +110,7 @@
 		</section>
 
 	</main>
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script> 
-	<script src="js/category.js"></script>
-
-	<script src="js/testschedule.js"></script>
-	<script src="https://kit.fontawesome.com/ad2be14d60.js"
-		crossorigin="anonymous"></script>
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-	<link 
-		 href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-         rel="stylesheet"
-         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-         crossorigin="anonymous"/>		
+		
 
 </body>
 
