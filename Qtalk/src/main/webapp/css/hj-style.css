@@ -325,14 +325,48 @@ i{
     padding: .2rem 1rem;
     background-color: #DFE3EE;
 }
+ 
+.on{
+	font-size: 1.2rem; 
+ 	color: #3B5998;
+ 	padding: 1rem; 
+}
 
-#bookMarkIcon{
+.off{
+	font-size: 1.2rem;
+	color: lightgray;
+	padding: 1rem;
+}
+ 
+ #bookMarkIcon{ 
+ 	font-size: 1.2rem; 
+ 	
+ 	padding: 1rem; 
+ } 
+
+
+#bookMarkIcon:hover{
+	color: #3B5998;
+	transition: color .2s ease-in-out;
+}
+
+
+ #bookMarkIcon3{ 
+ 	font-size: 1.2rem; 
+ 	color: #3B5998;
+ 	padding: 1rem; 
+ } 
+ 
+ 
+ 
+ 
+#bookMarkIcon2{
 	font-size: 1.2rem;
 	color: lightgray;
 	padding: 1rem;
 }
 
-#bookMarkIcon:hover{
+#bookMarkIcon2:hover{
 	color: #3B5998;
 	transition: color .2s ease-in-out;
 }

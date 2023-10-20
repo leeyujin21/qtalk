@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD COnfig 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.bookmark">
+	<insert id="insertBookMark" parameterType="BookMark" useGeneratedKeys="true" keyProperty="num">
+		<![CDATA[
+			insert into bookmark (exnum,id) values (#{exnum},#{id})
+		]]>
+	</insert>
+
+	<delete id="deleteBookMark" parameterType="BookMark">
+		<![CDATA[
+				delete from bookmark where #{exnum}=exnum and #{id}=id
+		]]>
+	</delete>
+	
+	<select id="selectBookMark" parameterType="String" resultType="ExamSchedule" >
+		<![CDATA[
+			SELECT examschedule.* from examschedule join bookmark ON examschedule.num=bookmark.exnum
+			WHERE bookmark.id = #{id};
+		]]>
+	</select>
+
+	<select id="isSelectBookMark" parameterType="BookMark"  resultType="BookMark" >
+		<![CDATA[
+			SELECT * FROM bookmark WHERE id=#{id} AND exnum=#{exnum};
+		]]>
+	</select>
+
+
+
+
+
+
+</mapper>
