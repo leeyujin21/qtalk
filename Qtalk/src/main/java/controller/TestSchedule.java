@@ -47,11 +47,7 @@ public class TestSchedule extends HttpServlet {
 			List<ExamInfo> firstCategoryList = categoryListService.getFirstCategoryList();
 			//대분류 중복되는 DB 값 빼고출력
 			request.setAttribute("firstCategoryList", firstCategoryList);
-			//examinfo 모든 리스트 출력
-
-			request.setAttribute("allCategoryList", allCategoryList);
-
-			
+					
 			//시험 스케쥴(날짜 회차) 나오는 거
 			ExamScheduleService examScheduleService = new ExamScheduleServiceImpl();
 			List<ExamSchedule> examScheduleList = examScheduleService.getExamScheduleRounds();
