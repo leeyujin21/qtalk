@@ -44,4 +44,14 @@ public class BookMarkServiceImpl implements BookMarkService {
 		bookMarkDao.deleteBookMarkAll(id);
 	}
 
+	 @Override
+	    public boolean toggleBookMark(BookMark bookMark) throws Exception {
+	        if (bookMarkDao.isBookMarked(bookMark)) {
+	        	bookMarkDao.deleteBookMark(bookMark);
+	            return false;
+	        } else {
+	        	bookMarkDao.insertBookMark(bookMark);
+	            return true;
+	        }
+	    }
 }

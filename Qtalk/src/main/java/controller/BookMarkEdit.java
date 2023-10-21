@@ -31,21 +31,20 @@ public class BookMarkEdit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		BookMarkService bookMarkService = new BookMarkServiceImpl();
-		
-		Integer exNum = Integer.parseInt(request.getParameter("num"));
 		String id = request.getParameter("id");
+		Integer exNum = Integer.parseInt(request.getParameter("num"));
 		
+		BookMarkService bookMarkService = new BookMarkServiceImpl();
 		BookMark bookMark = new BookMark();
 		bookMark.setExnum(exNum);
 		bookMark.setId(id);
 		try {
-		if (bookMarkService.isSelectBookMark(bookMark) ==null) {
-			bookMarkService.insertBookMark(bookMark);
-		}else {
-			bookMarkService.deleteBookMark(bookMark);
-		}
-			response.sendRedirect("testschedule");
+			if (bookMarkService.toggleBookMark(bookMark)) {
+                response.getWriter().write("success");
+            
+            } else {
+                response.getWriter().write("failure");
+            } 
 		} catch (Exception e) {
 			request.setAttribute("err", e.getMessage());
 			request.getRequestDispatcher("error.jsp").forward(request, response);
