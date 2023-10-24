@@ -13,4 +13,5 @@ public interface BookMarkService {
 	
 	// 회원탈퇴 시 북마크 모두 삭제
 	void bookMarkDeleteAll(String id) throws Exception;
+	boolean toggleBookMark(BookMark bookMark) throws Exception;
 }

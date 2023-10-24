@@ -41,7 +41,6 @@ public class TestSchedule extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 			HttpSession session =request.getSession();
 			Member member = (Member)session.getAttribute("member");
-			BookMarkService bookMarkService = new BookMarkServiceImpl();
 			
 		try {
 			CategoryListService categoryListService = new CategoryListServiceImpl();
@@ -57,12 +56,14 @@ public class TestSchedule extends HttpServlet {
 			//해당 아이디에 북마크가 저장 되었을경우 북마크 리스트로 보내줌
 			if (member != null) {
 				String id =member.getId();
+				BookMarkService bookMarkService = new BookMarkServiceImpl();
 				List<ExamSchedule> bookMarkList = bookMarkService.selectBookMark(id);
 				if (bookMarkList != null) {
 					request.setAttribute("bookMarkList", bookMarkList);
-				}
+				}}
 			
-			}
+			
+			
 			request.setAttribute("examScheduleList", examScheduleList);
 			request.getRequestDispatcher("testschedule.jsp").forward(request, response);
 		}catch(Exception e) {
@@ -75,14 +76,14 @@ public class TestSchedule extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		try {
-			response.sendRedirect("testschedule");
-		} catch (Exception e) {
-			request.setAttribute("err", e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
-		}
-	}
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.setCharacterEncoding("UTF-8");
+//		try {
+//			response.sendRedirect("testschedule");
+//		} catch (Exception e) {
+//			request.setAttribute("err", e.getMessage());
+//			request.getRequestDispatcher("error.jsp").forward(request, response);
+//		}
+//	}
 
 }

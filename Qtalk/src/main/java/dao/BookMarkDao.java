@@ -13,4 +13,5 @@ public interface BookMarkDao {
 	
 	// 회원탈퇴 시 북마크 삭제
 	void deleteBookMarkAll(String id) throws Exception;
+	boolean isBookMarked(BookMark bookMark);
 }
