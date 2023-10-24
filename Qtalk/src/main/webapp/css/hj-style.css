@@ -385,7 +385,6 @@ i{
 .on{
 	font-size: 1.2rem; 
  	color: #3B5998;
- 	padding: 1rem; 
 }
 
 .off{
@@ -393,12 +392,12 @@ i{
 	color: lightgray;
 	padding: 1rem;
 }
- 
+ /* 
  #bookMarkIcon{ 
  	font-size: 1.2rem; 
- 	
+ 	color: lightgray;
  	padding: 1rem; 
- } 
+ }  */
 
 
 #bookMarkIcon:hover{
@@ -407,13 +406,6 @@ i{
 }
 
 
- #bookMarkIcon3{ 
- 	font-size: 1.2rem; 
- 	color: #3B5998;
- 	padding: 1rem; 
- } 
- 
- 
  
  
 #bookMarkIcon2{

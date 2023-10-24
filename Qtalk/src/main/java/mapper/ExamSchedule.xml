@@ -6,7 +6,7 @@
 <mapper namespace="mapper.examschedule">
 	<select id="selectRoundList" resultType="ExamSchedule">
 		<![CDATA[
-			select * from examschedule
+			select * from examschedule where num<10
 		]]>
 	</select>
 	
