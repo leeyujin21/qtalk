@@ -31,6 +31,6 @@
 	
 	<select id="selectTestSchedule" parameterType="String" resultType="ExamSchedule">
 			select * from examschedule
-			where jmfldnm like '%${search}%'
+			where jmfldnm like #{%search%}
 	</select>
 </mapper>
