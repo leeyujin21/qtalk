@@ -1,12 +1,14 @@
 $(function() {
         	let isIdCheck = false
         	$('#idcheck').click(function() {
-				if($("#idcheck").val() == "다시입력") {
+				if ($('#id').val() == "") {
+					alert("아이디가 유효하지 않습니다.")
+				} else if($("#idcheck").val() == "다시입력") {
 					isIdCheck = false
+					console.log("1")
 					$("#id").attr("readonly", false)
 					$("#idcheck").attr("value", "중복체크")
 				} else {
-		        	$('#idcheck').click(function() {
 						$.ajax({
 							url:'idcheck',
 							type: 'post',
@@ -14,6 +16,7 @@ $(function() {
 							success:function(res) {
 								if(res == "true") {
 									isIdCheck = true
+									console.log("2")
 									$('#id').attr("readonly", true)
 									$("#idcheck").attr("value", "다시입력")
 									alert("아이디 사용 가능합니다.")
@@ -26,7 +29,6 @@ $(function() {
 							}
 							
 						})        		
-        			})
         		}
         	})
         	
