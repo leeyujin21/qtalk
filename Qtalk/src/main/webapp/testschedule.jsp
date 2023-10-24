@@ -17,7 +17,12 @@
          rel="stylesheet"
          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
          crossorigin="anonymous"/>	
-         
+<style>
+ .on{
+font-size: 1.2rem; 
+ color: #3B5998;
+}
+</style>   
          
 <title>Qtalk | 시험일정보기</title>
 </head>
@@ -65,7 +70,7 @@
                                     <c:otherwise>
                                         <form class="bookmark-form" data-id="${member.id}" data-num="${examSchedule.num}">
                                             <button type="button" style="background-color: transparent;">
-                                                <i class="fas fa-bookmark bookMarkIcon" id="bmw"></i>
+                                                <i class="fas fa-bookmark" id="bookMarkIcon"></i>
                                             </button>
                                         </form>
                                     </c:otherwise>

@@ -54,4 +54,12 @@ public class BookMarkServiceImpl implements BookMarkService {
 	            return true;
 	        }
 	    }
+	 
+	 public boolean isBookMark(BookMark bookMark) throws Exception{
+	 if (bookMarkDao.isBookMarked(bookMark)) {
+		 return false;
+	 }else {
+		return true;
+	}
+	 }
 }
