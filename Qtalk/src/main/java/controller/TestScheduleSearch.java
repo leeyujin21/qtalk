@@ -39,10 +39,12 @@ public class TestScheduleSearch extends HttpServlet {
 		String search = request.getParameter("search");
 		
 		try {
+		
 			CategoryListService categoryListService = new CategoryListServiceImpl();
-			List<ExamInfo> firstCategoryList = categoryListService.getFirstCategoryList();
-			//대분류 중복되는 DB 값 빼고출력
+			List<ExamInfo> firstCategoryList =
+			categoryListService.getFirstCategoryList(); //대분류 중복되는 DB 값 빼고출력
 			request.setAttribute("firstCategoryList", firstCategoryList);
+			
 			
 			ExamScheduleService examScheduleService = new ExamScheduleServiceImpl();
 			List<ExamSchedule> examScheduleList = examScheduleService.searchSchedule(search);
